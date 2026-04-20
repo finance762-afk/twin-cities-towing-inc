@@ -390,3 +390,129 @@ section { padding: var(--space-16) 0; }
   section { padding: var(--space-12) 0; }
   .btn-lg { padding: var(--space-3) var(--space-6); font-size: var(--font-size-sm); }
 }
+
+/* ============================================
+   Phase 2 — Header, Footer, Navigation Components
+   ============================================ */
+
+/* Body offset for fixed header */
+body { padding-top: 80px; }
+/* Hero handles its own top offset — no double padding */
+.hero { padding-top: 0; min-height: calc(100vh - 80px); }
+@media (max-width: 768px) {
+  body { padding-top: 70px; }
+  .hero { min-height: calc(100vh - 70px); }
+}
+
+/* === Navbar Wrapper === */
+.navbar { display: block; }
+.navbar-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-6);
+}
+
+/* === Text Logo === */
+.site-logo {
+  display: flex; align-items: center; gap: var(--space-3);
+  text-decoration: none; flex-shrink: 0;
+}
+.site-logo:hover { opacity: 0.9; }
+.logo-mark {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: var(--color-accent); color: var(--color-white);
+  font-family: var(--font-heading); font-weight: 800;
+  font-size: 1.05rem; border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  letter-spacing: -0.02em; line-height: 1;
+}
+.logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+.logo-name {
+  font-family: var(--font-heading); font-weight: 800;
+  font-size: var(--font-size-base); color: var(--color-white);
+  letter-spacing: -0.02em;
+}
+.logo-tagline {
+  font-size: 0.62rem; font-weight: 600; color: var(--color-accent);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+/* === Nav Chevron === */
+.nav-chevron {
+  display: inline-block; margin-left: 3px; font-size: 0.6em;
+  vertical-align: middle; line-height: 1;
+  transition: transform var(--transition-fast);
+}
+.nav-dropdown:hover > a .nav-chevron,
+.nav-dropdown.open > a .nav-chevron { transform: rotate(180deg); }
+
+/* === Nav Active State === */
+.nav-links a[aria-current="page"] { color: var(--color-accent) !important; opacity: 1 !important; }
+
+/* === Mobile Nav Extras === */
+.mobile-nav-cta { display: none; }
+
+/* === Mobile Nav Overrides === */
+@media (max-width: 768px) {
+  /* Nav dropdown becomes inline accordion on mobile */
+  .nav-dropdown-menu {
+    position: static !important; opacity: 1 !important;
+    visibility: visible !important; transform: none !important;
+    box-shadow: none !important; background: transparent !important;
+    min-width: auto !important; padding: var(--space-2) 0 0 !important;
+    display: none;
+  }
+  .nav-dropdown.open > .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu li { border: none; }
+  .nav-dropdown-menu a {
+    color: rgba(255,255,255,0.65) !important;
+    font-size: var(--font-size-sm) !important;
+    padding: var(--space-2) 0 !important;
+    display: block !important; text-align: center !important;
+  }
+  .nav-dropdown-menu a:hover { background: transparent !important; color: var(--color-accent) !important; }
+
+  /* Mobile CTA inside nav overlay */
+  .mobile-nav-cta {
+    display: flex; flex-direction: column; gap: var(--space-3);
+    align-items: center; margin-top: var(--space-6);
+    padding-top: var(--space-6); border-top: 1px solid rgba(255,255,255,0.12);
+    width: 100%;
+  }
+  .mobile-nav-cta .btn { min-width: 200px; justify-content: center; }
+
+  /* Compact logo on mobile */
+  .logo-mark { width: 36px; height: 36px; font-size: 0.9rem; }
+  .logo-name { font-size: var(--font-size-sm); }
+  .logo-tagline { display: none; }
+}
+
+/* === Mobile CTA Bar (2-button layout) === */
+.mobile-cta-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2);
+}
+.mobile-cta-bar .btn { width: 100%; justify-content: center; font-size: var(--font-size-xs); padding: var(--space-3) var(--space-2); }
+
+/* === AEO Footer Entity Block === */
+.footer-entity {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md); padding: var(--space-6);
+  margin: var(--space-8) 0 var(--space-4);
+}
+.entity-text {
+  font-size: var(--font-size-xs); color: rgba(255,255,255,0.4);
+  line-height: 1.8; margin: 0; font-style: italic;
+}
+
+/* === Footer Logo === */
+.footer-logo { margin-bottom: var(--space-4); }
+.footer-logo .logo-name { font-size: var(--font-size-xl); }
+.footer-logo .logo-tagline { display: block; }
+
+/* === Social Links === */
+.social-links { display: flex; gap: var(--space-3); margin-top: var(--space-4); flex-wrap: wrap; }
+.social-link {
+  width: 36px; height: 36px; border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7);
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition-fast); text-decoration: none;
+}
+.social-link:hover { background: var(--color-accent); color: var(--color-white); }
