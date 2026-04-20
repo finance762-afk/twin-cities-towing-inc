@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Towing & Roadside Services in Richmond, TX | Twin Cities Towing INC';
+$pageTitle       = 'Towing Services Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Full list of towing and roadside services from Twin Cities Towing INC in Richmond, TX — emergency towing, flatbed, roadside assistance, lockouts, motorcycle towing, and more. 24/7.';
 $pageKeywords    = 'towing services Richmond TX, roadside assistance Richmond, emergency towing Fort Bend County, flatbed towing Richmond, lockout service Richmond, motorcycle towing Richmond';
 $canonicalUrl    = $domain . '/services';

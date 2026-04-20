@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Flatbed Towing Richmond TX | Luxury & AWD Vehicle Transport | Twin Cities Towing';
+$pageTitle       = 'Flatbed Towing Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Professional flatbed towing in Richmond, TX for luxury cars, AWD vehicles, low-clearance automobiles, and accident-damaged cars. All 4 wheels off the ground — damage-free transport guaranteed.';
 $pageKeywords    = 'flatbed towing Richmond TX, flatbed service Richmond, luxury car towing Texas, AWD towing Richmond, low clearance car towing Fort Bend, damage free towing Richmond';
 $canonicalUrl    = $domain . '/services/flatbed-towing';

@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Contact Twin Cities Towing INC | Richmond TX | Get a Free Estimate';
+$pageTitle       = 'Contact Twin Cities Towing INC | Richmond TX | 24/7';
 $pageDescription = 'Contact Twin Cities Towing INC in Richmond, TX for a free estimate, emergency towing, or roadside assistance. 24/7 dispatch throughout Fort Bend County. Fast response guaranteed.';
 $pageKeywords    = 'contact Twin Cities Towing, towing Richmond TX, free estimate towing Richmond, towing quote Fort Bend County, emergency towing contact Richmond';
 $canonicalUrl    = $domain . '/contact';

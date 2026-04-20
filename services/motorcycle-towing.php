@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Motorcycle Towing Richmond TX | Bike & ATV Transport | Twin Cities Towing';
+$pageTitle       = 'Motorcycle Towing Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Specialized motorcycle towing in Richmond, TX using wheel chocks, soft straps, and proper cradles. Safe transport for motorcycles, scooters, and ATVs in Fort Bend County.';
 $pageKeywords    = 'motorcycle towing Richmond TX, bike towing Richmond, motorcycle transport Texas, ATV towing Richmond, scooter towing Fort Bend County, Harley towing Richmond';
 $canonicalUrl    = $domain . '/services/motorcycle-towing';

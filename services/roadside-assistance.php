@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Roadside Assistance Richmond TX | Jump Starts, Fuel & Tire | Twin Cities Towing';
+$pageTitle       = 'Roadside Assistance Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Complete roadside assistance in Richmond, TX — jump starts, fuel delivery, flat tire changes, and on-site help. Twin Cities Towing INC gets you moving without a tow when possible.';
 $pageKeywords    = 'roadside assistance Richmond TX, jump start service Richmond, fuel delivery Richmond, flat tire change Richmond TX, emergency roadside help Fort Bend County';
 $canonicalUrl    = $domain . '/services/roadside-assistance';

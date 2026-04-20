@@ -11,7 +11,7 @@ foreach ($services as $s) {
     if ($s['slug'] === 'truck-towing') { $currentService = $s; break; }
 }
 
-$pageTitle       = 'Truck Towing Service Richmond TX | Heavy-Duty Towing | Twin Cities Towing';
+$pageTitle       = 'Truck Towing Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Professional truck towing in Richmond, TX for heavy-duty and commercial vehicles. Twin Cities Towing INC handles box trucks, pickups, and commercial fleets. 24/7 dispatch.';
 $pageKeywords    = 'truck towing Richmond TX, heavy duty towing Richmond, commercial truck towing Texas, truck recovery Richmond, box truck towing Fort Bend County';
 $canonicalUrl    = $domain . '/services/truck-towing';

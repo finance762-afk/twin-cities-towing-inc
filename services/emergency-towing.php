@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Emergency Towing Richmond TX | 24/7 Dispatch | Twin Cities Towing INC';
+$pageTitle       = 'Emergency Towing Richmond TX | 24/7 | Twin Cities Towing INC';
 $pageDescription = '24/7 emergency towing in Richmond, TX with fast response — 20 to 40 minutes to most Fort Bend County locations. No hold music, no call centers. Real dispatch, real drivers.';
 $pageKeywords    = 'emergency towing Richmond TX, 24/7 towing Richmond, urgent towing Texas, emergency vehicle recovery Richmond, highway towing Fort Bend County';
 $canonicalUrl    = $domain . '/services/emergency-towing';

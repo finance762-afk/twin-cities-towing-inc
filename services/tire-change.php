@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Tire Change Service Richmond TX | Roadside Flat Tire Help | Twin Cities Towing';
+$pageTitle       = 'Tire Change Service Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'On-site tire change service in Richmond, TX when you\'re stranded with a flat. Twin Cities Towing INC swaps your spare roadside in Fort Bend County — 24/7, fast response.';
 $pageKeywords    = 'tire change Richmond TX, flat tire service Richmond, tire replacement Texas, roadside tire change Richmond, flat tire help Fort Bend County, spare tire swap Richmond';
 $canonicalUrl    = $domain . '/services/tire-change';

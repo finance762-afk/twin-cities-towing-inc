@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Car Towing Service Richmond TX | Safe Vehicle Transport | Twin Cities Towing';
+$pageTitle       = 'Car Towing Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Reliable car towing in Richmond, TX for all vehicle types. Twin Cities Towing INC safely transports your car to any mechanic, dealership, or address in Fort Bend County. 24/7.';
 $pageKeywords    = 'car towing Richmond TX, vehicle towing Richmond, auto towing Texas, car transport Richmond, tow car Fort Bend County, sedan towing Richmond';
 $canonicalUrl    = $domain . '/services/car-towing';

@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Breakdown Towing Richmond TX | Mechanical Failure Towing | Twin Cities Towing';
+$pageTitle       = 'Breakdown Towing Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Vehicle breakdown towing in Richmond, TX for engine failures, transmission problems, and cars that won\'t start. Twin Cities Towing INC gets your car to a mechanic fast. 24/7.';
 $pageKeywords    = 'breakdown towing Richmond TX, mechanical failure towing Richmond, disabled vehicle towing Texas, car breakdown Richmond, engine failure towing Fort Bend, car won\'t start towing Richmond';
 $canonicalUrl    = $domain . '/services/breakdown-towing';

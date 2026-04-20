@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Accident Towing Richmond TX | Collision Recovery 24/7 | Twin Cities Towing';
+$pageTitle       = 'Accident Towing Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Accident recovery and towing in Richmond, TX available 24/7. Twin Cities Towing INC clears collision scenes safely, coordinates with law enforcement, and delivers to your chosen shop.';
 $pageKeywords    = 'accident towing Richmond TX, collision towing Richmond, crash recovery Texas, accident vehicle removal Richmond, post-accident towing Fort Bend County, wreck recovery Richmond';
 $canonicalUrl    = $domain . '/services/accident-towing';

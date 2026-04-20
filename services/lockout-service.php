@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Car Lockout Service Richmond TX | Locked Out Help | Twin Cities Towing';
+$pageTitle       = 'Car Lockout Service Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Fast car lockout service in Richmond, TX. Locked your keys inside? Twin Cities Towing INC unlocks your vehicle without damage in minutes throughout Fort Bend County. 24/7.';
 $pageKeywords    = 'car lockout Richmond TX, vehicle lockout service Richmond, auto lockout Texas, locked out of car Richmond, lockout help Fort Bend County, car unlock service Richmond';
 $canonicalUrl    = $domain . '/services/lockout-service';

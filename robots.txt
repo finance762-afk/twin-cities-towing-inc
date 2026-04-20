@@ -1,0 +1,17 @@
+# robots.txt — Twin Cities Towing INC
+# https://twincitiestowinginc.com
+
+User-agent: *
+Allow: /
+
+# Disallow PHP include files and JS source (no user-facing content)
+Disallow: /includes/
+Disallow: /assets/js/
+
+# Disallow utility pages
+Disallow: /thank-you
+Disallow: /thank-you.php
+
+# Sitemaps
+Sitemap: https://twincitiestowinginc.com/sitemap.xml
+Sitemap: https://twincitiestowinginc.com/sitemap-images.xml

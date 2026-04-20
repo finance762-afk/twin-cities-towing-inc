@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Towing Service Area in Richmond TX & Fort Bend County | Twin Cities Towing';
+$pageTitle       = 'Towing Service Areas | Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Twin Cities Towing INC serves Richmond, Rosenberg, Sugar Land, Missouri City, Stafford, Katy, and all of Fort Bend County within 20 miles. 24/7 emergency towing near me.';
 $pageKeywords    = 'towing service area Richmond TX, towing near me Fort Bend County, towing Rosenberg TX, towing Sugar Land TX, towing Katy TX, emergency towing near me Richmond';
 $canonicalUrl    = $domain . '/service-area';

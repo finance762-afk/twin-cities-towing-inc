@@ -6,7 +6,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-$pageTitle       = 'Light Duty Towing Richmond TX | Cars, SUVs & Small Trucks | Twin Cities Towing';
+$pageTitle       = 'Light Duty Towing Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Light duty towing in Richmond, TX for cars, SUVs, and small pickup trucks. Efficient, careful handling with wheel-lift or flatbed based on your vehicle. 24/7 Fort Bend County.';
 $pageKeywords    = 'light duty towing Richmond TX, car towing Richmond, SUV towing Texas, small vehicle towing Richmond, passenger vehicle towing Fort Bend, light towing service Richmond';
 $canonicalUrl    = $domain . '/services/light-duty-towing';
