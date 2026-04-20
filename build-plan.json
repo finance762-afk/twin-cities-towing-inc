@@ -1,0 +1,486 @@
+{
+  "seo": {
+    "target_radius": 20,
+    "primary_keyword": "towing service richmond tx",
+    "secondary_keywords": [
+      "towing company richmond tx",
+      "emergency towing richmond tx",
+      "roadside assistance richmond tx",
+      "car towing richmond tx",
+      "truck towing richmond tx",
+      "flatbed towing richmond tx",
+      "towing near me",
+      "24 hour towing richmond tx",
+      "accident towing richmond tx",
+      "motorcycle towing richmond tx",
+      "lockout service richmond tx",
+      "tire change service richmond tx"
+    ]
+  },
+  "tier": "premium",
+  "email": "",
+  "phone": "",
+  "assets": {
+    "logo": {
+      "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/logo/1776710766192-a7jjom-better_logo.png",
+      "storage_path": "twin-cities-towing-inc/logo/1776710766192-a7jjom-better_logo.png"
+    },
+    "images": [
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/logo/1776710766192-a7jjom-better_logo.png",
+        "page": "any",
+        "caption": "",
+        "context": "logo",
+        "storage_path": "twin-cities-towing-inc/logo/1776710766192-a7jjom-better_logo.png",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/logo/1776710768116-5yywbt-o__27_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "logo",
+        "storage_path": "twin-cities-towing-inc/logo/1776710768116-5yywbt-o__27_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/logo/1776710769167-6jheil-o__26_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "logo",
+        "storage_path": "twin-cities-towing-inc/logo/1776710769167-6jheil-o__26_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/logo/1776710800414-2q5kc5-better_logo.png",
+        "page": "any",
+        "caption": "",
+        "context": "logo",
+        "storage_path": "twin-cities-towing-inc/logo/1776710800414-2q5kc5-better_logo.png",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710950211-yoyiul-o__16_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710950211-yoyiul-o__16_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710952214-wdk34m-o__15_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710952214-wdk34m-o__15_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710953319-o7jhpe-o__14_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710953319-o7jhpe-o__14_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710954194-bzkgy5-o.png",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710954194-bzkgy5-o.png",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710955084-7laq6f-o__13_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710955084-7laq6f-o__13_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710955944-izdx6h-o__12_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710955944-izdx6h-o__12_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710956793-onlyrn-o__11_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710956793-onlyrn-o__11_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710957596-d5xvxe-o__10_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710957596-d5xvxe-o__10_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710958464-pnzb7b-o__33_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710958464-pnzb7b-o__33_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710959294-epl0w8-o__32_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710959294-epl0w8-o__32_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710960154-oumnwk-o__31_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710960154-oumnwk-o__31_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710961005-wznbkc-o__30_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710961005-wznbkc-o__30_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710961854-w3m9na-o__29_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710961854-w3m9na-o__29_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710962715-vjlq4h-o__28_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710962715-vjlq4h-o__28_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710963575-8b9tek-o__27_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710963575-8b9tek-o__27_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710964435-vw221x-o__26_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710964435-vw221x-o__26_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710965325-3pq2z7-o__25_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710965325-3pq2z7-o__25_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710966205-obsbo8-o__24_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710966205-obsbo8-o__24_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710967025-6x3qzu-o__23_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710967025-6x3qzu-o__23_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710967925-y6udug-o__22_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710967925-y6udug-o__22_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710968765-9pnrt6-o__21_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710968765-9pnrt6-o__21_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710969591-g547t6-o__20_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710969591-g547t6-o__20_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710970475-rq9ip3-o__19_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710970475-rq9ip3-o__19_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710971325-et8fmg-o__18_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710971325-et8fmg-o__18_.jpg",
+        "quality_score": null
+      },
+      {
+        "alt": "",
+        "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710972170-p45km4-o__17_.jpg",
+        "page": "any",
+        "caption": "",
+        "context": "other",
+        "storage_path": "twin-cities-towing-inc/photos/1776710972170-p45km4-o__17_.jpg",
+        "quality_score": null
+      }
+    ],
+    "recommended_hero_image": {
+      "alt": "",
+      "url": "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/logo/1776710766192-a7jjom-better_logo.png",
+      "context": "logo",
+      "quality_score": null
+    }
+  },
+  "design": {
+    "fonts": {},
+    "notes": "",
+    "style": "modern",
+    "colors": {
+      "accent": "#06b6d4",
+      "primary": "#1a2b3c",
+      "secondary": "#4d5e6f",
+      "extracted_from_logo": true
+    },
+    "logo_analysis": {}
+  },
+  "domain": "twin-cities-towing-inc",
+  "phases": [
+    {
+      "name": "scaffold",
+      "phase": 1,
+      "status": "pending"
+    },
+    {
+      "name": "nav_footer_head",
+      "phase": 2,
+      "status": "pending"
+    },
+    {
+      "name": "homepage",
+      "phase": 3,
+      "status": "pending"
+    },
+    {
+      "name": "inner_pages",
+      "phase": 4,
+      "status": "pending"
+    },
+    {
+      "name": "seo_aeo_deploy",
+      "phase": 5,
+      "status": "pending"
+    }
+  ],
+  "address": {
+    "zip": "77469",
+    "city": "Richmond",
+    "state": "TX",
+    "street": "1920 Rocky Falls RD"
+  },
+  "content": {
+    "usps": [],
+    "years": 13,
+    "insurance": "",
+    "description": "Twin Cities Towing INC has been serving the Richmond and Rosenberg, Texas areas since 2011, providing reliable emergency towing services to stranded motorists around the clock. With years of combined experience in the industry, the company has built a strong reputation for trust and dependability among local drivers who need assistance when they're stuck on the side of the road.\n\nSpecializing in towing services for cars, small trucks, and motorcycles, Twin Cities Towing offers comprehensive roadside assistance whenever drivers need it most. Their commitment to being available at all hours ensures that help is always close by for motorists in Richmond, Rosenberg, and the surrounding areas. The company's dedication to customer service and prompt response has made them a trusted choice for emergency towing needs throughout their service region.",
+    "certifications": []
+  },
+  "reviews": [],
+  "tagline": "We'll Get You Moving Again!",
+  "industry": "towing",
+  "services": [
+    {
+      "name": "Truck Towing Service",
+      "keywords": [
+        "truck towing Richmond TX",
+        "heavy duty towing Richmond",
+        "commercial truck towing Texas",
+        "truck recovery Richmond"
+      ],
+      "description": "Professional truck towing services in Richmond, TX for heavy-duty vehicles and commercial trucks. Twin Cities Towing INC provides reliable truck recovery and transport solutions."
+    },
+    {
+      "name": "Emergency Towing",
+      "keywords": [
+        "emergency towing Richmond TX",
+        "24/7 towing Richmond",
+        "urgent towing Texas",
+        "emergency vehicle recovery Richmond"
+      ],
+      "description": "24/7 emergency towing services available throughout Richmond, TX and surrounding areas. Fast response times for urgent vehicle recovery situations."
+    },
+    {
+      "name": "Roadside Assistance",
+      "keywords": [
+        "roadside assistance Richmond TX",
+        "roadside help Texas",
+        "emergency roadside Richmond",
+        "car breakdown assistance"
+      ],
+      "description": "Complete roadside assistance services in Richmond, TX including jump starts, fuel delivery, and emergency repairs. Get back on the road quickly with professional help."
+    },
+    {
+      "name": "Car Towing",
+      "keywords": [
+        "car towing Richmond TX",
+        "vehicle towing Richmond",
+        "auto towing Texas",
+        "car transport Richmond"
+      ],
+      "description": "Reliable car towing services in Richmond, TX for all vehicle types and situations. Safe transport of your vehicle to your desired location."
+    },
+    {
+      "name": "Motorcycle Towing",
+      "keywords": [
+        "motorcycle towing Richmond TX",
+        "bike towing Richmond",
+        "motorcycle transport Texas",
+        "ATV towing Richmond"
+      ],
+      "description": "Specialized motorcycle towing services in Richmond, TX with proper equipment and expertise. Safe transport for motorcycles, scooters, and ATVs."
+    },
+    {
+      "name": "Flatbed Towing",
+      "keywords": [
+        "flatbed towing Richmond TX",
+        "flatbed service Richmond",
+        "luxury car towing Texas",
+        "safe vehicle transport Richmond"
+      ],
+      "description": "Professional flatbed towing services in Richmond, TX for safe transport of luxury cars, damaged vehicles, and low-clearance automobiles. Damage-free towing guaranteed."
+    },
+    {
+      "name": "Tire Change Service",
+      "keywords": [
+        "tire change Richmond TX",
+        "flat tire service Richmond",
+        "tire replacement Texas",
+        "roadside tire change Richmond"
+      ],
+      "description": "On-site tire change services in Richmond, TX when you're stranded with a flat tire. Quick and professional tire replacement to get you moving again."
+    },
+    {
+      "name": "Lockout Service",
+      "keywords": [
+        "car lockout Richmond TX",
+        "vehicle lockout service Richmond",
+        "auto lockout Texas",
+        "locked out Richmond"
+      ],
+      "description": "Fast car lockout services in Richmond, TX for when you're locked out of your vehicle. Professional unlocking without damage to your car."
+    },
+    {
+      "name": "Light Duty Towing",
+      "keywords": [
+        "light duty towing Richmond TX",
+        "car towing Richmond",
+        "SUV towing Texas",
+        "small vehicle towing Richmond"
+      ],
+      "description": "Light duty towing services in Richmond, TX for cars, SUVs, and small trucks. Efficient and careful handling of your vehicle."
+    },
+    {
+      "name": "Accident Towing",
+      "keywords": [
+        "accident towing Richmond TX",
+        "collision towing Richmond",
+        "crash recovery Texas",
+        "accident vehicle removal Richmond"
+      ],
+      "description": "Accident recovery and towing services in Richmond, TX available 24/7 for collision situations. Fast response to clear accident scenes safely."
+    },
+    {
+      "name": "Breakdown Towing",
+      "keywords": [
+        "breakdown towing Richmond TX",
+        "mechanical failure towing Richmond",
+        "disabled vehicle towing Texas",
+        "car breakdown Richmond"
+      ],
+      "description": "Vehicle breakdown towing services in Richmond, TX for mechanical failures and engine problems. Reliable transport when your car won't start."
+    }
+  ],
+  "owner_name": "",
+  "client_slug": "twin-cities-towing-inc",
+  "form_action": "https://design.pageone.cloud/api/leads/twin-cities-towing-inc",
+  "github_repo": "",
+  "company_name": "twin-cities-towing-inc",
+  "service_areas": [
+    {
+      "zip": "77469",
+      "city": "",
+      "state": "TX",
+      "primary": true
+    }
+  ],
+  "image_curation": null,
+  "research_brief": null,
+  "competitor_urls": [],
+  "phone_secondary": "",
+  "lead_notification_email": "",
+  "lead_notification_phone": "",
+  "google_business_profile_url": ""
+}
