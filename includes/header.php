@@ -21,11 +21,15 @@ $_phoneDisplay = !empty($phoneDisplay) ? $phoneDisplay : (!empty($phone) ? forma
 
       <!-- ── Logo ─────────────────────────────────────────── -->
       <a href="/" class="site-logo" aria-label="Twin Cities Towing INC — Home">
+        <?php if (!empty($logoUrl)): ?>
+        <img src="<?php echo htmlspecialchars($logoUrl); ?>" alt="Twin Cities Towing INC" class="logo-img" width="279" height="68">
+        <?php else: ?>
         <span class="logo-mark" aria-hidden="true">TC</span>
         <span class="logo-text">
           <span class="logo-name">Twin Cities Towing</span>
           <span class="logo-tagline">We'll Get You Moving Again!</span>
         </span>
+        <?php endif; ?>
       </a>
 
       <!-- ── Primary Navigation ────────────────────────────── -->
@@ -61,11 +65,28 @@ $_phoneDisplay = !empty($phoneDisplay) ? $phoneDisplay : (!empty($phone) ? forma
           </ul>
         </li>
 
-        <li>
+        <!-- Service Areas with dropdown -->
+        <li class="nav-dropdown<?php echo $_inAreas ? ' open' : ''; ?>">
           <a href="/service-area"
-             <?php if ($_inAreas) echo 'aria-current="page"'; ?>>
-            Service Area
+             <?php if ($_inAreas) echo 'aria-current="page"'; ?>
+             aria-haspopup="true">
+            Service Areas
+            <span class="nav-chevron" aria-hidden="true">&#9660;</span>
           </a>
+          <ul class="nav-dropdown-menu" role="list">
+            <?php foreach ($serviceAreas as $area): ?>
+            <?php if (!empty($area['city'])): ?>
+            <li>
+              <a href="/service-area#<?php echo htmlspecialchars($area['slug']); ?>">
+                <?php echo htmlspecialchars($area['city']); ?>, <?php echo htmlspecialchars($area['state']); ?>
+              </a>
+            </li>
+            <?php endif; ?>
+            <?php endforeach; ?>
+            <li style="border-top:1px solid var(--color-gray-light); margin-top:4px; padding-top:4px;">
+              <a href="/service-area"><strong>View Full Service Area</strong></a>
+            </li>
+          </ul>
         </li>
 
         <li>

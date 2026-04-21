@@ -41,11 +41,15 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
         <!-- Col 1: Brand + trust -->
         <div class="footer-col">
           <a href="/" class="site-logo footer-logo" aria-label="Twin Cities Towing INC">
+            <?php if (!empty($logoUrl)): ?>
+            <img src="<?php echo htmlspecialchars($logoUrl); ?>" alt="Twin Cities Towing INC" class="logo-img" width="220" height="52">
+            <?php else: ?>
             <span class="logo-mark" aria-hidden="true">TC</span>
             <span class="logo-text">
               <span class="logo-name">Twin Cities Towing</span>
               <span class="logo-tagline">We'll Get You Moving Again!</span>
             </span>
+            <?php endif; ?>
           </a>
           <p>Reliable 24/7 towing and roadside assistance throughout Richmond, Rosenberg, and Fort Bend County. When you're stranded, we're on the way.</p>
           <div class="footer-trust">
@@ -115,7 +119,7 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
             <?php foreach (array_slice($serviceAreas, 0, 4) as $area): ?>
             <?php if (!empty($area['city'])): ?>
             <li>
-              <a href="/areas/<?php echo htmlspecialchars($area['slug']); ?>">
+              <a href="/service-area#<?php echo htmlspecialchars($area['slug']); ?>">
                 <?php echo htmlspecialchars($area['city']); ?>, <?php echo htmlspecialchars($area['state']); ?>
               </a>
             </li>
@@ -219,7 +223,7 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
 <!-- Lucide Icons CDN -->
 <script src="https://unpkg.com/lucide@latest" defer></script>
 
-<!-- Init: Lucide icons + mobile nav dropdown -->
+<!-- Init: Lucide icons — dropdown toggle is handled in main.js -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -228,21 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
     lucide.createIcons();
   }
 
-  // Mobile nav: click to expand services dropdown
-  document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
-    var trigger = dd.querySelector(':scope > a');
-    if (!trigger) return;
-    trigger.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        dd.classList.toggle('open');
-        var expanded = dd.classList.contains('open');
-        trigger.setAttribute('aria-expanded', expanded.toString());
-      }
-    });
-  });
-
-  // Close mobile nav when clicking outside overlay
+  // Close mobile nav when clicking outside the overlay
   document.addEventListener('click', function(e) {
     var navLinks = document.querySelector('.nav-links');
     var hamburger = document.querySelector('.hamburger');

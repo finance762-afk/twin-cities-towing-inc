@@ -26,10 +26,33 @@ document.addEventListener('DOMContentLoaded', function() {
       hamburger.classList.toggle('active');
       hamburger.setAttribute('aria-expanded', isOpen.toString());
       document.body.style.overflow = isOpen ? 'hidden' : '';
+
+      // Collapse all open dropdowns when nav closes
+      if (!isOpen) {
+        navLinks.querySelectorAll('.nav-dropdown.open').forEach(function(dd) {
+          dd.classList.remove('open');
+          const trigger = dd.querySelector(':scope > a');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        });
+      }
     });
-    // Close nav when clicking a link
+
+    // Handle nav link clicks
     navLinks.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', function(e) {
+        // A dropdown trigger is an <a> whose direct parent <li> has class nav-dropdown
+        const isDropdownTrigger = link.parentElement.classList.contains('nav-dropdown');
+
+        // On mobile: toggle the dropdown instead of navigating or closing the nav
+        if (isDropdownTrigger && window.innerWidth <= 768) {
+          e.preventDefault();
+          const dd = link.parentElement;
+          dd.classList.toggle('open');
+          link.setAttribute('aria-expanded', dd.classList.contains('open').toString());
+          return; // Do NOT close the nav
+        }
+
+        // For all other links: close the mobile nav overlay
         navLinks.classList.remove('active');
         hamburger.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
@@ -77,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
           var suffix = el.getAttribute('data-suffix') || '';
           var prefix = el.getAttribute('data-prefix') || '';
           var duration = 2000;
-          var start = 0;
           var startTime = null;
 
           function animate(timestamp) {
@@ -97,11 +119,11 @@ document.addEventListener('DOMContentLoaded', function() {
     counters.forEach(function(el) { counterObserver.observe(el); });
   }
 
-  /* === Back to Top Button === */
+  /* === Back to Top Button (appears at 300px per CLAUDE.md) === */
   var backToTop = document.querySelector('.back-to-top');
   if (backToTop) {
     window.addEventListener('scroll', function() {
-      if (window.scrollY > 600) {
+      if (window.scrollY > 300) {
         backToTop.classList.add('visible');
       } else {
         backToTop.classList.remove('visible');

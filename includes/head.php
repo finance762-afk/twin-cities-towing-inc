@@ -149,10 +149,10 @@ if (!empty($_sameAs)) {
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-  <!-- Google Fonts: Montserrat (headings) + Open Sans (body) — Towing/Auto industry -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <!-- Google Fonts: Bebas Neue (headings) + Roboto (body) — Towing/Auto industry pairing per CLAUDE.md -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
   <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap">
   </noscript>
 
   <!-- Swiper CSS (conditional — set $useSwiper = true on pages that use carousels) -->
@@ -167,7 +167,7 @@ if (!empty($_sameAs)) {
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-  <meta name="theme-color" content="#1a2b3c">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- Google Analytics (replace G-XXXXXXXXXX with live ID) -->
   <!--
