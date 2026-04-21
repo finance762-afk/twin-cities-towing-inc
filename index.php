@@ -152,6 +152,32 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
     <rect width="100%" height="100%" filter="url(#noise-h)"/>
   </svg>
 
+  <!-- Floating decorative accent: wheel/tire silhouette (industry-appropriate, desktop only) -->
+  <svg class="floating-accent" style="right:6%;top:18%;width:200px;height:200px;color:var(--color-white);opacity:0.05;" aria-hidden="true" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="5"/>
+    <circle cx="50" cy="50" r="29" fill="none" stroke="currentColor" stroke-width="3"/>
+    <circle cx="50" cy="50" r="8" fill="currentColor"/>
+    <line x1="50" y1="4" x2="50" y2="41" stroke="currentColor" stroke-width="3"/>
+    <line x1="50" y1="59" x2="50" y2="96" stroke="currentColor" stroke-width="3"/>
+    <line x1="4" y1="50" x2="41" y2="50" stroke="currentColor" stroke-width="3"/>
+    <line x1="59" y1="50" x2="96" y2="50" stroke="currentColor" stroke-width="3"/>
+    <line x1="17" y1="17" x2="40" y2="40" stroke="currentColor" stroke-width="2.5"/>
+    <line x1="60" y1="60" x2="83" y2="83" stroke="currentColor" stroke-width="2.5"/>
+    <line x1="83" y1="17" x2="60" y2="40" stroke="currentColor" stroke-width="2.5"/>
+    <line x1="40" y1="60" x2="17" y2="83" stroke="currentColor" stroke-width="2.5"/>
+  </svg>
+
+  <!-- Floating decorative accent: second wheel (offset, slower drift) -->
+  <svg class="floating-accent" style="left:4%;bottom:20%;width:130px;height:130px;color:var(--color-accent);opacity:0.06;animation-delay:-4s;animation-duration:12s;" aria-hidden="true" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="5"/>
+    <circle cx="50" cy="50" r="22" fill="none" stroke="currentColor" stroke-width="3"/>
+    <circle cx="50" cy="50" r="7" fill="currentColor"/>
+    <line x1="50" y1="4" x2="50" y2="28" stroke="currentColor" stroke-width="3"/>
+    <line x1="50" y1="72" x2="50" y2="96" stroke="currentColor" stroke-width="3"/>
+    <line x1="4" y1="50" x2="28" y2="50" stroke="currentColor" stroke-width="3"/>
+    <line x1="72" y1="50" x2="96" y2="50" stroke="currentColor" stroke-width="3"/>
+  </svg>
+
   <div class="hero-content">
 
     <div class="hero-eyebrow">
@@ -368,6 +394,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
   </div><!-- /.container -->
 </section>
 
+<!-- Divider: Services (light) → Stats (primary) — wave -->
+<div class="section-divider" style="background:var(--color-light);" aria-hidden="true">
+  <svg viewBox="0 0 1440 55" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,28 C360,58 720,0 1080,35 C1260,52 1360,20 1440,28 L1440,55 L0,55 Z" fill="#1a2b3c"/>
+  </svg>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════════
      03 — STATS
@@ -441,6 +473,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
   </div>
 </section>
 
+<!-- Divider: CTA Banner (primary dark) → About (white) — diagonal -->
+<div class="section-divider" style="background:var(--color-primary);" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,60 L1440,0 L1440,60 Z" fill="#ffffff"/>
+  </svg>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════════
      05 — ABOUT + PROCESS
@@ -520,6 +558,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
   </div><!-- /.container -->
 </section>
 
+<!-- Divider: About (white) → Reviews (dark) — wave reverse -->
+<div class="section-divider" style="background:#ffffff;" aria-hidden="true">
+  <svg viewBox="0 0 1440 55" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,55 L0,25 C300,55 600,0 900,30 C1100,50 1280,15 1440,25 L1440,55 Z" fill="#1a1a2e"/>
+  </svg>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════════
      06 — REVIEWS
@@ -615,6 +659,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
   </div><!-- /.container -->
 </section>
 
+<!-- Divider: Reviews (dark) → FAQ (light) — diagonal left -->
+<div class="section-divider" style="background:#1a1a2e;" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L1440,60 L0,60 Z" fill="#f8f9fa"/>
+  </svg>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════════
      07 — FAQ
@@ -706,6 +756,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
   </div><!-- /.container -->
 </section>
 
+<!-- Divider: FAQ (light) → Closing CTA (primary) — wave -->
+<div class="section-divider" style="background:var(--color-light);" aria-hidden="true">
+  <svg viewBox="0 0 1440 55" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,20 C240,55 480,0 720,28 C960,55 1200,10 1440,20 L1440,55 L0,55 Z" fill="#1a2b3c"/>
+  </svg>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════════
      08 — CLOSING CTA
