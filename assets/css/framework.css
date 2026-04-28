@@ -909,6 +909,9 @@ body { padding-top: 84px; }
   overflow: hidden;
 }
 .service-hero .hero-content { color: var(--color-white); }
+.service-hero h1,
+.service-hero .hero-title { color: var(--color-white); }
+.service-hero .hero-subtitle { color: rgba(255,255,255,0.9); }
 @media (max-width: 768px) {
   .service-hero { min-height: 45vh; }
 }
