@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/site-config.php';
 /**
  * Twin Cities Towing INC — Head Component
  * Outputs: DOCTYPE, <html>, <head>, <body> opening tag.
@@ -197,5 +198,6 @@ if (!empty($_sameAs)) {
   </script>
   <?php endif; ?>
 
+<?php require_once __DIR__ . '/edit-mode.php'; ?>
 </head>
 <body>
