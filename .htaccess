@@ -11,6 +11,7 @@ RewriteCond %{REQUEST_URI} !^/includes/
 
 # Map clean URLs to .php files (file must exist)
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
 # Redirect direct .php requests to clean URL (301)
