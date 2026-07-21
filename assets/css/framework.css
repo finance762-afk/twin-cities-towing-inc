@@ -3,7 +3,7 @@
    v6.2 Performance Standard (self-hosted fonts, inline SVG icons)
    ============================================ */
 
-/* === Self-Hosted Fonts (v6.2) === */
+/* === Self-Hosted Fonts (v6.2 — 3-Font System) === */
 @font-face {
   font-family: 'Unbounded';
   src: url('/assets/fonts/unbounded.woff2') format('woff2');
@@ -16,6 +16,14 @@
   font-family: 'DM Sans';
   src: url('/assets/fonts/dm-sans.woff2') format('woff2');
   font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('/assets/fonts/caveat.woff2') format('woff2');
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
 }
@@ -42,9 +50,10 @@
   --color-star: #fbbf24;
   --color-primary-dark: #111e2b;
 
-  /* Typography */
+  /* Typography — 3-Font System */
   --font-heading: 'Unbounded', sans-serif;
   --font-body: 'DM Sans', sans-serif;
+  --font-accent: 'Caveat', cursive;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -1372,4 +1381,75 @@ body { padding-top: 84px; }
     padding: var(--space-4);
   }
   .cookie-banner__dismiss { width: 100%; }
+}
+
+/* === Accent Font Utilities (3-Font System v6.1) === */
+.text-accent {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.02em;
+}
+.section-subtitle {
+  font-family: var(--font-accent);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 400;
+  color: var(--color-accent);
+  margin-top: var(--space-2);
+  display: block;
+}
+.eyebrow-label {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-3);
+}
+
+/* === Hero Form (v6.1 hero lead capture) === */
+.hero-with-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+.hero-form-card {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+.hero-form-card h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-2xl);
+}
+.hero-form-card p {
+  color: var(--color-gray);
+  margin-bottom: var(--space-6);
+  font-size: var(--font-size-sm);
+}
+@media (max-width: 1024px) {
+  .hero-with-form {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .hero-form-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .hero-form-card {
+    padding: var(--space-6);
+  }
 }

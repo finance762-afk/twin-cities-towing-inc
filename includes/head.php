@@ -141,9 +141,10 @@ if (!empty($_sameAs)) {
   <meta name="twitter:description" content="<?php echo htmlspecialchars($_desc); ?>">
   <meta name="twitter:image"       content="<?php echo htmlspecialchars($_ogImage); ?>">
 
-  <!-- Performance: Preload above-the-fold fonts (v6.2 self-hosted) -->
+  <!-- Performance: Preload above-the-fold fonts (v6.2 self-hosted, 3-font system) -->
   <link rel="preload" href="/assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/caveat.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- DNS-prefetch for CDN embeds only (no Google Fonts in v6.2) -->
   <link rel="dns-prefetch" href="https://db.pageone.cloud">
