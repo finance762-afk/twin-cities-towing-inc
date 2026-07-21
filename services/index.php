@@ -8,8 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Towing Services Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Full list of towing and roadside services from Twin Cities Towing INC in Richmond, TX — emergency towing, flatbed, roadside assistance, lockouts, motorcycle towing, and more. 24/7.';
-$pageKeywords    = 'towing services Richmond TX, roadside assistance Richmond, emergency towing Fort Bend County, flatbed towing Richmond, lockout service Richmond, motorcycle towing Richmond';
-$canonicalUrl    = $domain . '/services';
 $ogImage         = $clientPhotos[0];
 $currentPage     = 'services';
 
@@ -55,11 +53,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h1 class="hero-title" id="services-hero-heading">Towing &amp; Roadside Services<br>in Richmond, TX</h1>
     <p class="hero-subtitle">From emergency towing on I-69 at 3am to a locked car in a Sugar Land parking lot — Twin Cities Towing INC handles every situation in Fort Bend County, around the clock.</p>
     <div class="hero-buttons">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -136,7 +134,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           </div>
           <h3><?php echo htmlspecialchars($service['name']); ?></h3>
           <p class="prose"><?php echo htmlspecialchars($service['description']); ?></p>
-          <a href="/services/<?php echo htmlspecialchars($service['slug']); ?>" class="btn btn-primary btn-sm">
+          <a href="/services/<?php echo htmlspecialchars($service['slug']); ?>/" class="btn btn-primary btn-sm">
             Learn More
             <i data-lucide="arrow-right" style="width:14px;height:14px;margin-left:4px;"></i>
           </a>
@@ -154,11 +152,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h2 id="services-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">Immediate Dispatch — Any Service, Any Hour</h2>
     <p>Twin Cities Towing INC dispatches within 2 minutes of your call throughout Fort Bend County. No hold music, no national routing — local driver, local dispatcher, real ETA.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -239,15 +237,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">Twin Cities Towing INC has handled every towing and roadside scenario Fort Bend County can produce since 2011. Call for immediate dispatch or request online — a real person answers and a real driver heads your way.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7 Dispatch
       </a>
-      <a href="/service-area" class="btn btn-outline-white btn-lg">
+      <a href="/service-area/" class="btn btn-outline-white btn-lg">
         <i data-lucide="map-pin" style="width:18px;height:18px;"></i>
         View Service Area
       </a>

@@ -1,7 +1,6 @@
 <?php
 $pageTitle       = "Terms of Service | Twin Cities Towing INC";
 $pageDescription = "Terms of Service for Twin Cities Towing INC. Usage terms, service policies, and legal agreements.";
-$canonicalUrl    = "https://twincitiestowinginc.com/terms/";
 $ogImage         = "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/logo/1776710766192-a7jjom-better_logo.png";
 $currentPage     = "terms";
 $cssVersion      = '2';

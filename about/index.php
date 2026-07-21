@@ -8,8 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'About Twin Cities Towing INC | Richmond TX Towing Since 2011';
 $pageDescription = 'Twin Cities Towing INC has served Richmond and Rosenberg TX since 2011. Learn about our history, team values, and commitment to fast, honest towing service throughout Fort Bend County.';
-$pageKeywords    = 'about Twin Cities Towing, Richmond TX towing company, towing company Richmond history, Fort Bend County towing, local towing company Richmond TX';
-$canonicalUrl    = $domain . '/about';
 $ogImage         = $clientPhotos[1];
 $currentPage     = 'about';
 
@@ -75,11 +73,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h1 class="hero-title" id="about-hero-heading">A Towing Company Built<br>on Fort Bend County Roads</h1>
     <p class="hero-subtitle">More than 13 years of showing up when Richmond, Rosenberg, and Fort Bend County drivers needed it most — local roots, local knowledge, local accountability.</p>
     <div class="hero-buttons">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/services" class="btn btn-outline-white btn-lg">
+      <a href="/services/" class="btn btn-outline-white btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         View Our Services
       </a>
@@ -288,11 +286,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h2 id="about-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">A Company You Can Call and Actually Count On</h2>
     <p>Twin Cities Towing INC has been the towing call Richmond drivers reach for since 2011 — not because we promise the most, but because we've delivered consistently for over a decade.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/services" class="btn btn-outline-white btn-lg">
+      <a href="/services/" class="btn btn-outline-white btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         View Our Services
       </a>
@@ -309,15 +307,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">Thirteen years of showing up, doing the job right, and charging a fair price. That's the whole story. Call us the next time you're stuck and experience it firsthand.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
-      <a href="/service-area" class="btn btn-outline-white btn-lg">
+      <a href="/service-area/" class="btn btn-outline-white btn-lg">
         <i data-lucide="map-pin" style="width:18px;height:18px;"></i>
         View Service Area
       </a>

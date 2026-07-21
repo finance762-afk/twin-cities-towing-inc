@@ -8,7 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Request Received | Twin Cities Towing INC — Richmond TX';
 $pageDescription = 'Thank you for contacting Twin Cities Towing INC. We\'ve received your inquiry and will respond promptly. For immediate emergency towing, call us directly.';
-$canonicalUrl    = $domain . '/thank-you';
 $currentPage     = 'thank-you';
 
 // noindex this page
@@ -74,7 +73,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         <div style="text-align:left;">
           <h4>Need Help Right Now?</h4>
           <p>For emergency towing and immediate dispatch throughout Fort Bend County, call us directly — don't wait on the form response.</p>
-          <a href="/contact" class="btn btn-accent btn-sm" style="margin-top:var(--space-3);display:inline-flex;align-items:center;gap:6px;">
+          <a href="/contact/" class="btn btn-accent btn-sm" style="margin-top:var(--space-3);display:inline-flex;align-items:center;gap:6px;">
             <i data-lucide="phone" style="width:15px;height:15px;"></i>
             Call for Immediate Dispatch
           </a>
@@ -87,11 +86,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           <i data-lucide="home" style="width:18px;height:18px;"></i>
           Back to Home
         </a>
-        <a href="/services" class="btn btn-outline btn-lg">
+        <a href="/services/" class="btn btn-outline btn-lg">
           <i data-lucide="list" style="width:18px;height:18px;"></i>
           All Services
         </a>
-        <a href="/service-area" class="btn btn-outline btn-lg">
+        <a href="/service-area/" class="btn btn-outline btn-lg">
           <i data-lucide="map-pin" style="width:18px;height:18px;"></i>
           Service Area
         </a>

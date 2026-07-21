@@ -8,8 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Contact Twin Cities Towing INC | Richmond TX | 24/7';
 $pageDescription = 'Contact Twin Cities Towing INC in Richmond, TX for a free estimate, emergency towing, or roadside assistance. 24/7 dispatch throughout Fort Bend County. Fast response guaranteed.';
-$pageKeywords    = 'contact Twin Cities Towing, towing Richmond TX, free estimate towing Richmond, towing quote Fort Bend County, emergency towing contact Richmond';
-$canonicalUrl    = $domain . '/contact';
 $ogImage         = $clientPhotos[0];
 $currentPage     = 'contact';
 
@@ -101,7 +99,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
               novalidate>
 
           <!-- Formsubmit hidden fields -->
-          <input type="hidden" name="_next"     value="<?php echo htmlspecialchars($domain); ?>/thank-you">
+          <input type="hidden" name="_next"     value="<?php echo htmlspecialchars($domain); ?>/thank-you/">
           <input type="hidden" name="_captcha"  value="false">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_subject"  value="Twin Cities Towing INC — New Website Inquiry">
@@ -224,7 +222,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
             <?php endif; ?>
             <?php endforeach; ?>
           </div>
-          <a href="/service-area" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--space-4);font-size:var(--font-size-sm);color:var(--color-accent);">
+          <a href="/service-area/" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--space-4);font-size:var(--font-size-sm);color:var(--color-accent);">
             <i data-lucide="map" style="width:14px;height:14px;"></i>
             View full service area map
           </a>
@@ -236,7 +234,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           <div>
             <h4>Emergency Towing?</h4>
             <p>Don't fill out the form — call us directly for immediate 24/7 dispatch. We pick up and we dispatch fast.</p>
-            <a href="/contact" class="btn btn-accent btn-sm" style="margin-top:var(--space-3);">
+            <a href="/contact/" class="btn btn-accent btn-sm" style="margin-top:var(--space-3);">
               <i data-lucide="phone" style="width:15px;height:15px;"></i>
               Call Now — 24/7
             </a>
@@ -275,15 +273,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">The contact form is monitored, but for emergency towing and immediate dispatch throughout Fort Bend County, a direct call gets you a driver in motion faster than any online form can.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
-      <a href="/services" class="btn btn-outline-white btn-lg">
+      <a href="/services/" class="btn btn-outline-white btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         View All Services
       </a>
-      <a href="/service-area" class="btn btn-outline-white btn-lg">
+      <a href="/service-area/" class="btn btn-outline-white btn-lg">
         <i data-lucide="map-pin" style="width:18px;height:18px;"></i>
         Service Area
       </a>

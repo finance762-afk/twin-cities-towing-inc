@@ -8,8 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Light Duty Towing Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Light duty towing in Richmond, TX for cars, SUVs, and small pickup trucks. Efficient, careful handling with wheel-lift or flatbed based on your vehicle. 24/7 Fort Bend County.';
-$pageKeywords    = 'light duty towing Richmond TX, car towing Richmond, SUV towing Texas, small vehicle towing Richmond, passenger vehicle towing Fort Bend, light towing service Richmond';
-$canonicalUrl    = $domain . '/services/light-duty-towing';
 $ogImage         = $clientPhotos[7];
 $currentPage     = 'light-duty-towing';
 
@@ -50,7 +48,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         <a href="/" itemprop="item"><span itemprop="name">Home</span></a><meta itemprop="position" content="1">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/services" itemprop="item"><span itemprop="name">Services</span></a><meta itemprop="position" content="2">
+        <a href="/services/" itemprop="item"><span itemprop="name">Services</span></a><meta itemprop="position" content="2">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
         <span itemprop="name">Light Duty Towing</span><meta itemprop="position" content="3">
@@ -71,11 +69,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h1 class="hero-title" id="service-hero-heading">Light Duty Towing<br>in Richmond, TX</h1>
     <p class="hero-subtitle">Efficient, careful towing for all passenger vehicles under 10,000 lbs throughout Fort Bend County. Right method for your vehicle, right price, right on time.</p>
     <div class="hero-buttons">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -140,7 +138,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Light pickup trucks (under 10k lbs)</li>
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Wheel-lift or flatbed as needed</li>
           </ul>
-          <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
+          <a href="/contact/" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
             Request Light Duty Tow
           </a>
         </div>
@@ -199,11 +197,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h2 id="light-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">Your Car, the Right Truck, the Right Method — 20–40 Minutes Away</h2>
     <p>Twin Cities Towing INC handles light duty towing calls throughout Richmond and Fort Bend County with properly matched equipment and experienced drivers. Available right now.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request Light Duty Tow
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -239,15 +237,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">Twin Cities Towing INC has been moving passenger vehicles throughout Fort Bend County since 2011. Call for immediate dispatch or request online — 24/7, upfront pricing, your destination of choice.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
-      <a href="/services" class="btn btn-outline-white btn-lg">
+      <a href="/services/" class="btn btn-outline-white btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         All Services
       </a>

@@ -7,11 +7,12 @@ require_once __DIR__ . '/site-config.php';
  * Required page variables (set before including this file):
  *   $pageTitle       — <title> for this page
  *   $pageDescription — meta description (140–155 chars)
- *   $canonicalUrl    — absolute canonical URL
  *   $currentPage     — slug string for active nav state
  *
+ * The canonical URL is computed from the request URI — never set it per page.
+ *
  * Optional:
- *   $pageKeywords    — comma-separated keywords (falls back to site secondaryKeywords)
+ *   $ogType          — og:type override ('article' on blog posts)
  *   $ogImage         — OG image URL (falls back to $logoUrl)
  *   $schemaMarkup    — JSON string of page-specific JSON-LD (output as second <script type="application/ld+json">)
  *   $useSwiper       — bool: true loads Swiper CSS/JS
@@ -103,7 +104,7 @@ $_localBusinessSchema = [
             'itemOffered'  => [
                 '@type'  => 'Service',
                 'name'   => $s['name'],
-                'url'    => $domain . '/services/' . $s['slug'],
+                'url'    => $domain . '/services/' . $s['slug'] . '/',
             ],
         ], $services),
     ],

@@ -8,8 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Tire Change Service Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'On-site tire change service in Richmond, TX when you\'re stranded with a flat. Twin Cities Towing INC swaps your spare roadside in Fort Bend County — 24/7, fast response.';
-$pageKeywords    = 'tire change Richmond TX, flat tire service Richmond, tire replacement Texas, roadside tire change Richmond, flat tire help Fort Bend County, spare tire swap Richmond';
-$canonicalUrl    = $domain . '/services/tire-change';
 $ogImage         = $clientPhotos[20];
 $currentPage     = 'tire-change';
 
@@ -50,7 +48,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         <a href="/" itemprop="item"><span itemprop="name">Home</span></a><meta itemprop="position" content="1">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/services" itemprop="item"><span itemprop="name">Services</span></a><meta itemprop="position" content="2">
+        <a href="/services/" itemprop="item"><span itemprop="name">Services</span></a><meta itemprop="position" content="2">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
         <span itemprop="name">Tire Change Service</span><meta itemprop="position" content="3">
@@ -71,11 +69,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h1 class="hero-title" id="service-hero-heading">Tire Change Service<br>in Richmond, TX</h1>
     <p class="hero-subtitle">Flat tire anywhere in Fort Bend County? We come to you, swap your spare on the roadside, and get you back on the road — typically within 45 minutes of your call.</p>
     <div class="hero-buttons">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get Tire Help Now
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -186,11 +184,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h2 id="tire-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">One Call — Spare Mounted, Torqued, and You're Moving</h2>
     <p>Twin Cities Towing INC responds to flat tire calls throughout Fort Bend County 24/7. Whether you're on a highway shoulder or in a parking lot, we get there fast and do the job right.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request Tire Help
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -226,15 +224,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">Twin Cities Towing INC handles flat tires throughout Richmond and Fort Bend County with the right tools and technique. If your spare works, we mount it and send you on your way. If not, we tow you — same call, no extra wait.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get Help Now
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
-      <a href="/services/roadside-assistance" class="btn btn-outline-white btn-lg">
+      <a href="/services/roadside-assistance/" class="btn btn-outline-white btn-lg">
         <i data-lucide="tool" style="width:18px;height:18px;"></i>
         All Roadside Services
       </a>

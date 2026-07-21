@@ -1,7 +1,6 @@
 <?php
 $pageTitle       = "Privacy Policy | Twin Cities Towing INC";
 $pageDescription = "How Twin Cities Towing INC collects, uses, and protects your information. Privacy practices for our website and contact forms.";
-$canonicalUrl    = "https://twincitiestowinginc.com/privacy-policy/";
 $ogImage         = "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/logo/1776710766192-a7jjom-better_logo.png";
 $currentPage     = "privacy-policy";
 $cssVersion      = '2';

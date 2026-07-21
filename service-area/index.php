@@ -8,8 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Towing Service Areas | Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Twin Cities Towing INC serves Richmond, Rosenberg, Sugar Land, Missouri City, Stafford, Katy, and all of Fort Bend County within 20 miles. 24/7 emergency towing near me.';
-$pageKeywords    = 'towing service area Richmond TX, towing near me Fort Bend County, towing Rosenberg TX, towing Sugar Land TX, towing Katy TX, emergency towing near me Richmond';
-$canonicalUrl    = $domain . '/service-area';
 $ogImage         = $clientPhotos[0];
 $currentPage     = 'service-area';
 
@@ -60,11 +58,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h1 class="hero-title" id="area-hero-heading">Towing Service in Richmond TX<br>&amp; Surrounding Communities</h1>
     <p class="hero-subtitle">Twin Cities Towing INC covers all of Fort Bend County — Richmond, Rosenberg, Sugar Land, Missouri City, Stafford, Katy, and beyond — with 24/7 emergency towing and roadside assistance.</p>
     <div class="hero-buttons">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -287,11 +285,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h2 id="area-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">Stranded Anywhere in Our Service Area? We're Already Close</h2>
     <p>Twin Cities Towing INC dispatches from Richmond and reaches most Fort Bend County locations in 20–40 minutes. Call now for immediate response — 24/7, all cities, all services.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -329,15 +327,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">Twin Cities Towing INC has been the towing call that works in Fort Bend County since 2011. Licensed, insured, 4.9 stars, 24/7 — and local enough to know your road by name.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
-      <a href="/services" class="btn btn-outline-white btn-lg">
+      <a href="/services/" class="btn btn-outline-white btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         View All Services
       </a>

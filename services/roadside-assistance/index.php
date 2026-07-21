@@ -8,8 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Roadside Assistance Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Complete roadside assistance in Richmond, TX — jump starts, fuel delivery, flat tire changes, and on-site help. Twin Cities Towing INC gets you moving without a tow when possible.';
-$pageKeywords    = 'roadside assistance Richmond TX, jump start service Richmond, fuel delivery Richmond, flat tire change Richmond TX, emergency roadside help Fort Bend County';
-$canonicalUrl    = $domain . '/services/roadside-assistance';
 $ogImage         = $clientPhotos[6];
 $currentPage     = 'roadside-assistance';
 
@@ -51,7 +49,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         <meta itemprop="position" content="1">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/services" itemprop="item"><span itemprop="name">Services</span></a>
+        <a href="/services/" itemprop="item"><span itemprop="name">Services</span></a>
         <meta itemprop="position" content="2">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
@@ -74,11 +72,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h1 class="hero-title" id="service-hero-heading">Roadside Assistance<br>in Richmond, TX</h1>
     <p class="hero-subtitle">Dead battery, flat tire, or running on empty in Fort Bend County? We come to you and fix it on the spot — no tow required whenever possible.</p>
     <div class="hero-buttons">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get Roadside Help
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -177,11 +175,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h2 id="road-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">One Call Gets Roadside Help Moving Your Way</h2>
     <p>Jump start, fuel, flat — whatever the issue, we dispatch immediately and arrive in 20–35 minutes to most Richmond and Fort Bend County locations.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request Roadside Help
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -217,15 +215,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">When your car won't cooperate, Twin Cities Towing INC comes to you. Jump start, fuel, flat — we fix it on the spot whenever possible. When a tow is needed, it happens right then with no extra call or wait.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
-      <a href="/services" class="btn btn-outline-white btn-lg">
+      <a href="/services/" class="btn btn-outline-white btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         All Services
       </a>

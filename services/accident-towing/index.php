@@ -8,8 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Accident Towing Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Accident recovery and towing in Richmond, TX available 24/7. Twin Cities Towing INC clears collision scenes safely, coordinates with law enforcement, and delivers to your chosen shop.';
-$pageKeywords    = 'accident towing Richmond TX, collision towing Richmond, crash recovery Texas, accident vehicle removal Richmond, post-accident towing Fort Bend County, wreck recovery Richmond';
-$canonicalUrl    = $domain . '/services/accident-towing';
 $ogImage         = $clientPhotos[12];
 $currentPage     = 'accident-towing';
 
@@ -50,7 +48,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         <a href="/" itemprop="item"><span itemprop="name">Home</span></a><meta itemprop="position" content="1">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/services" itemprop="item"><span itemprop="name">Services</span></a><meta itemprop="position" content="2">
+        <a href="/services/" itemprop="item"><span itemprop="name">Services</span></a><meta itemprop="position" content="2">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
         <span itemprop="name">Accident Towing</span><meta itemprop="position" content="3">
@@ -71,11 +69,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h1 class="hero-title" id="service-hero-heading">Accident Towing<br>in Richmond, TX</h1>
     <p class="hero-subtitle">Collision vehicle recovery in Fort Bend County — fast clearance, coordination with law enforcement, and flatbed transport for damaged vehicles that can't roll.</p>
     <div class="hero-buttons">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request Accident Tow
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -140,7 +138,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Insurance documentation provided</li>
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Deliver to any body shop or facility</li>
           </ul>
-          <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
+          <a href="/contact/" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
             Request Accident Tow
           </a>
         </div>
@@ -199,11 +197,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h2 id="acc-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">Call Immediately — Priority Dispatch Gets Us There Fast</h2>
     <p>Twin Cities Towing INC prioritizes accident recovery calls throughout Richmond and Fort Bend County. 24/7, every day — scene clearance and safe vehicle transport when you need it most.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request Accident Tow
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -239,15 +237,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">Twin Cities Towing INC handles accident scenes throughout Fort Bend County with 13 years of experience working alongside law enforcement and insurance processes. Call us immediately after securing your safety — we handle everything from there.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get Help Now
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
-      <a href="/services" class="btn btn-outline-white btn-lg">
+      <a href="/services/" class="btn btn-outline-white btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         All Services
       </a>

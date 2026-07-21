@@ -8,8 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Flatbed Towing Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Professional flatbed towing in Richmond, TX for luxury cars, AWD vehicles, low-clearance automobiles, and accident-damaged cars. All 4 wheels off the ground — damage-free transport guaranteed.';
-$pageKeywords    = 'flatbed towing Richmond TX, flatbed service Richmond, luxury car towing Texas, AWD towing Richmond, low clearance car towing Fort Bend, damage free towing Richmond';
-$canonicalUrl    = $domain . '/services/flatbed-towing';
 $ogImage         = $clientPhotos[16];
 $currentPage     = 'flatbed-towing';
 
@@ -50,7 +48,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         <a href="/" itemprop="item"><span itemprop="name">Home</span></a><meta itemprop="position" content="1">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/services" itemprop="item"><span itemprop="name">Services</span></a><meta itemprop="position" content="2">
+        <a href="/services/" itemprop="item"><span itemprop="name">Services</span></a><meta itemprop="position" content="2">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
         <span itemprop="name">Flatbed Towing</span><meta itemprop="position" content="3">
@@ -71,11 +69,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h1 class="hero-title" id="service-hero-heading">Flatbed Towing<br>in Richmond, TX</h1>
     <p class="hero-subtitle">All four wheels off the ground. Zero drivetrain contact. The safest way to move any vehicle — especially when it matters most.</p>
     <div class="hero-buttons">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -140,7 +138,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Accident-damaged vehicles</li>
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Non-rolling cars (winch load)</li>
           </ul>
-          <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
+          <a href="/contact/" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
             Request Flatbed Tow
           </a>
         </div>
@@ -199,11 +197,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h2 id="flat-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">Don't Risk a Wheel-Lift on a Vehicle That Needs Flatbed</h2>
     <p>Twin Cities Towing INC dispatches flatbed equipment 24/7 throughout Richmond and Fort Bend County. Tell us your vehicle make and model — we'll confirm the right method before we roll.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request Flatbed Tow
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -239,15 +237,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">Twin Cities Towing INC has transported luxury cars, AWD vehicles, and accident-damaged automobiles on flatbed throughout Fort Bend County since 2011. Call for immediate dispatch or request a quote online.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
-      <a href="/services" class="btn btn-outline-white btn-lg">
+      <a href="/services/" class="btn btn-outline-white btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         All Services
       </a>

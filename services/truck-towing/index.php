@@ -13,8 +13,6 @@ foreach ($services as $s) {
 
 $pageTitle       = 'Truck Towing Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Professional truck towing in Richmond, TX for heavy-duty and commercial vehicles. Twin Cities Towing INC handles box trucks, pickups, and commercial fleets. 24/7 dispatch.';
-$pageKeywords    = 'truck towing Richmond TX, heavy duty towing Richmond, commercial truck towing Texas, truck recovery Richmond, box truck towing Fort Bend County';
-$canonicalUrl    = $domain . '/services/truck-towing';
 $ogImage         = $clientPhotos[2];
 $currentPage     = 'truck-towing';
 
@@ -68,7 +66,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         <meta itemprop="position" content="1">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/services" itemprop="item"><span itemprop="name">Services</span></a>
+        <a href="/services/" itemprop="item"><span itemprop="name">Services</span></a>
         <meta itemprop="position" content="2">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
@@ -94,11 +92,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h1 class="hero-title" id="service-hero-heading">Truck Towing Service<br>in Richmond, TX</h1>
     <p class="hero-subtitle">Heavy-duty recovery and transport for commercial vehicles, box trucks, and pickup trucks throughout Fort Bend County — 24 hours a day.</p>
     <div class="hero-buttons">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -168,7 +166,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Transparent pricing before dispatch</li>
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Licensed &amp; insured — Richmond TX</li>
           </ul>
-          <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
+          <a href="/contact/" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
             Request Truck Tow
           </a>
         </div>
@@ -277,11 +275,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h2 id="truck-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">Every Minute Your Truck Sits Costs You Money</h2>
     <p>Twin Cities Towing responds immediately — 24 hours a day, 7 days a week, including weekends and holidays. Get your vehicle moving again with one call.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request Truck Tow
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -323,15 +321,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">Twin Cities Towing INC has handled commercial vehicle recoveries throughout Fort Bend County for over 13 years. Call for immediate dispatch or submit a request online — we'll get back to you in minutes.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7 Dispatch
       </a>
-      <a href="/services" class="btn btn-outline-white btn-lg">
+      <a href="/services/" class="btn btn-outline-white btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         All Services
       </a>

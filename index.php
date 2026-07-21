@@ -7,8 +7,6 @@
 // ── Page Variables ────────────────────────────────────────────────────────────
 $pageTitle       = 'Towing Service Richmond TX | Twin Cities Towing INC | 24/7';
 $pageDescription = 'Twin Cities Towing INC delivers 24/7 emergency towing, flatbed towing & roadside assistance in Richmond, TX. Serving Fort Bend County since 2011. Licensed & insured — fast same-day response.';
-$pageKeywords    = 'towing service richmond tx, emergency towing richmond, roadside assistance richmond tx, flatbed towing richmond, 24 hour towing richmond tx, lockout service richmond, towing company richmond';
-$canonicalUrl    = 'https://twincitiestowinginc.com';
 $ogImage         = 'https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710950211-yoyiul-o__16_.jpg';
 $currentPage     = 'home';
 $useSwiper       = true;
@@ -341,7 +339,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
             Covers I-69, Highway 90, FM 359 &amp; all Fort Bend roads
           </li>
         </ul>
-        <a href="/services/emergency-towing" class="learn-more">
+        <a href="/services/emergency-towing/" class="learn-more">
           Learn About Emergency Towing
           <i data-lucide="arrow-right" style="width:14px;height:14px;margin-left:4px;"></i>
         </a>
@@ -354,7 +352,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         </div>
         <h3>Flatbed Towing</h3>
         <p>The safest way to move any vehicle &mdash; especially luxury cars, AWD vehicles, lowered rides, or anything that can&rsquo;t touch the ground. All four wheels stay off the road the entire trip.</p>
-        <a href="/services/flatbed-towing" class="learn-more">
+        <a href="/services/flatbed-towing/" class="learn-more">
           Learn More <i data-lucide="arrow-right" style="width:13px;height:13px;margin-left:4px;"></i>
         </a>
       </div>
@@ -366,7 +364,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         </div>
         <h3>Roadside Assistance</h3>
         <p>Jump starts, fuel delivery, tire changes, and on-site help when your car won&rsquo;t cooperate. We get you moving again without needing a tow whenever possible.</p>
-        <a href="/services/roadside-assistance" class="learn-more">
+        <a href="/services/roadside-assistance/" class="learn-more">
           Learn More <i data-lucide="arrow-right" style="width:13px;height:13px;margin-left:4px;"></i>
         </a>
       </div>
@@ -378,7 +376,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         </div>
         <h3>Car &amp; Light-Duty Towing</h3>
         <p>Standard towing for cars, SUVs, and light trucks to any destination in Fort Bend County or beyond. Careful handling, no unnecessary mileage, transparent pricing.</p>
-        <a href="/services/car-towing" class="learn-more">
+        <a href="/services/car-towing/" class="learn-more">
           Learn More <i data-lucide="arrow-right" style="width:13px;height:13px;margin-left:4px;"></i>
         </a>
       </div>
@@ -390,7 +388,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         </div>
         <h3>Lockout Service</h3>
         <p>Locked your keys inside? Our technicians unlock passenger vehicles without damage in minutes. Available throughout Richmond, Rosenberg, Sugar Land, and surrounding cities.</p>
-        <a href="/services/lockout-service" class="learn-more">
+        <a href="/services/lockout-service/" class="learn-more">
           Learn More <i data-lucide="arrow-right" style="width:13px;height:13px;margin-left:4px;"></i>
         </a>
       </div>
@@ -398,7 +396,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     </div><!-- /.services-grid-home -->
 
     <div class="services-cta-row" data-animate="fade-up">
-      <a href="/services" class="btn btn-primary btn-lg">
+      <a href="/services/" class="btn btn-primary btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         View All 11 Services
       </a>
@@ -466,7 +464,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <p>Twin Cities Towing dispatches the moment you call &mdash; no hold music, no call centers, no runaround. A real dispatcher, a real driver, and a real truck on its way to your location.</p>
 
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request a Free Estimate
       </a>
@@ -476,7 +474,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         Call <?php echo htmlspecialchars($phoneDisplay ?: $phone); ?>
       </a>
       <?php else: ?>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; Same-Day Response
       </a>
@@ -774,7 +772,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
     <div style="text-align:center;margin-top:var(--space-10);" data-animate="fade-up">
       <p style="color:var(--color-gray);margin-bottom:var(--space-4);">Have a question not listed here?</p>
-      <a href="/contact" class="btn btn-primary">
+      <a href="/contact/" class="btn btn-primary">
         <i data-lucide="message-circle" style="width:17px;height:17px;"></i>
         Ask Us Directly
       </a>
@@ -807,7 +805,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     </div>
 
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
@@ -817,12 +815,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         Call <?php echo htmlspecialchars($phoneDisplay ?: $phone); ?> &mdash; 24/7
       </a>
       <?php else: ?>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7 Dispatch
       </a>
       <?php endif; ?>
-      <a href="/service-area" class="btn btn-outline-white btn-lg">
+      <a href="/service-area/" class="btn btn-outline-white btn-lg">
         <i data-lucide="map-pin" style="width:18px;height:18px;"></i>
         View Service Area
       </a>
@@ -834,7 +832,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <?php foreach (array_slice($serviceAreas, 0, 6) as $i => $area): ?>
         <?php if (!empty($area['city'])): ?>
           <?php echo $i > 0 ? ' &bull; ' : ''; ?>
-          <a href="/areas/<?php echo htmlspecialchars($area['slug']); ?>"
+          <a href="/areas/<?php echo htmlspecialchars($area['slug']); ?>/"
              style="color:rgba(255,255,255,0.4);">
             <?php echo htmlspecialchars($area['city']); ?>, <?php echo htmlspecialchars($area['state']); ?>
           </a>

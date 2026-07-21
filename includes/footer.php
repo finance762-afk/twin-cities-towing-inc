@@ -91,7 +91,7 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
           <ul>
             <?php foreach ($_servicesCol1 as $s): ?>
             <li>
-              <a href="/services/<?php echo htmlspecialchars($s['slug']); ?>">
+              <a href="/services/<?php echo htmlspecialchars($s['slug']); ?>/">
                 <?php echo htmlspecialchars($s['name']); ?>
               </a>
             </li>
@@ -106,12 +106,12 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
           <ul>
             <?php foreach ($_servicesCol2 as $s): ?>
             <li>
-              <a href="/services/<?php echo htmlspecialchars($s['slug']); ?>">
+              <a href="/services/<?php echo htmlspecialchars($s['slug']); ?>/">
                 <?php echo htmlspecialchars($s['name']); ?>
               </a>
             </li>
             <?php endforeach; ?>
-            <li><a href="/services"><strong>All Services &rarr;</strong></a></li>
+            <li><a href="/services/"><strong>All Services &rarr;</strong></a></li>
           </ul>
           <?php endif; ?>
           <h4 style="margin-top: var(--space-6);">Service Areas</h4>
@@ -119,13 +119,13 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
             <?php foreach (array_slice($serviceAreas, 0, 4) as $area): ?>
             <?php if (!empty($area['city'])): ?>
             <li>
-              <a href="/service-area#<?php echo htmlspecialchars($area['slug']); ?>">
+              <a href="/service-area/#<?php echo htmlspecialchars($area['slug']); ?>">
                 <?php echo htmlspecialchars($area['city']); ?>, <?php echo htmlspecialchars($area['state']); ?>
               </a>
             </li>
             <?php endif; ?>
             <?php endforeach; ?>
-            <li><a href="/service-area"><strong>View All Areas &rarr;</strong></a></li>
+            <li><a href="/service-area/"><strong>View All Areas &rarr;</strong></a></li>
           </ul>
         </div>
 
@@ -154,7 +154,7 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
               <span><?php echo htmlspecialchars($hoursDisplay); ?></span>
             </li>
           </ul>
-          <a href="/contact" class="btn btn-accent btn-sm" style="margin-top: var(--space-4); width: 100%; justify-content: center; display: inline-flex;">
+          <a href="/contact/" class="btn btn-accent btn-sm" style="margin-top: var(--space-4); width: 100%; justify-content: center; display: inline-flex;">
             Get a Free Estimate
           </a>
         </div>
@@ -216,7 +216,7 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
       &#128222; Call Now
     </a>
     <?php endif; ?>
-    <a href="/contact" class="btn btn-primary">Free Estimate</a>
+    <a href="/contact/" class="btn btn-primary">Free Estimate</a>
   </div>
 </div>
 

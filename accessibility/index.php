@@ -1,7 +1,6 @@
 <?php
 $pageTitle       = "Accessibility Statement | Twin Cities Towing INC";
 $pageDescription = "Twin Cities Towing INC's commitment to web accessibility and WCAG compliance.";
-$canonicalUrl    = "https://twincitiestowinginc.com/accessibility/";
 $ogImage         = "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/logo/1776710766192-a7jjom-better_logo.png";
 $currentPage     = "accessibility";
 $cssVersion      = '2';

@@ -8,8 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Car Lockout Service Richmond TX | Twin Cities Towing INC';
 $pageDescription = 'Fast car lockout service in Richmond, TX. Locked your keys inside? Twin Cities Towing INC unlocks your vehicle without damage in minutes throughout Fort Bend County. 24/7.';
-$pageKeywords    = 'car lockout Richmond TX, vehicle lockout service Richmond, auto lockout Texas, locked out of car Richmond, lockout help Fort Bend County, car unlock service Richmond';
-$canonicalUrl    = $domain . '/services/lockout-service';
 $ogImage         = $clientPhotos[3];
 $currentPage     = 'lockout-service';
 
@@ -50,7 +48,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         <a href="/" itemprop="item"><span itemprop="name">Home</span></a><meta itemprop="position" content="1">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/services" itemprop="item"><span itemprop="name">Services</span></a><meta itemprop="position" content="2">
+        <a href="/services/" itemprop="item"><span itemprop="name">Services</span></a><meta itemprop="position" content="2">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
         <span itemprop="name">Lockout Service</span><meta itemprop="position" content="3">
@@ -71,11 +69,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h1 class="hero-title" id="service-hero-heading">Car Lockout Service<br>in Richmond, TX</h1>
     <p class="hero-subtitle">Locked out of your car in Fort Bend County? We use professional tools to get you back inside fast — without scratches, without damage, without drama.</p>
     <div class="hero-buttons">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get Lockout Help
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -140,7 +138,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Priority dispatch for running engines</li>
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Available 24/7</li>
           </ul>
-          <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
+          <a href="/contact/" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
             Call for Lockout Help
           </a>
         </div>
@@ -199,11 +197,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h2 id="lock-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">Back in Your Car in Under 45 Minutes — Guaranteed</h2>
     <p>Don't try to force it yourself. One wrong move with a coat hanger can damage your lock, window seal, or airbag sensors. Call Twin Cities Towing and we'll handle it properly.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request Lockout Service
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -239,15 +237,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">Twin Cities Towing INC handles vehicle lockouts throughout Richmond, Rosenberg, Sugar Land, Katy, and all of Fort Bend County with professional tools and zero damage. Available every hour of every day.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get Help Now
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
-      <a href="/services" class="btn btn-outline-white btn-lg">
+      <a href="/services/" class="btn btn-outline-white btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         All Services
       </a>

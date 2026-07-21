@@ -8,7 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Page Not Found | Twin Cities Towing INC — Richmond TX';
 $pageDescription = 'The page you\'re looking for doesn\'t exist. Twin Cities Towing INC — 24/7 towing and roadside assistance in Richmond, TX and Fort Bend County.';
-$canonicalUrl    = $domain . '/404';
 $currentPage     = '404';
 
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
@@ -43,11 +42,11 @@ http_response_code(404);
           <i data-lucide="home" style="width:18px;height:18px;"></i>
           Back to Home
         </a>
-        <a href="/services" class="btn btn-outline btn-lg">
+        <a href="/services/" class="btn btn-outline btn-lg">
           <i data-lucide="list" style="width:18px;height:18px;"></i>
           All Services
         </a>
-        <a href="/contact" class="btn btn-accent btn-lg">
+        <a href="/contact/" class="btn btn-accent btn-lg">
           <i data-lucide="phone" style="width:18px;height:18px;"></i>
           Call for Towing
         </a>
@@ -57,15 +56,15 @@ http_response_code(404);
       <div class="popular-links" style="background:var(--color-bg-alt);border-radius:var(--radius);padding:var(--space-8);max-width:600px;margin-inline:auto;text-align:left;">
         <h2 style="font-size:var(--font-size-lg);margin-bottom:var(--space-5);">Popular Pages</h2>
         <ul style="list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);">
-          <li><a href="/services/emergency-towing" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="alert-triangle" style="width:14px;height:14px;"></i> Emergency Towing</a></li>
-          <li><a href="/services/flatbed-towing" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="minus-square" style="width:14px;height:14px;"></i> Flatbed Towing</a></li>
-          <li><a href="/services/roadside-assistance" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="tool" style="width:14px;height:14px;"></i> Roadside Assistance</a></li>
-          <li><a href="/services/lockout-service" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="lock" style="width:14px;height:14px;"></i> Lockout Service</a></li>
-          <li><a href="/services/motorcycle-towing" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="activity" style="width:14px;height:14px;"></i> Motorcycle Towing</a></li>
-          <li><a href="/services/accident-towing" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="alert-circle" style="width:14px;height:14px;"></i> Accident Towing</a></li>
-          <li><a href="/service-area" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="map-pin" style="width:14px;height:14px;"></i> Service Area</a></li>
-          <li><a href="/about" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="users" style="width:14px;height:14px;"></i> About Us</a></li>
-          <li><a href="/contact" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="mail" style="width:14px;height:14px;"></i> Contact</a></li>
+          <li><a href="/services/emergency-towing/" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="alert-triangle" style="width:14px;height:14px;"></i> Emergency Towing</a></li>
+          <li><a href="/services/flatbed-towing/" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="minus-square" style="width:14px;height:14px;"></i> Flatbed Towing</a></li>
+          <li><a href="/services/roadside-assistance/" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="tool" style="width:14px;height:14px;"></i> Roadside Assistance</a></li>
+          <li><a href="/services/lockout-service/" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="lock" style="width:14px;height:14px;"></i> Lockout Service</a></li>
+          <li><a href="/services/motorcycle-towing/" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="activity" style="width:14px;height:14px;"></i> Motorcycle Towing</a></li>
+          <li><a href="/services/accident-towing/" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="alert-circle" style="width:14px;height:14px;"></i> Accident Towing</a></li>
+          <li><a href="/service-area/" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="map-pin" style="width:14px;height:14px;"></i> Service Area</a></li>
+          <li><a href="/about/" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="users" style="width:14px;height:14px;"></i> About Us</a></li>
+          <li><a href="/contact/" style="display:flex;align-items:center;gap:6px;color:var(--color-accent);font-size:var(--font-size-sm);"><i data-lucide="mail" style="width:14px;height:14px;"></i> Contact</a></li>
         </ul>
       </div>
 
@@ -82,7 +81,7 @@ http_response_code(404);
       <p class="closing-lead">Twin Cities Towing INC provides 24/7 emergency towing and roadside assistance throughout Richmond, TX and all of Fort Bend County. One call, immediate dispatch, real ETA.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -90,7 +89,7 @@ http_response_code(404);
         <i data-lucide="home" style="width:18px;height:18px;"></i>
         Go Home
       </a>
-      <a href="/services" class="btn btn-outline-white btn-lg">
+      <a href="/services/" class="btn btn-outline-white btn-lg">
         <i data-lucide="list" style="width:18px;height:18px;"></i>
         All Services
       </a>

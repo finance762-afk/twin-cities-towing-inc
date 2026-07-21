@@ -44,7 +44,7 @@ $_phoneDisplay = !empty($phoneDisplay) ? $phoneDisplay : (!empty($phone) ? forma
 
         <!-- Services with dropdown -->
         <li class="nav-dropdown<?php echo $_inServices ? ' open' : ''; ?>">
-          <a href="/services"
+          <a href="/services/"
              <?php if ($_inServices) echo 'aria-current="page"'; ?>
              aria-haspopup="true">
             Services
@@ -53,21 +53,21 @@ $_phoneDisplay = !empty($phoneDisplay) ? $phoneDisplay : (!empty($phone) ? forma
           <ul class="nav-dropdown-menu" role="list">
             <?php foreach ($services as $s): ?>
             <li>
-              <a href="/services/<?php echo htmlspecialchars($s['slug']); ?>"
+              <a href="/services/<?php echo htmlspecialchars($s['slug']); ?>/"
                  <?php if (isActivePage($s['slug'])) echo 'aria-current="page"'; ?>>
                 <?php echo htmlspecialchars($s['name']); ?>
               </a>
             </li>
             <?php endforeach; ?>
             <li style="border-top:1px solid var(--color-gray-light); margin-top:4px; padding-top:4px;">
-              <a href="/services"><strong>View All Services</strong></a>
+              <a href="/services/"><strong>View All Services</strong></a>
             </li>
           </ul>
         </li>
 
         <!-- Service Areas with dropdown -->
         <li class="nav-dropdown<?php echo $_inAreas ? ' open' : ''; ?>">
-          <a href="/service-area"
+          <a href="/service-area/"
              <?php if ($_inAreas) echo 'aria-current="page"'; ?>
              aria-haspopup="true">
             Service Areas
@@ -77,27 +77,27 @@ $_phoneDisplay = !empty($phoneDisplay) ? $phoneDisplay : (!empty($phone) ? forma
             <?php foreach ($serviceAreas as $area): ?>
             <?php if (!empty($area['city'])): ?>
             <li>
-              <a href="/service-area#<?php echo htmlspecialchars($area['slug']); ?>">
+              <a href="/service-area/#<?php echo htmlspecialchars($area['slug']); ?>">
                 <?php echo htmlspecialchars($area['city']); ?>, <?php echo htmlspecialchars($area['state']); ?>
               </a>
             </li>
             <?php endif; ?>
             <?php endforeach; ?>
             <li style="border-top:1px solid var(--color-gray-light); margin-top:4px; padding-top:4px;">
-              <a href="/service-area"><strong>View Full Service Area</strong></a>
+              <a href="/service-area/"><strong>View Full Service Area</strong></a>
             </li>
           </ul>
         </li>
 
         <li>
-          <a href="/about"
+          <a href="/about/"
              <?php if (isActivePage('about')) echo 'aria-current="page"'; ?>>
             About
           </a>
         </li>
 
         <li>
-          <a href="/contact"
+          <a href="/contact/"
              <?php if (isActivePage('contact')) echo 'aria-current="page"'; ?>>
             Contact
           </a>
@@ -110,7 +110,7 @@ $_phoneDisplay = !empty($phoneDisplay) ? $phoneDisplay : (!empty($phone) ? forma
             Call <?php echo htmlspecialchars($_phoneDisplay); ?>
           </a>
           <?php endif; ?>
-          <a href="/contact" class="btn btn-outline-white">Free Estimate</a>
+          <a href="/contact/" class="btn btn-outline-white">Free Estimate</a>
         </li>
 
       </ul><!-- /.nav-links -->
@@ -122,7 +122,7 @@ $_phoneDisplay = !empty($phoneDisplay) ? $phoneDisplay : (!empty($phone) ? forma
           <?php echo htmlspecialchars($_phoneDisplay); ?>
         </a>
         <?php else: ?>
-        <a href="/contact" class="btn btn-accent btn-sm">Free Estimate</a>
+        <a href="/contact/" class="btn btn-accent btn-sm">Free Estimate</a>
         <?php endif; ?>
       </div>
 

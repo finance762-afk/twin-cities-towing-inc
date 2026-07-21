@@ -8,8 +8,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
 $pageTitle       = 'Emergency Towing Richmond TX | 24/7 | Twin Cities Towing INC';
 $pageDescription = '24/7 emergency towing in Richmond, TX with fast response — 20 to 40 minutes to most Fort Bend County locations. No hold music, no call centers. Real dispatch, real drivers.';
-$pageKeywords    = 'emergency towing Richmond TX, 24/7 towing Richmond, urgent towing Texas, emergency vehicle recovery Richmond, highway towing Fort Bend County';
-$canonicalUrl    = $domain . '/services/emergency-towing';
 $ogImage         = $clientPhotos[4];
 $currentPage     = 'emergency-towing';
 
@@ -51,7 +49,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         <meta itemprop="position" content="1">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/services" itemprop="item"><span itemprop="name">Services</span></a>
+        <a href="/services/" itemprop="item"><span itemprop="name">Services</span></a>
         <meta itemprop="position" content="2">
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
@@ -74,11 +72,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h1 class="hero-title" id="service-hero-heading">Emergency Towing<br>in Richmond, TX</h1>
     <p class="hero-subtitle">Stranded on I-69, Highway 90, or a back road in Fort Bend County? We dispatch the moment you call — 20 to 40 minutes to most locations, around the clock.</p>
     <div class="hero-buttons">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request Emergency Tow
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -144,7 +142,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Highway &amp; back-road response</li>
             <li><i data-lucide="check-circle" style="width:14px;height:14px;color:var(--color-accent);"></i> Coordinates with law enforcement</li>
           </ul>
-          <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
+          <a href="/contact/" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;margin-top:var(--space-5);">
             Call for Emergency Tow
           </a>
         </div>
@@ -245,11 +243,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <h2 id="emerg-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">Call Now — We Dispatch in Under 2 Minutes</h2>
     <p>Don't wait on the shoulder any longer than you have to. Twin Cities Towing INC is local, available right now, and has been responding to Fort Bend County emergencies since 2011.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Request Emergency Tow
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7
       </a>
@@ -287,15 +285,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="closing-lead">Twin Cities Towing INC has been the call Fort Bend County drivers make in a real emergency for over 13 years. Whether it's 2pm or 2am, we answer, we dispatch, and we arrive. No exceptions.</p>
     </div>
     <div class="closing-actions" data-animate="fade-up">
-      <a href="/contact" class="btn btn-accent btn-lg">
+      <a href="/contact/" class="btn btn-accent btn-lg">
         <i data-lucide="file-text" style="width:18px;height:18px;"></i>
         Get a Free Estimate
       </a>
-      <a href="/contact" class="btn btn-outline-white btn-lg">
+      <a href="/contact/" class="btn btn-outline-white btn-lg">
         <i data-lucide="phone" style="width:18px;height:18px;"></i>
         Call Now &mdash; 24/7 Dispatch
       </a>
-      <a href="/service-area" class="btn btn-outline-white btn-lg">
+      <a href="/service-area/" class="btn btn-outline-white btn-lg">
         <i data-lucide="map-pin" style="width:18px;height:18px;"></i>
         View Service Area
       </a>

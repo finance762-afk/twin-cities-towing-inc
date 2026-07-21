@@ -1,7 +1,6 @@
 <?php
 $pageTitle       = "Cookie Policy | Twin Cities Towing INC";
 $pageDescription = "How Twin Cities Towing INC uses cookies and similar technologies on our website.";
-$canonicalUrl    = "https://twincitiestowinginc.com/cookie-policy/";
 $ogImage         = "https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/logo/1776710766192-a7jjom-better_logo.png";
 $currentPage     = "cookie-policy";
 $cssVersion      = '2';
