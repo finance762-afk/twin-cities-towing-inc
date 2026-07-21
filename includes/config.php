@@ -24,7 +24,7 @@ $address = [
 $addressFull = $address['street'] . ', ' . $address['city'] . ', ' . $address['state'] . ' ' . $address['zip'];
 
 // ─── Domain & URLs ────────────────────────────────────────────────────────────
-$domain    = 'https://twincitiestowinginc.com';  // TODO: confirm live domain with client
+$domain    = 'https://twincities-towing.com';
 $industry  = 'towing';
 
 // ─── Analytics & Tracking ────────────────────────────────────────────────────
