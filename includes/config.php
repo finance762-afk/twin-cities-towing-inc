@@ -8,11 +8,11 @@
 // ─── Business Identity ────────────────────────────────────────────────────────
 $siteName        = "Twin Cities Towing INC";
 $tagline         = "We'll Get You Moving Again!";
-$phone           = "";                          // TODO: fill in from client
-$phoneSecondary  = "";                          // TODO: fill in from client
-$phoneDisplay    = "";                          // TODO: formatted display e.g. (281) 555-0100
-$email           = "";                          // TODO: fill in from client
-$ownerName       = "";                          // TODO: fill in from client
+$phone           = "(281) 935-1113";
+$phoneSecondary  = "";
+$phoneDisplay    = "(281) 935-1113";
+$email           = "twincitiestowing1@gmail.com";
+$ownerName       = "Noel Nunez";
 
 // ─── Address ─────────────────────────────────────────────────────────────────
 $address = [
@@ -277,9 +277,12 @@ $serviceAreas = [
 $socialLinks = [
     'facebook'  => '',   // TODO: fill in Facebook page URL
     'instagram' => '',   // TODO: fill in Instagram URL
-    'google'    => '',   // TODO: fill in Google Business Profile URL
+    'google'    => 'https://www.google.com/maps/place/?q=place_id:ChIJ-5C4z4geQYYRrTA2DH4elVw',
     'yelp'      => '',   // TODO: fill in Yelp URL
 ];
+
+// ─── Google Business Profile ──────────────────────────────────────────────────
+$gbpPlaceId = 'ChIJ-5C4z4geQYYRrTA2DH4elVw';   // powers review + directions links
 
 // ─── Form ─────────────────────────────────────────────────────────────────────
 $formAction = 'https://design.pageone.cloud/api/leads/twin-cities-towing-inc';

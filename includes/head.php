@@ -36,13 +36,14 @@ $_desc = isset($pageDescription) && $pageDescription !== ''
     ? $pageDescription
     : $siteName . ' provides 24/7 emergency towing, roadside assistance, and flatbed towing in ' . $address['city'] . ', ' . $address['state'] . '. Fast response, licensed & insured. Serving Fort Bend County since ' . $yearEstablished . '.';
 
-$_keywords = isset($pageKeywords) && $pageKeywords !== ''
-    ? $pageKeywords
-    : implode(', ', $secondaryKeywords);
-
-$_canonical = isset($canonicalUrl) && $canonicalUrl !== ''
-    ? $canonicalUrl
-    : $domain;
+// Canonical is computed from the request URI — pages never hand-set it, so it
+// can never drift from the real URL. Directories keep their trailing slash.
+$_reqPath = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
+$_reqPath = preg_replace('#/index\.php$#', '/', $_reqPath);
+if ($_reqPath === '' || $_reqPath === '/index.php') {
+    $_reqPath = '/';
+}
+$_canonical = rtrim($domain, '/') . $_reqPath;
 
 $_ogImage = isset($ogImage) && $ogImage !== ''
     ? $ogImage
@@ -122,24 +123,17 @@ if (!empty($_sameAs)) {
   <!-- Primary SEO -->
   <title><?php echo htmlspecialchars($_title); ?></title>
   <meta name="description" content="<?php echo htmlspecialchars($_desc); ?>">
-  <meta name="keywords" content="<?php echo htmlspecialchars($_keywords); ?>">
   <link rel="canonical" href="<?php echo htmlspecialchars($_canonical); ?>">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
-  <meta property="og:type"        content="website">
+  <meta property="og:type"        content="<?php echo htmlspecialchars($ogType ?? 'website'); ?>">
   <meta property="og:title"       content="<?php echo htmlspecialchars($_title); ?>">
   <meta property="og:description" content="<?php echo htmlspecialchars($_desc); ?>">
   <meta property="og:url"         content="<?php echo htmlspecialchars($_canonical); ?>">
   <meta property="og:image"       content="<?php echo htmlspecialchars($_ogImage); ?>">
   <meta property="og:site_name"   content="<?php echo htmlspecialchars($siteName); ?>">
   <meta property="og:locale"      content="en_US">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="<?php echo htmlspecialchars($_title); ?>">
-  <meta name="twitter:description" content="<?php echo htmlspecialchars($_desc); ?>">
-  <meta name="twitter:image"       content="<?php echo htmlspecialchars($_ogImage); ?>">
 
   <!-- Performance: Preload above-the-fold fonts (v6.2 self-hosted, 3-font system) -->
   <link rel="preload" href="/assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
@@ -154,8 +148,8 @@ if (!empty($_sameAs)) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <?php endif; ?>
 
-  <!-- Site Stylesheet -->
-  <link rel="stylesheet" href="/assets/css/framework.css">
+  <!-- Site Stylesheet (mtime cache-bust — Hostinger caches CSS aggressively) -->
+  <link rel="stylesheet" href="/assets/css/framework.css?v=<?php echo @filemtime($_SERVER['DOCUMENT_ROOT'] . '/assets/css/framework.css') ?: '1'; ?>">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
@@ -163,20 +157,22 @@ if (!empty($_sameAs)) {
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Google Analytics (replace G-XXXXXXXXXX with live ID) -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $googleAnalyticsId; ?>"></script>
+  <?php $_ga4 = !empty($ga4MeasurementId) ? $ga4MeasurementId : (($googleAnalyticsId ?? '') !== 'G-XXXXXXXXXX' ? ($googleAnalyticsId ?? '') : ''); ?>
+  <?php if (!empty($_ga4)): ?>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo htmlspecialchars($_ga4); ?>"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', '<?php echo $googleAnalyticsId; ?>');
+    gtag('config', '<?php echo htmlspecialchars($_ga4); ?>');
   </script>
-  -->
+  <?php endif; ?>
 
-  <?php if (isset($currentPage) && $currentPage === 'home' && !empty($googleSearchConsoleId)): ?>
+  <?php $_gsc = !empty($gscVerification) ? $gscVerification : ($googleSearchConsoleId ?? ''); ?>
+  <?php if (!empty($_gsc)): ?>
   <!-- Google Search Console Verification -->
-  <meta name="google-site-verification" content="<?php echo htmlspecialchars($googleSearchConsoleId); ?>">
+  <meta name="google-site-verification" content="<?php echo htmlspecialchars($_gsc); ?>">
   <?php endif; ?>
 
   <!-- JSON-LD: LocalBusiness -->
