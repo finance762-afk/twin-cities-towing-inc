@@ -9,7 +9,6 @@ $pageTitle       = 'Towing Service Richmond TX | Twin Cities Towing INC | 24/7';
 $pageDescription = 'Twin Cities Towing INC delivers 24/7 emergency towing, flatbed towing & roadside assistance in Richmond, TX. Serving Fort Bend County since 2011. Licensed & insured — fast same-day response.';
 $ogImage         = 'https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/photos/1776710950211-yoyiul-o__16_.jpg';
 $currentPage     = 'home';
-$useSwiper       = true;
 
 // ── Config ────────────────────────────────────────────────────────────────────
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
@@ -21,37 +20,31 @@ $homeReviews = [
         'name'     => 'Maria G.',
         'location' => 'Richmond, TX',
         'service'  => 'Emergency Towing',
-        'initials' => 'MG',
-    ],
+        'initials' => 'MG'],
     [
         'text'     => 'I needed flatbed service for my lowered Mustang after a fender bender on 90. They knew exactly what they were doing — loaded it perfectly, zero drivetrain contact. Would not trust anyone else with that car.',
         'name'     => 'James T.',
         'location' => 'Rosenberg, TX',
         'service'  => 'Flatbed Towing',
-        'initials' => 'JT',
-    ],
+        'initials' => 'JT'],
     [
         'text'     => 'Locked my keys in my car outside the grocery store in Sugar Land. Twin Cities sent someone quickly and had me back in my car in about 10 minutes. Friendly driver, fair price, no damage.',
         'name'     => 'Sandra K.',
         'location' => 'Sugar Land, TX',
         'service'  => 'Lockout Service',
-        'initials' => 'SK',
-    ],
+        'initials' => 'SK'],
     [
         'text'     => 'Dead battery on a rainy Monday morning with a meeting in an hour. They arrived fast, jumped me, and I made it to work on time. This is my go-to towing company for Fort Bend County.',
         'name'     => 'Robert M.',
         'location' => 'Richmond, TX',
         'service'  => 'Roadside Assistance',
-        'initials' => 'RM',
-    ],
+        'initials' => 'RM'],
     [
         'text'     => 'They towed my Kawasaki after it broke down near Katy. Driver had the right straps and tied it down properly — no scratches, no drama. Really impressed with how they handle motorcycles.',
         'name'     => 'Lisa C.',
         'location' => 'Katy, TX',
         'service'  => 'Motorcycle Towing',
-        'initials' => 'LC',
-    ],
-];
+        'initials' => 'LC']];
 
 // ── Homepage Schema ───────────────────────────────────────────────────────────
 $schemaMarkup = [
@@ -69,24 +62,8 @@ $schemaMarkup = [
                 '@type'       => 'SearchAction',
                 'target'      => [
                     '@type'       => 'EntryPoint',
-                    'urlTemplate' => $domain . '/?s={search_term_string}',
-                ],
-                'query-input' => 'required name=search_term_string',
-            ],
-        ],
-
-        // AggregateRating (augments LocalBusiness from head.php)
-        [
-            '@type'           => 'LocalBusiness',
-            '@id'             => $domain . '/#business',
-            'aggregateRating' => [
-                '@type'       => 'AggregateRating',
-                'ratingValue' => '4.9',
-                'reviewCount' => '142',
-                'bestRating'  => '5',
-                'worstRating' => '1',
-            ],
-        ],
+                    'urlTemplate' => $domain . '/?s={search_term_string}'],
+                'query-input' => 'required name=search_term_string']],
 
         // FAQPage
         [
@@ -95,47 +72,737 @@ $schemaMarkup = [
                 [
                     '@type' => 'Question',
                     'name'  => 'How fast can Twin Cities Towing respond in Richmond, TX?',
-                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Twin Cities Towing INC typically arrives within 20–40 minutes throughout Richmond, TX and Fort Bend County. Dispatch is immediate — the moment you call, the nearest available driver heads your way, 24 hours a day.'],
-                ],
+                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Twin Cities Towing INC typically arrives within 20–40 minutes throughout Richmond, TX and Fort Bend County. Dispatch is immediate — the moment you call, the nearest available driver heads your way, 24 hours a day.']],
                 [
                     '@type' => 'Question',
                     'name'  => 'Do you offer flatbed towing for luxury or low-clearance vehicles?',
-                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes. Our flatbed towing service is designed for luxury cars, damaged vehicles, and low-clearance automobiles that cannot be safely towed with a hook and chain. All four wheels stay off the ground throughout the transport, preventing any drivetrain or undercarriage damage.'],
-                ],
+                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes. Our flatbed towing service is designed for luxury cars, damaged vehicles, and low-clearance automobiles that cannot be safely towed with a hook and chain. All four wheels stay off the ground throughout the transport, preventing any drivetrain or undercarriage damage.']],
                 [
                     '@type' => 'Question',
                     'name'  => 'How much does emergency towing cost in Richmond, TX?',
-                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Towing costs in Richmond vary by distance and service type. Most local tows start around $75–$125. We provide transparent pricing before we dispatch — no hidden fees or surprise charges after the fact. Call us for an exact quote.'],
-                ],
+                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Towing costs in Richmond vary by distance and service type. Most local tows start around $75–$125. We provide transparent pricing before we dispatch — no hidden fees or surprise charges after the fact. Call us for an exact quote.']],
                 [
                     '@type' => 'Question',
                     'name'  => 'Are you available on holidays and weekends?',
-                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Absolutely. Twin Cities Towing INC operates 24 hours a day, 7 days a week — including all holidays, weekends, and overnight hours. Breakdowns do not follow a schedule, and neither do we.'],
-                ],
+                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Absolutely. Twin Cities Towing INC operates 24 hours a day, 7 days a week — including all holidays, weekends, and overnight hours. Breakdowns do not follow a schedule, and neither do we.']],
                 [
                     '@type' => 'Question',
                     'name'  => 'Can you tow motorcycles and small ATVs?',
-                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes. We have the proper equipment and experience to safely transport motorcycles, scooters, and small ATVs without damage. Our motorcycle towing service is available throughout Richmond, Rosenberg, and the surrounding Fort Bend County area.'],
-                ],
+                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes. We have the proper equipment and experience to safely transport motorcycles, scooters, and small ATVs without damage. Our motorcycle towing service is available throughout Richmond, Rosenberg, and the surrounding Fort Bend County area.']],
                 [
                     '@type' => 'Question',
                     'name'  => 'What cities near Richmond, TX does Twin Cities Towing serve?',
-                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Our service area covers all of Fort Bend County, including Richmond, Rosenberg, Sugar Land, Missouri City, Stafford, Katy, Greatwood, Pecan Grove, Needville, and Fresno, TX — within approximately a 20-mile radius of our Richmond base.'],
-                ],
-            ],
-        ],
-
-    ],
-];
+                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Our service area covers all of Fort Bend County, including Richmond, Rosenberg, Sugar Land, Missouri City, Stafford, Katy, Greatwood, Pecan Grove, Needville, and Fresno, TX — within approximately a 20-mile radius of our Richmond base.']]]]]];
 
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 ?>
 
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   TWIN CITIES TOWING — HOMEPAGE SIGNATURE LAYER (page-specific)
+   Premium-tier differentiation on top of framework.css.
+   Every color / shadow / spacing value derives from :root tokens —
+   alpha tints are built with color-mix() over tokens, never raw hex.
+   Techniques (design-system.md Part C):
+     C1  layered hero (gradient + noise + glass form card)
+     C3  multiple SVG divider styles (double wave, torn edge)
+     C4  radial gradient glows on dark sections
+     C5  oversized numerals, watermark type, text-wrap balance
+     C6  tinted card rotation on the services grid
+     C7  asymmetric signature section (dispatch-route About layout)
+     C8  floating decorative accents (towing / route motifs)
+   No new reveal rules are introduced here; the only opacity-hidden
+   reveal system remains framework [data-animate]. All animation in
+   this layer is decorative, visible-by-default, and fully disabled
+   under prefers-reduced-motion.
+════════════════════════════════════════════════════════════════════ */
+
+/* ── 0. Page-scoped derived tokens (token-mixed tints only) ──────── */
+:root {
+  --home-accent-04:    color-mix(in srgb, var(--color-accent) 4%, transparent);
+  --home-accent-06:    color-mix(in srgb, var(--color-accent) 6%, transparent);
+  --home-accent-10:    color-mix(in srgb, var(--color-accent) 10%, transparent);
+  --home-accent-18:    color-mix(in srgb, var(--color-accent) 18%, transparent);
+  --home-accent-30:    color-mix(in srgb, var(--color-accent) 30%, transparent);
+  --home-accent-45:    color-mix(in srgb, var(--color-accent) 45%, transparent);
+  --home-primary-04:   color-mix(in srgb, var(--color-primary) 4%, transparent);
+  --home-primary-06:   color-mix(in srgb, var(--color-primary) 6%, transparent);
+  --home-primary-10:   color-mix(in srgb, var(--color-primary) 10%, transparent);
+  --home-secondary-07: color-mix(in srgb, var(--color-secondary) 7%, transparent);
+  --home-white-05:     color-mix(in srgb, var(--color-white) 5%, transparent);
+  --home-white-10:     color-mix(in srgb, var(--color-white) 10%, transparent);
+  --home-white-45:     color-mix(in srgb, var(--color-white) 45%, transparent);
+  --home-white-88:     color-mix(in srgb, var(--color-white) 88%, transparent);
+  --home-ink-30:       color-mix(in srgb, var(--color-primary-dark) 30%, transparent);
+  --home-ink-45:       color-mix(in srgb, var(--color-primary-dark) 45%, transparent);
+  --home-star-12:      color-mix(in srgb, var(--color-star) 12%, transparent);
+}
+
+/* ── 1. HERO — layered gradient + refined glass form card (C1) ───── */
+/* Richer 3-stop diagonal replaces the flat framework overlay, with a
+   radial accent glow rising behind the form column and a soft fade
+   into the ticker strip below. Image + noise layers stay untouched. */
+.home-hero .hero-overlay {
+  background:
+    linear-gradient(
+      148deg,
+      color-mix(in srgb, var(--color-primary-dark) 94%, transparent) 0%,
+      color-mix(in srgb, var(--color-primary) 82%, transparent) 46%,
+      color-mix(in srgb, var(--color-secondary) 58%, transparent) 78%,
+      color-mix(in srgb, var(--color-accent) 26%, transparent) 100%
+    );
+}
+.home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 78% 42%,
+    var(--home-accent-18) 0%,
+    transparent 55%
+  );
+}
+.home-hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--space-16);
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--home-ink-30) 100%
+  );
+}
+.home-hero .hero-content {
+  text-align: left;
+  max-width: none;
+  padding: var(--space-8) 0;
+}
+.home-hero .hero-eyebrow {
+  background: var(--home-accent-10);
+  border-color: var(--home-accent-45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.home-hero .hero-title {
+  text-wrap: balance;
+  text-shadow: 0 2px 18px var(--home-ink-45);
+}
+/* accent phrase gets a hand-drawn underline sweep */
+.home-hero .hero-title .text-accent {
+  position: relative;
+  white-space: normal;
+  color: var(--color-accent);
+}
+.home-hero .hero-title .text-accent::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.08em;
+  height: 0.14em;
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    var(--home-accent-30) 100%
+  );
+  transform: scaleX(0.98) skewX(-12deg);
+  transform-origin: left;
+}
+.home-hero .hero-subtitle {
+  margin-left: 0;
+  text-wrap: pretty;
+}
+.home-hero .hero-trust {
+  justify-content: flex-start;
+}
+.home-hero .hero-trust-item {
+  background: var(--home-white-05);
+  border: 1px solid var(--home-white-10);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Glass form card — accent spine, gradient edge, lifted presentation */
+.home-hero .hero-form-card {
+  position: relative;
+  background: var(--home-white-88);
+  backdrop-filter: blur(22px) saturate(1.15);
+  -webkit-backdrop-filter: blur(22px) saturate(1.15);
+  border: 1px solid var(--home-white-45);
+  border-top: 4px solid var(--color-accent);
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 24px 70px var(--home-ink-45),
+    0 0 0 1px var(--home-accent-10),
+    inset 0 1px 0 var(--color-white);
+  overflow: hidden;
+}
+.home-hero .hero-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--space-16);
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    var(--home-accent-06) 0%,
+    transparent 100%
+  );
+}
+.home-hero .hero-form-card::after {
+  content: '24/7';
+  position: absolute;
+  right: var(--space-4);
+  top: var(--space-2);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: var(--font-size-2xl);
+  letter-spacing: -0.02em;
+  color: var(--home-primary-06);
+  pointer-events: none;
+  user-select: none;
+}
+.home-hero .hero-form-card h3 {
+  position: relative;
+  text-wrap: balance;
+}
+
+/* ── 2. TICKER — masked edge fade so the loop dissolves in/out ──── */
+.ticker-strip {
+  -webkit-mask-image: linear-gradient(
+    90deg, transparent 0%, var(--color-black) 6%,
+    var(--color-black) 94%, transparent 100%);
+  mask-image: linear-gradient(
+    90deg, transparent 0%, var(--color-black) 6%,
+    var(--color-black) 94%, transparent 100%);
+  border-top: 1px solid var(--home-white-10);
+  border-bottom: 1px solid var(--home-white-10);
+}
+
+/* ── 3. SERVICES — tinted card rotation + directional accents (C6) ─ */
+/* The four supporting cards rotate through three brand tints so the
+   row never reads as an all-white grid; each carries its own accent
+   edge direction for subtle asymmetry. Featured card is untouched. */
+.services-grid-home .service-card:nth-child(2) {
+  background: linear-gradient(165deg, var(--home-accent-06) 0%, var(--color-white) 62%);
+  border-top-color: var(--home-accent-45);
+}
+.services-grid-home .service-card:nth-child(3) {
+  background: linear-gradient(195deg, var(--home-primary-06) 0%, var(--color-white) 62%);
+  border-top-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
+}
+.services-grid-home .service-card:nth-child(4) {
+  background: linear-gradient(165deg, var(--home-secondary-07) 0%, var(--color-white) 62%);
+  border-top-color: color-mix(in srgb, var(--color-secondary) 55%, transparent);
+}
+.services-grid-home .service-card:nth-child(5) {
+  background: linear-gradient(195deg, var(--home-star-12) 0%, var(--color-white) 66%);
+  border-top-color: color-mix(in srgb, var(--color-star) 55%, transparent);
+}
+.services-grid-home .service-card:nth-child(n+2) .service-card-icon {
+  background: var(--home-accent-10);
+  color: var(--color-primary);
+  transition: transform var(--transition-base), background var(--transition-base);
+}
+.services-grid-home .service-card:nth-child(n+2):hover .service-card-icon {
+  background: var(--color-accent);
+  color: var(--color-white);
+  transform: rotate(-6deg) scale(1.06);
+}
+.services-grid-home .service-card {
+  border: 1px solid var(--home-primary-06);
+  border-top-width: 4px;
+}
+.services-grid-home .service-card-featured {
+  border: 0;
+  border-top: 4px solid var(--color-accent);
+  box-shadow: var(--shadow-xl);
+}
+.services-grid-home .service-card h3 {
+  text-wrap: balance;
+}
+
+/* ── 4. SECTION DIVIDERS — two additional styles (C3) ────────────── */
+/* .divider-double = layered double wave (services → stats).
+   .divider-torn   = torn organic edge (FAQ → blog).
+   Combined with the framework wave + diagonals already on the page,
+   four distinct divider silhouettes rotate down the scroll. */
+.section-divider.divider-double svg,
+.section-divider.divider-torn svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.section-divider.divider-double {
+  background: var(--color-light);
+}
+.section-divider.divider-double .divider-wave-back {
+  fill: var(--color-primary);
+  opacity: 0.35;
+}
+.section-divider.divider-double .divider-wave-front {
+  fill: var(--color-primary);
+}
+.section-divider.divider-torn {
+  background: var(--color-light);
+}
+.section-divider.divider-torn .divider-torn-fill {
+  fill: var(--color-white);
+}
+.section-divider.divider-torn .divider-torn-shadow {
+  fill: var(--color-primary);
+  opacity: 0.06;
+}
+
+/* ── 5. STATS — oversized numerals + watermark + glow (C4/C5) ───── */
+.home-stats {
+  position: relative;
+  overflow: hidden;
+}
+.home-stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 24% 120%,
+    var(--home-accent-18) 0%,
+    transparent 58%
+  );
+}
+.home-stats::after {
+  content: '24/7';
+  position: absolute;
+  right: calc(-1 * var(--space-6));
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(7rem, 18vw, 15rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--home-white-05);
+  pointer-events: none;
+  user-select: none;
+}
+.home-stats .container {
+  position: relative;
+  z-index: 1;
+}
+.home-stats .stats-grid {
+  gap: var(--space-6);
+}
+.home-stats .stat-item {
+  position: relative;
+  padding: var(--space-4) var(--space-2);
+}
+.home-stats .stat-item:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-3));
+  top: 50%;
+  transform: translateY(-50%) rotate(12deg);
+  height: var(--space-12);
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--home-accent-45) 50%,
+    transparent 100%
+  );
+}
+.home-stats .stat-number {
+  font-size: clamp(var(--font-size-5xl), 6vw, var(--font-size-6xl));
+  background: linear-gradient(
+    180deg,
+    var(--color-white) 30%,
+    var(--color-accent) 130%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.home-stats .stat-label {
+  color: var(--home-white-45);
+  letter-spacing: 2px;
+}
+
+/* ── 6. SIGNATURE SECTION — dispatch-route About layout (C7) ────── */
+/* Asymmetric broken grid used nowhere else on the site: offset
+   columns, photo pulled upward across the section edge inside a
+   rotated dashed "route map" frame, a vertical EST. 2011 type rail,
+   and a dashed dispatch route threading the four process steps. */
+.home-signature {
+  position: relative;
+}
+.home-signature::after {
+  content: 'EST. 2011';
+  position: absolute;
+  left: calc(-1 * var(--space-4));
+  top: 54%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(3.4rem, 7vw, 6rem);
+  letter-spacing: 0.06em;
+  color: var(--home-primary-04);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+@media (min-width: 1025px) {
+  .home-signature .about-split-home {
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: calc(var(--space-16) + var(--space-6));
+  }
+  .home-signature .about-right {
+    transform: translateY(calc(-1 * var(--space-10)));
+  }
+}
+.home-signature .about-right {
+  z-index: 1;
+}
+.home-signature .about-right::before {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--space-4)) var(--space-2) var(--space-10) calc(-1 * var(--space-4));
+  border: 2px dashed var(--home-accent-45);
+  border-radius: var(--radius-xl);
+  transform: rotate(-2.2deg);
+  pointer-events: none;
+}
+.home-signature .about-right-img {
+  position: relative;
+  z-index: 1;
+  transform: rotate(1.2deg);
+  transition: transform var(--transition-slow);
+}
+.home-signature .about-right:hover .about-right-img {
+  transform: rotate(0deg) scale(1.01);
+}
+.home-signature .about-stat-card {
+  z-index: 2;
+  transform: rotate(-2deg);
+  border: 1px solid var(--home-white-45);
+}
+/* dashed dispatch route connecting the numbered steps */
+.home-signature .process-steps {
+  position: relative;
+}
+.home-signature .process-steps::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: var(--space-8);
+  bottom: var(--space-8);
+  width: 0;
+  border-left: 2px dashed var(--home-accent-45);
+  z-index: 0;
+}
+.home-signature .process-step {
+  position: relative;
+  z-index: 1;
+  border-bottom: 0;
+  transition: transform var(--transition-base);
+}
+.home-signature .process-step:hover {
+  transform: translateX(var(--space-2));
+}
+.home-signature .process-step-num {
+  background: var(--color-white);
+  color: var(--color-primary);
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 0 0 var(--space-1) var(--color-white);
+}
+.home-signature .process-step:last-child .process-step-num {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+.home-signature .about-left h2 {
+  text-wrap: balance;
+}
+
+/* ── 7. REVIEWS — radial glow + editorial quote marks (C4) ──────── */
+.reviews-section {
+  position: relative;
+}
+.reviews-section > .container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    var(--home-accent-10) 0%,
+    transparent 62%
+  );
+}
+.reviews-section .review-card {
+  position: relative;
+  border-top: 3px solid var(--home-accent-30);
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+.reviews-section .review-card::before {
+  content: '\201C';
+  position: absolute;
+  top: calc(-1 * var(--space-2));
+  right: var(--space-4);
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 6vw, 5.5rem);
+  line-height: 1;
+  color: var(--home-accent-18);
+  pointer-events: none;
+  user-select: none;
+}
+.reviews-track {
+  display: flex;
+  gap: var(--space-6);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--space-2) var(--space-2) var(--space-6);
+  scrollbar-color: var(--color-accent) transparent;
+}
+.reviews-track:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.reviews-track-item {
+  flex: 0 0 min(88%, 380px);
+  scroll-snap-align: start;
+  display: flex;
+}
+.reviews-track-item .review-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.reviews-track-item:hover .review-card {
+  transform: translateY(calc(-1 * var(--space-1)));
+  border-top-color: var(--color-accent);
+}
+.reviews-section .review-avatar {
+  box-shadow: 0 0 0 2px var(--home-accent-45);
+}
+.reviews-section .section-header h2 {
+  text-wrap: balance;
+}
+
+/* ── 8. FAQ — dot-grid backdrop + accent focus (rhythm shift) ───── */
+.home-faq {
+  background-color: var(--color-light);
+  background-image: radial-gradient(var(--home-primary-06) 1px, transparent 1px);
+  background-size: var(--space-6) var(--space-6);
+}
+.home-faq .faq-item {
+  background: var(--color-white);
+  border: 1px solid var(--home-primary-06);
+  border-left: 3px solid var(--home-accent-30);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+.home-faq .faq-item:hover {
+  transform: translateY(calc(-1 * var(--space-1)));
+  border-left-color: var(--color-accent);
+  box-shadow: var(--shadow-lg);
+}
+.home-faq .faq-item:hover .faq-icon {
+  background: var(--color-accent);
+}
+.home-faq .faq-icon {
+  transition: background var(--transition-base);
+}
+.home-faq .faq-item h3 {
+  text-wrap: balance;
+}
+
+/* ── 9. BLOG PREVIEW — angled tint panel behind the feature card ── */
+.blog-preview-section {
+  background:
+    linear-gradient(
+      115deg,
+      var(--home-accent-04) 0%,
+      var(--home-accent-04) 38%,
+      transparent 38.2%
+    ),
+    var(--color-white);
+}
+.blog-preview-section .blog-preview-card {
+  border: 1px solid var(--home-primary-06);
+  border-bottom: 4px solid var(--color-accent);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.blog-preview-section .blog-preview-card:hover {
+  transform: translateY(calc(-1 * var(--space-1)));
+}
+.blog-preview-section .blog-preview-card__badge {
+  box-shadow: 0 4px 14px var(--home-ink-30);
+}
+.blog-preview-section .blog-preview-card__title {
+  text-wrap: balance;
+}
+.blog-preview-section .section-header h2 {
+  text-wrap: balance;
+}
+
+/* ── 10. CLOSING CTA — top-arc glow + route texture (C4) ────────── */
+.home-closing {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      color-mix(in srgb, var(--color-secondary) 45%, transparent) 0%,
+      transparent 62%
+    ),
+    var(--color-primary);
+}
+.home-closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 85% 100%,
+    var(--home-accent-18) 0%,
+    transparent 55%
+  );
+}
+.home-closing .container {
+  position: relative;
+  z-index: 1;
+}
+.home-closing h2 {
+  text-wrap: balance;
+}
+
+/* ── 11. FLOATING ACCENTS — towing / route motifs (C8) ──────────── */
+/* All accents sit at 4–8% opacity, are aria-hidden inline SVGs, and
+   drift on two page-specific keyframes distinct from framework
+   floatDrift. Hidden on mobile by the framework rule. */
+.fa-hook {
+  right: 7%;
+  top: 14%;
+  width: 150px;
+  height: 150px;
+  color: var(--color-white);
+  opacity: 0.05;
+  animation: homeSway 11s ease-in-out infinite alternate;
+}
+.fa-route {
+  left: 3%;
+  bottom: 10%;
+  width: 240px;
+  height: 120px;
+  color: var(--color-accent);
+  opacity: 0.07;
+  animation: homeDriftX 14s ease-in-out infinite alternate;
+}
+.fa-pin {
+  right: 5%;
+  bottom: 16%;
+  width: 130px;
+  height: 130px;
+  color: var(--color-white);
+  opacity: 0.05;
+  animation: homeSway 13s ease-in-out infinite alternate-reverse;
+}
+.fa-wheel-sm {
+  left: 5%;
+  top: 18%;
+  width: 110px;
+  height: 110px;
+  color: var(--color-accent);
+  opacity: 0.06;
+  animation: homeDriftX 16s ease-in-out infinite alternate;
+}
+@keyframes homeSway {
+  0%   { transform: translateY(0) rotate(-4deg); }
+  100% { transform: translateY(-14px) rotate(5deg); }
+}
+@keyframes homeDriftX {
+  0%   { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(22px) translateY(-10px); }
+}
+
+/* ── 12. RESPONSIVE GUARDS ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .home-hero .hero-content {
+    text-align: center;
+    padding: var(--space-8) var(--space-4) 0;
+  }
+  .home-hero .hero-trust {
+    justify-content: center;
+  }
+  .home-hero .hero-title .text-accent::after {
+    transform: scaleX(0.9) skewX(-12deg);
+  }
+  .home-stats::after {
+    font-size: clamp(5rem, 22vw, 9rem);
+  }
+  .home-signature::after {
+    display: none;
+  }
+  .home-signature .about-right::before {
+    inset: calc(-1 * var(--space-3)) var(--space-2) var(--space-8) calc(-1 * var(--space-3));
+  }
+}
+@media (max-width: 768px) {
+  .home-stats .stat-item:not(:first-child)::before {
+    display: none;
+  }
+  .home-stats .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8) var(--space-4);
+  }
+  .home-signature .about-right {
+    transform: none;
+  }
+  .home-signature .process-step:hover {
+    transform: none;
+  }
+  .blog-preview-section {
+    background: var(--color-white);
+  }
+}
+
+/* ── 13. MOTION SAFETY — decorative motion fully disabled ───────── */
+@media (prefers-reduced-motion: reduce) {
+  .fa-hook,
+  .fa-route,
+  .fa-pin,
+  .fa-wheel-sm,
+  .home-hero .floating-accent {
+    animation: none !important;
+  }
+  .home-signature .about-right-img,
+  .home-signature .process-step,
+  .reviews-section .review-card,
+  .home-faq .faq-item,
+  .blog-preview-section .blog-preview-card {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+</style>
+
 <!-- ═══════════════════════════════════════════════════════════════
      01 — HERO
 ════════════════════════════════════════════════════════════════ -->
-<section class="hero hero-kenburns"
+<section class="hero hero-kenburns home-hero"
          style="background-image: url('<?php echo htmlspecialchars($clientPhotos[0]); ?>');"
          aria-labelledby="hero-heading">
 
@@ -422,17 +1089,30 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div><!-- /.container -->
 </section>
 
-<!-- Divider: Services (light) → Stats (primary) — wave -->
-<div class="section-divider" style="background:var(--color-light);" aria-hidden="true">
-  <svg viewBox="0 0 1440 55" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,28 C360,58 720,0 1080,35 C1260,52 1360,20 1440,28 L1440,55 L0,55 Z" fill="#1a2b3c"/>
+<!-- Divider: Services (light) → Stats (primary) — layered double wave -->
+<div class="section-divider divider-double" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path class="divider-wave-back" d="M0,24 C360,64 840,4 1200,34 C1320,44 1400,26 1440,32 L1440,80 L0,80 Z"/>
+    <path class="divider-wave-front" d="M0,44 C300,78 780,16 1140,48 C1280,60 1380,38 1440,44 L1440,80 L0,80 Z"/>
   </svg>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════
      03 — STATS
 ════════════════════════════════════════════════════════════════ -->
-<section class="stats-section">
+<section class="stats-section home-stats">
+
+  <!-- Floating decorative accent: small wheel (page-specific drift) -->
+  <svg class="floating-accent fa-wheel-sm" aria-hidden="true" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="5"/>
+    <circle cx="50" cy="50" r="24" fill="none" stroke="currentColor" stroke-width="3"/>
+    <circle cx="50" cy="50" r="7" fill="currentColor"/>
+    <line x1="50" y1="4" x2="50" y2="30" stroke="currentColor" stroke-width="3"/>
+    <line x1="50" y1="70" x2="50" y2="96" stroke="currentColor" stroke-width="3"/>
+    <line x1="4" y1="50" x2="30" y2="50" stroke="currentColor" stroke-width="3"/>
+    <line x1="70" y1="50" x2="96" y2="50" stroke="currentColor" stroke-width="3"/>
+  </svg>
+
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item" data-animate="fade-up">
@@ -515,7 +1195,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 <!-- ═══════════════════════════════════════════════════════════════
      05 — ABOUT + PROCESS
 ════════════════════════════════════════════════════════════════ -->
-<section class="numbered-section section-white" data-num="02" style="padding: var(--space-16) 0;">
+<section class="numbered-section section-white home-signature" data-num="02" style="padding: var(--space-16) 0;">
   <div class="container">
 
     <div class="about-split-home">
@@ -621,12 +1301,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p>From Richmond to Katy and everywhere in between &mdash; here's what our customers say.</p>
     </div>
 
-    <!-- Swiper Carousel -->
-    <div class="swiper reviews-swiper" data-animate="fade-up">
-      <div class="swiper-wrapper">
+    <!-- Reviews — CSS scroll-snap strip (v6.2: no carousel JS) -->
+    <div class="reviews-track" data-animate="fade-up" data-p1-dynamic role="region" aria-label="Customer reviews" tabindex="0">
 
         <?php foreach ($homeReviews as $review): ?>
-        <div class="swiper-slide">
+        <div class="reviews-track-item">
           <div class="review-card">
             <div class="review-stars">
               <span class="star">&#9733;</span>
@@ -649,9 +1328,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         </div>
         <?php endforeach; ?>
 
-      </div><!-- /.swiper-wrapper -->
-      <div class="swiper-pagination" style="margin-top:var(--space-6);position:static;"></div>
-    </div><!-- /.reviews-swiper -->
+    </div><!-- /.reviews-track -->
 
     <!-- Review Platform Badges -->
     <div class="review-badge-strip" data-animate="fade-up">
@@ -710,7 +1387,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 <!-- ═══════════════════════════════════════════════════════════════
      07 — FAQ
 ════════════════════════════════════════════════════════════════ -->
-<section class="numbered-section section-light" data-num="04" style="padding: var(--space-16) 0;" id="faq">
+<section class="numbered-section home-faq" data-num="04" style="padding: var(--space-16) 0;" id="faq">
+
+  <!-- Floating decorative accent: tow hook (page-specific sway) -->
+  <svg class="floating-accent fa-hook" aria-hidden="true" viewBox="0 0 100 100">
+    <path d="M50 8 v28 a20 20 0 1 0 20 20" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="50" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="4"/>
+  </svg>
+
   <div class="container">
 
     <div class="section-header" data-animate="fade-up">
@@ -809,10 +1493,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div><!-- /.container -->
 </section>
 
-<!-- Divider: FAQ (light) → Blog (white) — soft curve -->
-<div class="section-divider" style="background:var(--color-light);" aria-hidden="true">
-  <svg viewBox="0 0 1440 45" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,10 C480,45 960,0 1440,25 L1440,45 L0,45 Z" fill="#ffffff"/>
+<!-- Divider: FAQ (light) → Blog (white) — torn organic edge -->
+<div class="section-divider divider-torn" aria-hidden="true">
+  <svg viewBox="0 0 1440 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path class="divider-torn-shadow" d="M0,50 L0,30 L70,33 L150,24 L240,36 L330,22 L430,38 L530,27 L650,36 L770,20 L890,33 L1010,24 L1130,36 L1250,22 L1360,33 L1440,27 L1440,50 Z"/>
+    <path class="divider-torn-fill" d="M0,50 L0,34 L70,37 L150,28 L240,40 L330,26 L430,42 L530,31 L650,40 L770,24 L890,37 L1010,28 L1130,40 L1250,26 L1360,37 L1440,31 L1440,50 Z"/>
   </svg>
 </div>
 
@@ -899,7 +1584,21 @@ $latestPost = !empty($blogPosts) ? $blogPosts[0] : null;
 <!-- ═══════════════════════════════════════════════════════════════
      08 — CLOSING CTA
 ════════════════════════════════════════════════════════════════ -->
-<section class="closing-cta" aria-labelledby="closing-cta-heading">
+<section class="closing-cta home-closing" aria-labelledby="closing-cta-heading">
+
+  <!-- Floating decorative accent: dispatch route (page-specific drift) -->
+  <svg class="floating-accent fa-route" aria-hidden="true" viewBox="0 0 200 100">
+    <path d="M6 92 C55 24 138 82 192 12" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="10 12" stroke-linecap="round"/>
+    <circle cx="192" cy="12" r="6" fill="currentColor"/>
+    <circle cx="6" cy="92" r="5" fill="none" stroke="currentColor" stroke-width="3"/>
+  </svg>
+
+  <!-- Floating decorative accent: map pin -->
+  <svg class="floating-accent fa-pin" aria-hidden="true" viewBox="0 0 100 100">
+    <path d="M50 92 C31 62 16 50 16 33 a34 34 0 1 1 68 0 C84 50 69 62 50 92 Z" fill="none" stroke="currentColor" stroke-width="5"/>
+    <circle cx="50" cy="34" r="10" fill="currentColor"/>
+  </svg>
+
   <div class="container">
 
     <div data-animate="fade-up">

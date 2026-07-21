@@ -15,8 +15,7 @@ $serviceFaqs = [
     ['q' => 'How fast can Twin Cities Towing respond to an emergency in Richmond, TX?', 'a' => 'Most emergency calls within Richmond and Fort Bend County see a driver on-site within 20–40 minutes. We dispatch immediately upon your call — no hold queue, no transfer to a national center. Your location and the nearest available driver determine ETA, and we confirm that number before you hang up.'],
     ['q' => 'Do you respond to highway breakdowns on I-69 and Highway 90?', 'a' => 'Yes. We respond regularly to breakdowns and accidents along I-69 (US-59), Highway 90, Business 90, FM 359, and all major Fort Bend County roadways. We coordinate with TxDOT and law enforcement when needed for highway-side safety.'],
     ['q' => 'Are you available at 3am on a Sunday?', 'a' => 'Absolutely. 24/7 means every hour of every day — including holidays, overnight, and weekends. There are no off-hours at Twin Cities Towing. If you\'re stranded, call and we will come.'],
-    ['q' => 'What information do I need when I call for emergency towing?', 'a' => 'Just your location (address, mile marker, or cross streets) and what kind of vehicle you have. We\'ll handle the rest. If you\'re not sure where you are, give us a nearby landmark — we know Fort Bend County roads well.'],
-];
+    ['q' => 'What information do I need when I call for emergency towing?', 'a' => 'Just your location (address, mile marker, or cross streets) and what kind of vehicle you have. We\'ll handle the rest. If you\'re not sure where you are, give us a nearby landmark — we know Fort Bend County roads well.']];
 
 $schemaMarkup = [
     '@context' => 'https://schema.org',
@@ -24,22 +23,426 @@ $schemaMarkup = [
         ['@type' => 'BreadcrumbList', 'itemListElement' => [
             ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',     'item' => $domain],
             ['@type' => 'ListItem', 'position' => 2, 'name' => 'Services', 'item' => $domain . '/services'],
-            ['@type' => 'ListItem', 'position' => 3, 'name' => 'Emergency Towing'],
-        ]],
+            ['@type' => 'ListItem', 'position' => 3, 'name' => 'Emergency Towing']]],
         ['@type' => 'Service', '@id' => $domain . '/services/emergency-towing/#service',
          'name' => 'Emergency Towing', 'url' => $domain . '/services/emergency-towing',
          'description' => '24/7 emergency towing in Richmond TX with fast response times throughout Fort Bend County.',
          'provider' => ['@type' => 'LocalBusiness', '@id' => $domain . '/#business'],
          'areaServed' => ['@type' => 'City', 'name' => 'Richmond, TX'], 'serviceType' => 'Emergency Towing'],
-        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business',
-         'aggregateRating' => ['@type' => 'AggregateRating', 'ratingValue' => '4.9', 'reviewCount' => '142', 'bestRating' => '5']],
-        generateFAQSchema($serviceFaqs),
-    ],
-];
+        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business'],
+        generateFAQSchema($serviceFaqs)]];
 
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 ?>
+<style>
+/* ============================================================
+   EMERGENCY TOWING — page-specific premium layer
+   Theme: "Urgency / Live Dispatch" — dark bands, beacon pulses,
+   danger-token accents, radar rings.
+   Techniques: C1 layered hero (radial beacon gradient + noise),
+   C3 dividers x2 (stacked parallelograms + jagged bolt edge),
+   C7 signature dark urgency band w/ pulsing dispatch strip,
+   C6.4 glass process cards, staggered asymmetric why-grid,
+   tinted FAQ rotation, floating radar accents, C5 balance.
+   Tokens only — no hardcoded colors/shadows/spacing.
+   ============================================================ */
+
+/* ---------- typographic balance on every heading ---------- */
+h1, h2, h3, h4 { text-wrap: balance; }
+
+/* ============================================================
+   T1 — LAYERED HERO (off-center beacon radial + noise)
+   ============================================================ */
+.emrg-hero { isolation: isolate; }
+.emrg-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(var(--color-primary-rgb), 0.55) 0%, transparent 60%),
+    radial-gradient(ellipse at 78% 72%, color-mix(in srgb, var(--color-danger) 26%, transparent) 0%, transparent 46%),
+    linear-gradient(160deg,
+      rgba(var(--color-primary-rgb), 0.95) 0%,
+      rgba(var(--color-primary-rgb), 0.82) 55%,
+      rgba(var(--color-primary-rgb), 0.92) 100%);
+  z-index: 1;
+}
+.emrg-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='en'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23en)' opacity='0.05'/%3E%3C/svg%3E");
+  z-index: 1;
+  pointer-events: none;
+}
+.emrg-hero .hero-overlay { background: transparent; }
+.emrg-hero .hero-content { z-index: 2; }
+.emrg-hero .hero-title {
+  font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-6xl));
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+.emrg-hero .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  background: color-mix(in srgb, var(--color-danger) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-danger) 45%, transparent);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-5);
+  color: var(--color-white);
+}
+/* live beacon dot inside the hero eyebrow */
+.emrg-hero .hero-eyebrow::before {
+  content: '';
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-danger);
+  margin-right: var(--space-2);
+  animation: emrg-beacon 1.4s ease-in-out infinite;
+}
+@keyframes emrg-beacon {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-danger) 55%, transparent); }
+  60%      { box-shadow: 0 0 0 var(--space-2) transparent; }
+}
+
+/* Ticker: hazard-striped edge, unique to this page */
+.emrg-ticker.ticker-strip {
+  background: var(--color-dark);
+  border-top: var(--space-1) solid var(--color-danger);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-danger) 35%, transparent);
+}
+
+/* ============================================================
+   T2 — SVG SECTION DIVIDERS (parallelograms + jagged bolt)
+   ============================================================ */
+.emrg-divider {
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+}
+.emrg-divider svg {
+  display: block;
+  width: 100%;
+  height: clamp(var(--space-8), 5vw, var(--space-16));
+}
+/* Style A: stacked parallelograms (white detail -> light why) */
+.emrg-divider--planes {
+  background: var(--color-white);
+  color: var(--color-light);
+}
+.emrg-divider--planes .plane-soft { opacity: 0.4; }
+/* Style B: jagged bolt edge (dark band -> CTA gradient) */
+.emrg-divider--bolt {
+  background: var(--color-primary);
+  color: var(--color-dark);
+}
+
+/* ============================================================
+   T3 — SIGNATURE: DARK URGENCY BAND + PULSING DISPATCH STRIP
+   ============================================================ */
+.emrg-band {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(var(--color-accent-rgb), 0.10) 0%, transparent 55%),
+    linear-gradient(165deg, var(--color-dark) 0%, var(--color-dark-alt) 100%);
+  padding: var(--space-16) 0;
+}
+.emrg-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='bn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23bn)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.emrg-band .container { position: relative; z-index: 1; }
+.emrg-band .section-header h2 { color: var(--color-white); }
+.emrg-band .section-header .eyebrow { color: var(--color-accent); }
+
+/* The pulsing dispatch strip */
+.emrg-dispatch-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-4);
+  margin: 0 auto var(--space-10);
+  max-width: fit-content;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--color-danger) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-danger) 40%, transparent);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  animation: emrg-strip-glow 2.2s ease-in-out infinite;
+}
+.emrg-pulse-dot {
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-danger);
+  flex-shrink: 0;
+  animation: emrg-beacon 1.4s ease-in-out infinite;
+}
+.emrg-strip-sep { color: color-mix(in srgb, var(--color-white) 35%, transparent); }
+@keyframes emrg-strip-glow {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-danger) 25%, transparent); }
+  50%      { box-shadow: 0 0 0 var(--space-1) color-mix(in srgb, var(--color-danger) 12%, transparent); }
+}
+
+/* Glass process cards on the dark band (C6.4) */
+.emrg-band .process-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.emrg-band .process-step {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+  background: color-mix(in srgb, var(--color-white) 5%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in srgb, var(--color-white) 10%, transparent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+.emrg-band .process-step:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+  transform: translateY(calc(-1 * var(--space-1)));
+}
+.emrg-band .process-step-num {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-10);
+  height: var(--space-10);
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-danger) 0%, color-mix(in srgb, var(--color-danger) 55%, var(--color-primary)) 100%);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  box-shadow: var(--shadow-md);
+}
+.emrg-band .process-step h3 {
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+}
+.emrg-band .process-step .prose {
+  color: color-mix(in srgb, var(--color-white) 72%, transparent);
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+/* ============================================================
+   T4 — ASYMMETRIC / STAGGERED WHY-GRID
+   ============================================================ */
+.emrg-why { position: relative; overflow: hidden; }
+.emrg-why .grid-2 {
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+}
+.emrg-why .benefit-item:nth-child(even) {
+  transform: translateY(var(--space-8));
+}
+.emrg-why .benefit-item {
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--transition-base);
+}
+/* corner tick — response-time motif */
+.emrg-why .benefit-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--space-8);
+  height: var(--space-8);
+  background: linear-gradient(225deg, color-mix(in srgb, var(--color-danger) 22%, transparent) 0%, transparent 55%);
+  pointer-events: none;
+}
+.emrg-why .benefit-item:hover { box-shadow: var(--shadow-md); }
+
+/* ============================================================
+   T5 — TINTED CARD ROTATION (benefits + FAQ, never all-white)
+   ============================================================ */
+.emrg-why .benefit-item:nth-child(4n+1) {
+  background: color-mix(in srgb, var(--color-danger) 6%, var(--color-white));
+}
+.emrg-why .benefit-item:nth-child(4n+2) {
+  background: color-mix(in srgb, var(--color-primary) 7%, var(--color-white));
+}
+.emrg-why .benefit-item:nth-child(4n+3) {
+  background: color-mix(in srgb, var(--color-accent) 7%, var(--color-white));
+}
+.emrg-why .benefit-item:nth-child(4n+4) {
+  background: color-mix(in srgb, var(--color-secondary) 9%, var(--color-white));
+}
+.emrg-faq .faq-item {
+  border-top: var(--space-1) solid transparent;
+}
+.emrg-faq .faq-item:nth-child(3n+1) {
+  background: color-mix(in srgb, var(--color-danger) 5%, var(--color-white));
+  border-top-color: color-mix(in srgb, var(--color-danger) 60%, transparent);
+}
+.emrg-faq .faq-item:nth-child(3n+2) {
+  background: color-mix(in srgb, var(--color-accent) 6%, var(--color-white));
+  border-top-color: color-mix(in srgb, var(--color-accent) 60%, transparent);
+}
+.emrg-faq .faq-item:nth-child(3n+3) {
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-white));
+  border-top-color: color-mix(in srgb, var(--color-primary) 60%, transparent);
+}
+
+/* ============================================================
+   T6 — FLOATING DECORATIVE ACCENTS (radar rings, 4–7% opacity)
+   ============================================================ */
+.emrg-float {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+.emrg-float--radar {
+  top: var(--space-12);
+  right: calc(-1 * var(--space-16));
+  width: clamp(var(--space-16), 22vw, calc(var(--space-16) * 4.5));
+  aspect-ratio: 1;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-danger);
+  opacity: 0.06;
+  animation: emrg-radar 5s ease-out infinite;
+}
+.emrg-float--radar::before,
+.emrg-float--radar::after {
+  content: '';
+  position: absolute;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-danger);
+}
+.emrg-float--radar::before { inset: 22%; }
+.emrg-float--radar::after { inset: 44%; background: color-mix(in srgb, var(--color-danger) 30%, transparent); }
+.emrg-float--crosshair {
+  bottom: var(--space-16);
+  left: calc(-1 * var(--space-12));
+  width: clamp(var(--space-16), 15vw, calc(var(--space-16) * 3));
+  aspect-ratio: 1;
+  border-radius: var(--radius-full);
+  border: var(--space-1) dashed var(--color-primary);
+  opacity: 0.05;
+  animation: emrg-sweep 40s linear infinite;
+}
+@keyframes emrg-radar {
+  from { transform: scale(0.92); opacity: 0.07; }
+  70%  { transform: scale(1.04); opacity: 0.04; }
+  to   { transform: scale(0.92); opacity: 0.07; }
+}
+@keyframes emrg-sweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* ============================================================
+   Detail split + answer block accents
+   ============================================================ */
+.emrg-detail { position: relative; overflow: hidden; }
+.emrg-detail .split { position: relative; z-index: 1; }
+.emrg-detail .split-content .eyebrow {
+  color: var(--color-danger);
+  border-bottom: 2px solid color-mix(in srgb, var(--color-danger) 50%, transparent);
+  padding-bottom: var(--space-1);
+}
+.emrg-detail .img-reveal {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+}
+.emrg-detail .service-sidebar-card {
+  border-radius: var(--radius-lg);
+  border-left: var(--space-1) solid var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 4%, var(--color-white));
+  box-shadow: var(--shadow-card);
+}
+.emrg-detail .answer-block {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-danger) 7%, var(--color-white)) 0%, color-mix(in srgb, var(--color-accent) 6%, var(--color-white)) 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--color-danger) 22%, transparent);
+}
+
+.emrg-detail .service-sidebar-card h4 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-danger) 25%, transparent);
+  padding-bottom: var(--space-3);
+}
+.emrg-detail .service-sidebar-card ul li {
+  transition: transform var(--transition-fast);
+}
+.emrg-detail .service-sidebar-card ul li:hover {
+  transform: translateX(var(--space-1));
+}
+.emrg-detail a:focus-visible,
+.emrg-band a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Closing CTA glow */
+.emrg-closing { position: relative; overflow: hidden; }
+.emrg-closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--color-danger) 14%, transparent) 0%, transparent 60%);
+  pointer-events: none;
+}
+.emrg-closing .container { position: relative; }
+
+/* ============================================================
+   Responsive collapse + reduced motion (pulses fully disabled)
+   ============================================================ */
+@media (max-width: 1024px) {
+  .emrg-band .process-steps { grid-template-columns: 1fr; }
+  .emrg-why .grid-2 { grid-template-columns: 1fr; }
+  .emrg-why .benefit-item:nth-child(even) { transform: none; }
+}
+@media (max-width: 640px) {
+  .emrg-dispatch-strip {
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
+  }
+  .emrg-float { display: none; }
+  .emrg-divider svg { height: var(--space-6); }
+  .emrg-hero .hero-title { font-size: var(--font-size-4xl); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .emrg-hero .hero-eyebrow::before,
+  .emrg-pulse-dot,
+  .emrg-dispatch-strip,
+  .emrg-float--radar,
+  .emrg-float--crosshair {
+    animation: none;
+  }
+  .emrg-band .process-step { transition: none; }
+}
+</style>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php'; ?>
 
 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
   <div class="container">
@@ -60,7 +463,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </nav>
 
-<section class="service-hero"
+<section class="service-hero emrg-hero"
          style="background-image: url('<?php echo htmlspecialchars($clientPhotos[4]); ?>');"
          aria-labelledby="service-hero-heading">
   <div class="hero-overlay"></div>
@@ -90,7 +493,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
-<div class="ticker-strip" aria-hidden="true">
+<div class="ticker-strip emrg-ticker" aria-hidden="true">
   <div class="ticker-track">
     <span>&#9200;&nbsp; Immediate Dispatch — No Hold Queue</span>
     <span class="ticker-sep">&#9670;</span>
@@ -116,7 +519,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 </div>
 
 <!-- SERVICE DETAIL -->
-<section class="section-white" style="padding: var(--space-16) 0;">
+<section class="section-white emrg-detail" style="padding: var(--space-16) 0;">
+  <div class="emrg-float emrg-float--radar" aria-hidden="true"></div>
+  <div class="emrg-float emrg-float--crosshair" aria-hidden="true"></div>
   <div class="container">
     <div class="split" data-animate="fade-up">
       <div class="split-content">
@@ -169,8 +574,16 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
+<!-- DIVIDER: stacked parallelograms into why band -->
+<div class="emrg-divider emrg-divider--planes" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <polygon class="plane-soft" fill="currentColor" points="0,20 1200,40 1200,80 0,80"/>
+    <polygon fill="currentColor" points="0,40 1200,20 1200,80 0,80"/>
+  </svg>
+</div>
+
 <!-- WHY CHOOSE US -->
-<section class="section-light" style="padding: var(--space-16) 0;">
+<section class="section-light emrg-why" style="padding: var(--space-16) 0;">
   <div class="container">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">Why Twin Cities Towing</span>
@@ -214,12 +627,20 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="section-white" style="padding: var(--space-16) 0;">
+<!-- PROCESS — SIGNATURE DARK URGENCY BAND -->
+<section class="emrg-band">
   <div class="container">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">How It Works</span>
       <h2>Emergency Towing — From Your Call to Safe Delivery</h2>
+    </div>
+    <div class="emrg-dispatch-strip" aria-hidden="true">
+      <span class="emrg-pulse-dot"></span>
+      <span>Dispatch Live Now</span>
+      <span class="emrg-strip-sep">&bull;</span>
+      <span>Richmond &amp; Fort Bend County</span>
+      <span class="emrg-strip-sep">&bull;</span>
+      <span>Under 2 Minutes to Wheels Rolling</span>
     </div>
     <ol class="process-steps" data-animate="fade-up">
       <li class="process-step">
@@ -254,6 +675,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
+<!-- DIVIDER: jagged bolt edge out of the dark band -->
+<div class="emrg-divider emrg-divider--bolt" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,0 L0,26 L150,14 L290,34 L420,10 L560,38 L700,16 L840,34 L980,12 L1100,30 L1200,18 L1200,0 Z" fill="currentColor"/></svg>
+</div>
+
 <!-- MID-PAGE CTA -->
 <section class="cta-banner" aria-labelledby="emerg-cta-heading">
   <div class="container">
@@ -278,13 +704,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 </section>
 
 <!-- FAQ -->
-<section class="section-light" style="padding: var(--space-16) 0;" id="faq">
+<section class="section-light emrg-faq" style="padding: var(--space-16) 0;" id="faq">
   <div class="container">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">Common Questions</span>
       <h2>Emergency Towing FAQs &mdash; Richmond, TX</h2>
     </div>
-    <div class="faq-grid" data-animate="fade-up">
+    <div class="faq-grid" data-animate="fade-up" data-p1-dynamic>
       <?php foreach ($serviceFaqs as $faq): ?>
       <div class="faq-item">
         <div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><circle cx="12" cy="12" r="10" />
@@ -301,7 +727,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 </section>
 
 <!-- CLOSING CTA -->
-<section class="closing-cta" aria-labelledby="emerg-close-heading">
+<section class="closing-cta emrg-closing" aria-labelledby="emerg-close-heading">
   <div class="container">
     <div data-animate="fade-up">
       <span style="display:block;font-family:var(--font-heading);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--color-accent);margin-bottom:var(--space-3);">Emergency Towing &mdash; 24/7</span>

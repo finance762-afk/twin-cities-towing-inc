@@ -15,8 +15,7 @@ $serviceFaqs = [
     ['q' => 'What if my car breaks down on a highway in Richmond, TX?', 'a' => 'Highway breakdowns are treated as high-priority calls. Turn on your hazard lights, pull as far onto the shoulder as possible, and call us immediately. We dispatch quickly and arrive with warning equipment to protect you from passing traffic. Don\'t stay in or near the vehicle on an active highway shoulder — get behind the guard rail if possible.'],
     ['q' => 'Can you tell me what\'s wrong with my car when you arrive?', 'a' => 'Our drivers are experienced with common breakdown symptoms and will give you their honest read on what may be happening. However, we\'re tow operators — not mechanics — and won\'t make repair promises or misdiagnose. We can help you get to a mechanic who can do a proper diagnosis. If the issue might be fixable roadside (dead battery, for instance), we\'ll try that first.'],
     ['q' => 'My car died at home and won\'t start — can you still tow it?', 'a' => 'Absolutely. We tow from any location — driveways, parking lots, garages (standard height), streets. If you\'re in a private driveway or parking structure, give us the details when you call and we\'ll confirm access. Most residential and commercial tow pickups present no issues.'],
-    ['q' => 'How do I lock my car if the battery is completely dead?', 'a' => 'Most modern vehicles have a mechanical key hidden inside the key fob for battery-dead situations. Your owner\'s manual will show you the hidden key slot location. If you\'re unable to secure the vehicle, stay with it until we arrive — we can help with secure handoff at your destination.'],
-];
+    ['q' => 'How do I lock my car if the battery is completely dead?', 'a' => 'Most modern vehicles have a mechanical key hidden inside the key fob for battery-dead situations. Your owner\'s manual will show you the hidden key slot location. If you\'re unable to secure the vehicle, stay with it until we arrive — we can help with secure handoff at your destination.']];
 
 $schemaMarkup = [
     '@context' => 'https://schema.org',
@@ -24,20 +23,491 @@ $schemaMarkup = [
         ['@type' => 'BreadcrumbList', 'itemListElement' => [
             ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',     'item' => $domain],
             ['@type' => 'ListItem', 'position' => 2, 'name' => 'Services', 'item' => $domain . '/services'],
-            ['@type' => 'ListItem', 'position' => 3, 'name' => 'Breakdown Towing'],
-        ]],
+            ['@type' => 'ListItem', 'position' => 3, 'name' => 'Breakdown Towing']]],
         ['@type' => 'Service', '@id' => $domain . '/services/breakdown-towing/#service',
          'name' => 'Breakdown Towing', 'url' => $domain . '/services/breakdown-towing',
          'description' => 'Vehicle breakdown towing in Richmond TX for mechanical failures. 24/7 availability throughout Fort Bend County.',
          'provider' => ['@type' => 'LocalBusiness', '@id' => $domain . '/#business'],
          'areaServed' => ['@type' => 'City', 'name' => 'Richmond, TX'], 'serviceType' => 'Breakdown Towing'],
-        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business',
-         'aggregateRating' => ['@type' => 'AggregateRating', 'ratingValue' => '4.9', 'reviewCount' => '142', 'bestRating' => '5']],
-        generateFAQSchema($serviceFaqs),
-    ],
-];
+        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business'],
+        generateFAQSchema($serviceFaqs)]];
 
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
+?>
+<style>
+/* ============================================================
+   Breakdown Towing — page-specific premium styles
+   Archetype: "Diagnostic Console" — dark symptom-diagnosis
+   signature panel, diagonal + torn-edge dividers, drifting
+   spark accent. Tokens only — no hardcoded values.
+   ============================================================ */
+
+/* ---------- Typography baseline (C5.5) ---------- */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* ---------- C1.4 Layered hero: gradient + noise ---------- */
+.service-hero {
+  min-height: 62vh;
+  isolation: isolate;
+}
+.service-hero .hero-overlay {
+  /* base scrim kept subtle; the composed gradient lives on ::before */
+  background: rgba(var(--color-primary-rgb), 0.55);
+}
+.service-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      150deg,
+      rgba(var(--color-primary-rgb), 0.94) 0%,
+      rgba(var(--color-primary-rgb), 0.72) 48%,
+      color-mix(in srgb, var(--color-accent) 22%, transparent) 100%
+    );
+  pointer-events: none;
+}
+.service-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+}
+.service-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-16) var(--space-6) var(--space-12);
+}
+.service-hero .hero-eyebrow {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.service-hero .hero-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--space-4);
+}
+.service-hero .hero-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) skewX(-18deg);
+  width: var(--space-16);
+  height: var(--space-1);
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    color-mix(in srgb, var(--color-accent) 20%, transparent) 100%
+  );
+  border-radius: var(--radius-full);
+}
+
+/* ---------- Ticker accent (page-tinted) ---------- */
+.ticker-strip {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary) 60%,
+    color-mix(in srgb, var(--color-accent) 35%, var(--color-primary)) 100%
+  );
+  border-top: 2px solid color-mix(in srgb, var(--color-accent) 60%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+/* ---------- C3 Divider style 1: diagonal shear ---------- */
+.bd-divider {
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+}
+.bd-divider svg {
+  display: block;
+  width: 100%;
+  height: var(--space-12);
+}
+.bd-divider--diagonal {
+  background: var(--color-white);
+}
+.bd-divider--diagonal svg polygon {
+  fill: var(--color-dark);
+}
+
+/* ---------- C3 Divider style 2: torn organic edge ---------- */
+.bd-divider--torn {
+  background: var(--color-light);
+}
+.bd-divider--torn svg path {
+  fill: var(--color-primary);
+}
+
+/* ---------- Intro split: editorial treatment + floating accent ---------- */
+.section-white {
+  position: relative;
+  overflow: hidden;
+}
+/* Floating decorative spark — 4-8% opacity, slow drift (C7 accent) */
+.section-white::after {
+  content: '';
+  position: absolute;
+  top: var(--space-16);
+  right: calc(-1 * var(--space-16));
+  width: clamp(var(--space-16), 22vw, calc(var(--space-16) * 5));
+  aspect-ratio: 1;
+  border-radius: var(--radius-full);
+  background: radial-gradient(
+    circle at 35% 35%,
+    color-mix(in srgb, var(--color-accent) 60%, transparent) 0%,
+    transparent 70%
+  );
+  opacity: 0.06;
+  pointer-events: none;
+  animation: bd-drift 14s ease-in-out infinite alternate;
+}
+@keyframes bd-drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(calc(-1 * var(--space-10)), var(--space-12), 0) scale(1.12); }
+}
+.split-content .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border-bottom: 2px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
+  padding-bottom: var(--space-1);
+}
+.split-content h2 {
+  position: relative;
+}
+/* Editorial drop-cap on the opening paragraph (C5.4) */
+.split-content .prose > p:first-child::first-letter {
+  float: left;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-5xl);
+  font-weight: 700;
+  line-height: 0.85;
+  padding: var(--space-1) var(--space-2) 0 0;
+  color: var(--color-primary);
+}
+.split .img-reveal,
+.split-reverse .img-reveal {
+  position: relative;
+  box-shadow: var(--shadow-xl);
+}
+.split-reverse .split-image {
+  position: relative;
+}
+/* Offset accent frame behind image (C11.1) */
+.split-reverse .split-image::before {
+  content: '';
+  position: absolute;
+  inset: var(--space-4) calc(-1 * var(--space-3)) calc(-1 * var(--space-3)) var(--space-4);
+  border: 2px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+
+/* ---------- Answer block: tinted AEO panel ---------- */
+.answer-block {
+  background: linear-gradient(
+    120deg,
+    rgba(var(--color-primary-rgb), 0.06) 0%,
+    color-mix(in srgb, var(--color-accent) 7%, transparent) 100%
+  );
+  border-left-width: var(--space-1);
+  position: relative;
+  overflow: hidden;
+}
+.answer-block::after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--space-10));
+  right: calc(-1 * var(--space-10));
+  width: var(--space-16);
+  aspect-ratio: 1;
+  border-radius: var(--radius-full);
+  border: 2px dashed color-mix(in srgb, var(--color-accent) 30%, transparent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ============================================================
+   SIGNATURE SECTION (C7): Symptom-Diagnosis Console
+   The "Why" benefits grid becomes a dark diagnostic panel —
+   numbered symptom cards on a glowing rail. Unique to this page.
+   ============================================================ */
+.bd-diagnosis {
+  background:
+    radial-gradient(
+      ellipse at 18% 12%,
+      color-mix(in srgb, var(--color-accent) 14%, transparent) 0%,
+      transparent 55%
+    ),
+    linear-gradient(165deg, var(--color-dark) 0%, var(--color-dark-alt) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.bd-diagnosis::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+}
+.bd-diagnosis .section-header h2 {
+  color: var(--color-white);
+}
+.bd-diagnosis .section-header .eyebrow {
+  color: var(--color-accent);
+  letter-spacing: 0.24em;
+}
+.bd-diagnosis .section-header {
+  position: relative;
+  z-index: 1;
+}
+/* Diagnosis rail down the center of the grid */
+.bd-diagnosis .grid-2 {
+  position: relative;
+  z-index: 1;
+  counter-reset: bd-symptom;
+  grid-template-columns: 1.15fr 1fr; /* asymmetric split (C6.1) */
+  gap: var(--space-8) var(--space-10);
+}
+/* Broken-grid offset: right column steps down */
+.bd-diagnosis .benefit-item:nth-child(even) {
+  transform: translateY(var(--space-8));
+}
+.bd-diagnosis .benefit-item {
+  counter-increment: bd-symptom;
+  position: relative;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-white) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-white) 11%, transparent);
+  border-left: 3px solid var(--color-accent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+}
+/* Watermark diagnosis number (01–04) */
+.bd-diagnosis .benefit-item::after {
+  content: '0' counter(bd-symptom);
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-4);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  line-height: 1;
+  color: color-mix(in srgb, var(--color-accent) 60%, transparent);
+  opacity: 0.16;
+  pointer-events: none;
+}
+.bd-diagnosis .benefit-item h3 {
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+}
+.bd-diagnosis .benefit-item p.prose {
+  color: color-mix(in srgb, var(--color-white) 72%, transparent);
+}
+.bd-diagnosis .benefit-item svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: var(--space-1);
+  transition: transform var(--transition-base);
+}
+.bd-diagnosis .benefit-item:hover {
+  transform: translateY(calc(-1 * var(--space-1)));
+  background: color-mix(in srgb, var(--color-white) 8%, transparent);
+  border-left-color: var(--color-white);
+}
+.bd-diagnosis .benefit-item:nth-child(even):hover {
+  transform: translateY(calc(var(--space-8) - var(--space-1)));
+}
+.bd-diagnosis .benefit-item:hover svg {
+  transform: rotate(-8deg) scale(1.12);
+}
+
+/* ---------- Mid-page CTA banner: radial glow + noise (C4.1) ---------- */
+.cta-banner {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary) 55%,
+    var(--color-secondary) 100%
+  );
+}
+.cta-banner::before {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      color-mix(in srgb, var(--color-accent) 24%, transparent) 0%,
+      transparent 62%
+    );
+  opacity: 1;
+}
+.cta-banner p {
+  color: color-mix(in srgb, var(--color-white) 85%, transparent);
+  max-width: var(--bp-tablet);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- FAQ: rotating tinted cards ---------- */
+#faq .faq-item {
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+#faq .faq-item:nth-child(4n+1) {
+  background: rgba(var(--color-primary-rgb), 0.07);
+}
+#faq .faq-item:nth-child(4n+2) {
+  background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+}
+#faq .faq-item:nth-child(4n+3) {
+  background: rgba(var(--color-secondary-rgb), 0.08);
+}
+#faq .faq-item:nth-child(4n+4) {
+  background: var(--color-white);
+  border-color: var(--color-gray-light);
+}
+#faq .faq-item:hover {
+  transform: translateY(calc(-1 * var(--space-1)));
+  box-shadow: var(--shadow-lg);
+  border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+#faq .faq-icon {
+  background: linear-gradient(140deg, var(--color-primary) 0%, var(--color-accent) 130%);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------- Closing CTA: top-arc glow (C9.2) ---------- */
+.closing-cta {
+  position: relative;
+  overflow: hidden;
+}
+.closing-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    color-mix(in srgb, var(--color-accent) 18%, transparent) 0%,
+    transparent 58%
+  );
+  pointer-events: none;
+}
+.closing-cta .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Buttons: sheen micro-interaction (C10) ---------- */
+.hero-buttons .btn::after,
+.closing-actions .btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(-1 * var(--space-16));
+  width: var(--space-10);
+  height: 100%;
+  transform: skewX(-20deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--color-white) 35%, transparent) 50%,
+    transparent 100%
+  );
+  transition: left var(--transition-slow);
+  pointer-events: none;
+}
+.hero-buttons .btn:hover::after,
+.closing-actions .btn:hover::after {
+  left: calc(100% + var(--space-16));
+}
+
+/* ---------- Reveal support (fail-open, gated under html.js-anim) ---------- */
+html.js-anim .bd-diagnosis .benefit-item {
+  opacity: 0;
+  transform: translateY(var(--space-4));
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+html.js-anim .bd-diagnosis .benefit-item.animated,
+html.js-anim .bd-diagnosis .benefit-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+html.js-anim .bd-diagnosis .benefit-item:nth-child(even).animated,
+html.js-anim .bd-diagnosis .benefit-item:nth-child(even).revealed {
+  transform: translateY(var(--space-8));
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .bd-diagnosis .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .service-hero {
+    min-height: 52vh;
+  }
+  .bd-diagnosis .grid-2 {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .bd-diagnosis .benefit-item:nth-child(even) {
+    transform: none;
+  }
+  .bd-diagnosis .benefit-item:nth-child(even):hover {
+    transform: translateY(calc(-1 * var(--space-1)));
+  }
+  html.js-anim .bd-diagnosis .benefit-item:nth-child(even).animated,
+  html.js-anim .bd-diagnosis .benefit-item:nth-child(even).revealed {
+    transform: translateY(0);
+  }
+  .split-reverse .split-image::before {
+    display: none;
+  }
+  .section-white::after {
+    display: none;
+  }
+  .bd-divider svg {
+    height: var(--space-6);
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .section-white::after {
+    animation: none;
+  }
+  .hero-buttons .btn::after,
+  .closing-actions .btn::after {
+    display: none;
+  }
+  .bd-diagnosis .benefit-item,
+  .bd-diagnosis .benefit-item svg,
+  #faq .faq-item {
+    transition: none;
+  }
+}
+</style>
+<?php
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 ?>
 
@@ -149,7 +619,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
-<section class="section-light" style="padding: var(--space-16) 0;">
+<div class="bd-divider bd-divider--diagonal" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><polygon points="0,60 1200,0 1200,60 0,60"/></svg>
+</div>
+
+<section class="bd-diagnosis" style="padding: var(--space-16) 0;">
   <div class="container">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">Why Twin Cities Towing</span>
@@ -233,6 +707,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     </div>
   </div>
 </section>
+
+<div class="bd-divider bd-divider--torn" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,60 L0,40 L60,42 L120,35 L200,45 L280,32 L360,48 L440,38 L540,45 L640,30 L740,42 L840,35 L940,45 L1040,32 L1140,42 L1200,38 L1200,60 Z"/></svg>
+</div>
 
 <section class="closing-cta" aria-labelledby="break-close-heading">
   <div class="container">

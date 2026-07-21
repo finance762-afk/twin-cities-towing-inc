@@ -15,8 +15,7 @@ $serviceFaqs = [
     ['q' => 'How do you unlock a car without damaging the door or window?', 'a' => 'We use professional slim jim tools, air wedge kits, and long-reach tools designed to work through existing door seal gaps — not by forcing or prying. The goal is always zero damage to your vehicle. Our operators are trained specifically on lockout technique and work methodically to access the lock or interior handle safely.'],
     ['q' => 'Do you unlock newer cars with push-button start and keyless entry?', 'a' => 'Yes. Modern keyless entry vehicles still have a physical key cylinder accessible through the door handle or a hidden location. Our tools and techniques work on virtually all passenger vehicle makes and models through 2025, including push-button start systems. If you have an unusual vehicle, give us the make and model when you call and we\'ll confirm before dispatch.'],
     ['q' => 'How fast can you reach me for a lockout in Richmond, TX?', 'a' => 'Most lockout calls in the Richmond and Fort Bend County area see us on-site within 20–35 minutes. Once there, most vehicles are unlocked in 5–15 minutes, putting you back in your car well under an hour from your first call.'],
-    ['q' => 'I left my keys in the car with the engine running — is that an emergency?', 'a' => 'That\'s a priority call. A running engine with keys inside means fuel consumption, potential overheating risk if parked in the sun, and a security concern. Call us immediately and mention the engine is running — we\'ll bump the dispatch priority and get there as fast as possible.'],
-];
+    ['q' => 'I left my keys in the car with the engine running — is that an emergency?', 'a' => 'That\'s a priority call. A running engine with keys inside means fuel consumption, potential overheating risk if parked in the sun, and a security concern. Call us immediately and mention the engine is running — we\'ll bump the dispatch priority and get there as fast as possible.']];
 
 $schemaMarkup = [
     '@context' => 'https://schema.org',
@@ -24,20 +23,491 @@ $schemaMarkup = [
         ['@type' => 'BreadcrumbList', 'itemListElement' => [
             ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',     'item' => $domain],
             ['@type' => 'ListItem', 'position' => 2, 'name' => 'Services', 'item' => $domain . '/services'],
-            ['@type' => 'ListItem', 'position' => 3, 'name' => 'Lockout Service'],
-        ]],
+            ['@type' => 'ListItem', 'position' => 3, 'name' => 'Lockout Service']]],
         ['@type' => 'Service', '@id' => $domain . '/services/lockout-service/#service',
          'name' => 'Lockout Service', 'url' => $domain . '/services/lockout-service',
          'description' => 'Fast car lockout service in Richmond TX. Professional unlocking without damage, available 24/7 throughout Fort Bend County.',
          'provider' => ['@type' => 'LocalBusiness', '@id' => $domain . '/#business'],
          'areaServed' => ['@type' => 'City', 'name' => 'Richmond, TX'], 'serviceType' => 'Vehicle Lockout Service'],
-        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business',
-         'aggregateRating' => ['@type' => 'AggregateRating', 'ratingValue' => '4.9', 'reviewCount' => '142', 'bestRating' => '5']],
-        generateFAQSchema($serviceFaqs),
-    ],
-];
+        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business'],
+        generateFAQSchema($serviceFaqs)]];
 
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
+?>
+<style>
+/* ============================================================
+   Lockout Service — page-specific premium styles
+   Archetype: "Security Keyline" — vertical duotone hero framed
+   by an inset keyline, double-wave + reverse-diagonal dividers,
+   no-damage promise band signature, offset FAQ masonry.
+   Tokens only — no hardcoded values.
+   ============================================================ */
+
+/* ---------- Typography baseline (C5.5) ---------- */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* ---------- C1.4 Layered hero: vertical duotone + keyline frame ---------- */
+.service-hero {
+  min-height: 60vh;
+  isolation: isolate;
+}
+.service-hero .hero-overlay {
+  background: rgba(var(--color-primary-rgb), 0.45);
+}
+.service-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-primary-rgb), 0.92) 0%,
+    rgba(var(--color-secondary-rgb), 0.62) 52%,
+    rgba(var(--color-primary-rgb), 0.94) 100%
+  );
+  pointer-events: none;
+}
+.service-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+}
+/* Inset keyline frame — the "lock plate" motif */
+.service-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  margin: var(--space-8);
+  padding: var(--space-12) var(--space-8);
+  border: 1px solid color-mix(in srgb, var(--color-white) 25%, transparent);
+  border-radius: var(--radius-xl);
+  background: rgba(var(--color-primary-rgb), 0.18);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+/* Keyline corner ticks */
+.service-hero .hero-content::before,
+.service-hero .hero-content::after {
+  content: '';
+  position: absolute;
+  width: var(--space-8);
+  aspect-ratio: 1;
+  border-color: var(--color-accent);
+  border-style: solid;
+  pointer-events: none;
+}
+.service-hero .hero-content::before {
+  top: calc(-1 * var(--space-1));
+  left: calc(-1 * var(--space-1));
+  border-width: 3px 0 0 3px;
+  border-top-left-radius: var(--radius-lg);
+}
+.service-hero .hero-content::after {
+  bottom: calc(-1 * var(--space-1));
+  right: calc(-1 * var(--space-1));
+  border-width: 0 3px 3px 0;
+  border-bottom-right-radius: var(--radius-lg);
+}
+.service-hero .hero-eyebrow {
+  border: none;
+  background: color-mix(in srgb, var(--color-accent) 16%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------- Ticker: keyline strip ---------- */
+.ticker-strip {
+  background: var(--color-dark);
+  border-top: 1px dashed color-mix(in srgb, var(--color-accent) 55%, transparent);
+  border-bottom: 1px dashed color-mix(in srgb, var(--color-accent) 55%, transparent);
+}
+
+/* ---------- C3 Divider style 1: double wave ---------- */
+.lk-divider {
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+}
+.lk-divider svg {
+  display: block;
+  width: 100%;
+  height: var(--space-16);
+}
+.lk-divider--doublewave {
+  background: var(--color-white);
+}
+.lk-divider--doublewave svg .wave-soft {
+  fill: var(--color-light);
+  opacity: 0.45;
+}
+.lk-divider--doublewave svg .wave-solid {
+  fill: var(--color-light);
+}
+
+/* ---------- C3 Divider style 2: reverse diagonal shear ---------- */
+.lk-divider--shear {
+  background: var(--color-light);
+}
+.lk-divider--shear svg polygon {
+  fill: var(--color-primary);
+}
+
+/* ---------- Intro split: keyline editorial ---------- */
+.section-white {
+  position: relative;
+  overflow: hidden;
+}
+/* Floating decorative accent — slow-turning key ring, 6% opacity */
+.section-white::after {
+  content: '';
+  position: absolute;
+  top: var(--space-12);
+  right: calc(-1 * var(--space-10));
+  width: clamp(var(--space-16), 16vw, calc(var(--space-16) * 3.5));
+  aspect-ratio: 1;
+  border: var(--space-1) dashed var(--color-primary);
+  border-radius: var(--radius-full);
+  opacity: 0.06;
+  pointer-events: none;
+  animation: lk-turn 40s linear infinite;
+}
+@keyframes lk-turn {
+  from { transform: rotate(0turn); }
+  to   { transform: rotate(1turn); }
+}
+.split-content .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  border-radius: var(--radius-sm);
+}
+.split-content h2 {
+  padding-left: var(--space-5);
+  border-left: var(--space-1) solid var(--color-accent);
+}
+.split .img-reveal {
+  box-shadow: var(--shadow-xl);
+  border: var(--space-2) solid var(--color-white);
+  outline: 1px solid var(--color-gray-light);
+}
+
+/* Sidebar facts card: vault-plate styling */
+.service-sidebar-card {
+  background: var(--color-dark);
+  border-top: none;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+.service-sidebar-card::before {
+  content: '';
+  position: absolute;
+  inset: var(--space-2);
+  border: 1px dashed color-mix(in srgb, var(--color-white) 20%, transparent);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}
+.service-sidebar-card h4 {
+  color: var(--color-white);
+  border-bottom-color: color-mix(in srgb, var(--color-white) 15%, transparent);
+  letter-spacing: 0.06em;
+}
+.service-sidebar-card ul li {
+  color: color-mix(in srgb, var(--color-white) 78%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--color-white) 10%, transparent);
+}
+.service-sidebar-card ul li svg {
+  color: var(--color-accent);
+}
+.service-sidebar-card .btn {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   SIGNATURE SECTION (C7): No-Damage Promise Band
+   The AEO answer block becomes a centered promise band with a
+   double keyline, corner ticks, and a shield-ring watermark.
+   Unique to this page.
+   ============================================================ */
+.answer-block.lk-promise {
+  background:
+    radial-gradient(
+      ellipse at 85% 20%,
+      color-mix(in srgb, var(--color-accent) 10%, transparent) 0%,
+      transparent 55%
+    ),
+    rgba(var(--color-primary-rgb), 0.05);
+  border-left: none;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+  outline: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+  outline-offset: var(--space-1);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  padding: var(--space-10) var(--space-12);
+  margin-top: var(--space-12);
+  position: relative;
+}
+.answer-block.lk-promise h2 {
+  display: inline-block;
+  position: relative;
+  padding: 0 var(--space-8);
+}
+/* Keyline dashes flanking the promise heading */
+.answer-block.lk-promise h2::before,
+.answer-block.lk-promise h2::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: var(--space-6);
+  height: 2px;
+  background: var(--color-accent);
+  transform: translateY(-50%);
+}
+.answer-block.lk-promise h2::before {
+  left: 0;
+}
+.answer-block.lk-promise h2::after {
+  right: 0;
+}
+.answer-block.lk-promise p {
+  max-width: 65ch;
+  margin: 0 auto;
+  font-size: var(--font-size-base);
+}
+/* Shield-ring watermark */
+.answer-block.lk-promise::after {
+  content: '';
+  position: absolute;
+  bottom: calc(-1 * var(--space-12));
+  left: calc(-1 * var(--space-10));
+  width: var(--space-16);
+  aspect-ratio: 1;
+  border: var(--space-2) solid var(--color-primary);
+  border-radius: var(--radius-full);
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+/* ---------- Benefits: keyline cards with rotating tints ---------- */
+.section-light .benefit-item {
+  padding: var(--space-6);
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+/* Rotating tints — accent-led order (distinct from sibling pages) */
+.section-light .benefit-item:nth-child(4n+1) {
+  background: color-mix(in srgb, var(--color-accent) 9%, var(--color-white));
+  border-top: 3px solid var(--color-accent);
+}
+.section-light .benefit-item:nth-child(4n+2) {
+  background: var(--color-white);
+  border-top: 3px solid var(--color-primary);
+  box-shadow: var(--shadow-card);
+}
+.section-light .benefit-item:nth-child(4n+3) {
+  background: rgba(var(--color-secondary-rgb), 0.08);
+  border-top: 3px solid var(--color-secondary);
+}
+.section-light .benefit-item:nth-child(4n+4) {
+  background: rgba(var(--color-primary-rgb), 0.06);
+  border-top: 3px solid var(--color-primary-dark);
+}
+.section-light .benefit-item:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+.section-light .benefit-item svg {
+  flex-shrink: 0;
+  margin-top: var(--space-1);
+  transition: transform var(--transition-base);
+}
+.section-light .benefit-item:hover svg {
+  transform: rotate(10deg);
+}
+
+/* ---------- Mid CTA: dark vault gradient ---------- */
+.cta-banner {
+  background: linear-gradient(
+    200deg,
+    var(--color-dark) 0%,
+    var(--color-primary) 60%,
+    var(--color-primary-dark) 100%
+  );
+}
+.cta-banner::before {
+  background:
+    radial-gradient(
+      ellipse at 80% 15%,
+      color-mix(in srgb, var(--color-accent) 22%, transparent) 0%,
+      transparent 60%
+    );
+  opacity: 1;
+}
+.cta-banner p {
+  color: color-mix(in srgb, var(--color-white) 85%, transparent);
+  max-width: var(--bp-tablet);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- FAQ: asymmetric offset masonry (C6 broken grid) ---------- */
+#faq .faq-grid {
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+#faq .faq-item:nth-child(even) {
+  transform: translateY(var(--space-10));
+}
+#faq .faq-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+#faq .faq-item:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+}
+#faq .faq-icon {
+  background: var(--color-dark);
+  color: var(--color-accent);
+}
+#faq .container {
+  padding-bottom: var(--space-10); /* room for the offset column */
+}
+
+/* ---------- Closing CTA: keyline echo ---------- */
+.closing-cta {
+  position: relative;
+  overflow: hidden;
+}
+.closing-cta::before {
+  content: '';
+  position: absolute;
+  inset: var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--color-white) 14%, transparent);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+.closing-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    color-mix(in srgb, var(--color-accent) 16%, transparent) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+.closing-cta .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Micro-interaction: outline buttons fill sweep ---------- */
+.btn-outline-white {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.btn-outline-white::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-white);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--transition-base);
+}
+.btn-outline-white:hover::before {
+  transform: scaleX(1);
+}
+
+/* ---------- Reveal support (fail-open, gated under html.js-anim) ---------- */
+html.js-anim #faq .faq-item {
+  opacity: 0;
+  transform: translateY(var(--space-4));
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+html.js-anim #faq .faq-item.animated,
+html.js-anim #faq .faq-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+html.js-anim #faq .faq-item:nth-child(even).animated,
+html.js-anim #faq .faq-item:nth-child(even).revealed {
+  transform: translateY(var(--space-10));
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .service-hero {
+    min-height: 52vh;
+  }
+  .service-hero .hero-content {
+    margin: var(--space-4);
+    padding: var(--space-8) var(--space-4);
+  }
+  #faq .faq-item:nth-child(even) {
+    transform: none;
+  }
+  html.js-anim #faq .faq-item:nth-child(even).animated,
+  html.js-anim #faq .faq-item:nth-child(even).revealed {
+    transform: translateY(0);
+  }
+  #faq .container {
+    padding-bottom: 0;
+  }
+  .answer-block.lk-promise {
+    padding: var(--space-6) var(--space-5);
+  }
+  .answer-block.lk-promise h2 {
+    padding: 0;
+  }
+  .answer-block.lk-promise h2::before,
+  .answer-block.lk-promise h2::after {
+    display: none;
+  }
+  .section-white::after {
+    display: none;
+  }
+  .lk-divider svg {
+    height: var(--space-8);
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .section-white::after {
+    animation: none;
+  }
+  .btn-outline-white::before {
+    transition: none;
+  }
+  .section-light .benefit-item,
+  .section-light .benefit-item svg,
+  #faq .faq-item {
+    transition: none;
+  }
+}
+</style>
+<?php
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 ?>
 
@@ -156,12 +626,16 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       </div>
     </div>
 
-    <div class="answer-block" data-animate="fade-up">
+    <div class="answer-block lk-promise" data-animate="fade-up">
       <h2>How does car lockout service work in Richmond, TX?</h2>
       <p>Twin Cities Towing INC uses slim jim tools, air wedge kits, and long-reach rods to access your vehicle through existing door seal gaps — never by force. Most vehicles are unlocked in 5–15 minutes after arrival. No damage to your door, window, or weather stripping.</p>
     </div>
   </div>
 </section>
+
+<div class="lk-divider lk-divider--doublewave" aria-hidden="true">
+  <svg viewBox="0 0 1200 100" preserveAspectRatio="none"><path class="wave-soft" d="M0,30 C300,70 900,10 1200,40 L1200,100 L0,100 Z"/><path class="wave-solid" d="M0,50 C300,90 900,20 1200,60 L1200,100 L0,100 Z"/></svg>
+</div>
 
 <section class="section-light" style="padding: var(--space-16) 0;">
   <div class="container">
@@ -250,6 +724,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     </div>
   </div>
 </section>
+
+<div class="lk-divider lk-divider--shear" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><polygon points="0,0 1200,60 0,60"/></svg>
+</div>
 
 <section class="closing-cta" aria-labelledby="lock-close-heading">
   <div class="container">

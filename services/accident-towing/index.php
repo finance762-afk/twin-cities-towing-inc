@@ -15,8 +15,7 @@ $serviceFaqs = [
     ['q' => 'Do you coordinate with police at accident scenes in Richmond, TX?', 'a' => 'Yes. We regularly work alongside Fort Bend County Sheriff\'s Office, Richmond Police Department, and TxDOT Traffic Management at accident scenes. We know the protocols for scene clearance, lane re-opening timing, and documentation that law enforcement requires before releasing a vehicle.'],
     ['q' => 'Can you tow a vehicle that is badly damaged and won\'t roll?', 'a' => 'Yes. Accident-damaged vehicles with flat tires, seized wheels, bent frames, or damage preventing them from rolling are loaded via winch onto our flatbed. We assess the damage on arrival and use the appropriate loading method — nothing gets dragged or forced in a way that causes additional damage.'],
     ['q' => 'Will my insurance cover accident towing in Fort Bend County?', 'a' => 'Most auto insurance policies with comprehensive or collision coverage include towing reimbursement. We can provide documentation — invoice, location, and service details — that your insurer may require for the claim. Check your policy\'s roadside assistance or towing benefit for specifics.'],
-    ['q' => 'How fast do you respond to accident calls in Richmond, TX?', 'a' => 'Accident towing calls are treated as priority dispatch. We target arrival within 20–40 minutes for most Fort Bend County locations. For highway accidents involving lane blockage, we move even faster given the safety implications. Call immediately after securing the scene and getting clear of traffic.'],
-];
+    ['q' => 'How fast do you respond to accident calls in Richmond, TX?', 'a' => 'Accident towing calls are treated as priority dispatch. We target arrival within 20–40 minutes for most Fort Bend County locations. For highway accidents involving lane blockage, we move even faster given the safety implications. Call immediately after securing the scene and getting clear of traffic.']];
 
 $schemaMarkup = [
     '@context' => 'https://schema.org',
@@ -24,22 +23,525 @@ $schemaMarkup = [
         ['@type' => 'BreadcrumbList', 'itemListElement' => [
             ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',     'item' => $domain],
             ['@type' => 'ListItem', 'position' => 2, 'name' => 'Services', 'item' => $domain . '/services'],
-            ['@type' => 'ListItem', 'position' => 3, 'name' => 'Accident Towing'],
-        ]],
+            ['@type' => 'ListItem', 'position' => 3, 'name' => 'Accident Towing']]],
         ['@type' => 'Service', '@id' => $domain . '/services/accident-towing/#service',
          'name' => 'Accident Towing', 'url' => $domain . '/services/accident-towing',
          'description' => 'Accident recovery and towing in Richmond TX available 24/7. Works with law enforcement, handles damaged vehicles, serves Fort Bend County.',
          'provider' => ['@type' => 'LocalBusiness', '@id' => $domain . '/#business'],
          'areaServed' => ['@type' => 'City', 'name' => 'Richmond, TX'], 'serviceType' => 'Accident Towing'],
-        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business',
-         'aggregateRating' => ['@type' => 'AggregateRating', 'ratingValue' => '4.9', 'reviewCount' => '142', 'bestRating' => '5']],
-        generateFAQSchema($serviceFaqs),
-    ],
-];
+        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business'],
+        generateFAQSchema($serviceFaqs)]];
 
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 ?>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   ACCIDENT TOWING — page-specific premium treatment
+   Archetype: "Calm Recovery" — muted layers, soft vignette, slow
+   motion, step-by-step guidance rail signature. Reassuring, not loud.
+   All values via framework.css tokens. Scope prefix: at-
+════════════════════════════════════════════════════════════════ */
+
+/* ---------- C1: Layered hero — soft vignette + dual gradient + noise ---------- */
+.at-hero {
+  min-height: 58vh;
+  min-height: 58svh;
+  isolation: isolate;
+}
+.at-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 50% 110%,
+      color-mix(in srgb, var(--color-accent) 14%, transparent) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      150deg,
+      rgba(var(--color-primary-rgb), 0.96) 0%,
+      rgba(var(--color-primary-rgb), 0.84) 55%,
+      rgba(var(--color-secondary-rgb), 0.68) 100%
+    );
+  z-index: 1;
+  pointer-events: none;
+}
+.at-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='atn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23atn)' opacity='0.035'/%3E%3C/svg%3E");
+  z-index: 1;
+  pointer-events: none;
+}
+.at-hero .hero-content {
+  z-index: 2;
+}
+/* slow, reassuring beacon glow along the hero base */
+.at-hero .at-hero-beacon {
+  position: absolute;
+  left: 50%;
+  bottom: calc(-1 * var(--space-10));
+  width: clamp(16rem, 44vw, 34rem);
+  aspect-ratio: 2.6 / 1;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--color-accent) 32%, transparent) 0%,
+    transparent 70%
+  );
+  z-index: 1;
+  pointer-events: none;
+  animation: at-beacon 7s ease-in-out infinite;
+}
+@keyframes at-beacon {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 0.9; }
+}
+.at-hero .hero-title {
+  text-wrap: balance;
+  font-weight: 400;
+}
+.at-hero .hero-subtitle {
+  max-width: 58ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+  line-height: 1.75;
+}
+.at-hero .hero-eyebrow {
+  background: rgba(var(--color-primary-rgb), 0.45);
+  border-color: color-mix(in srgb, var(--color-white) 30%, transparent);
+  color: var(--color-white);
+  letter-spacing: 0.28em;
+}
+
+/* ---------- Ticker restyle: subdued steel-blue band ---------- */
+.at-ticker {
+  background: var(--color-secondary);
+  border-top: 1px solid color-mix(in srgb, var(--color-white) 20%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-white) 20%, transparent);
+}
+.at-ticker .ticker-track {
+  animation-duration: 44s;
+}
+.at-ticker .ticker-sep {
+  color: color-mix(in srgb, var(--color-white) 55%, transparent);
+}
+
+/* ---------- Detail split: soft editorial column ---------- */
+.at-detail .split-content h2 {
+  text-wrap: balance;
+  line-height: 1.25;
+}
+.at-detail .split-content .prose > p:first-of-type {
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  color: var(--color-gray-dark);
+}
+.at-detail .img-reveal {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+/* calm duotone wash over the scene photo */
+.at-detail .img-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(var(--color-primary-rgb), 0.35) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+.at-detail .img-reveal img {
+  filter: saturate(0.88);
+}
+.at-detail .service-sidebar-card {
+  background: var(--color-white);
+  border: 1px solid rgba(var(--color-secondary-rgb), 0.25);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+.at-detail .service-sidebar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--space-1);
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary) 0%,
+    var(--color-accent) 100%
+  );
+}
+.at-detail .service-sidebar-card h4 {
+  color: var(--color-secondary);
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Answer block: editorial pull-quote treatment ---------- */
+.at-detail .answer-block {
+  position: relative;
+  background: transparent;
+  border-left: var(--space-1) solid var(--color-accent);
+  padding: var(--space-6) var(--space-10);
+  margin-top: var(--space-12);
+  max-width: 75ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.at-detail .answer-block::before {
+  content: '\201C';
+  position: absolute;
+  top: calc(-1 * var(--space-4));
+  left: var(--space-4);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-6xl);
+  line-height: 1;
+  color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  pointer-events: none;
+}
+.at-detail .answer-block h2 {
+  font-size: var(--font-size-2xl);
+  text-wrap: balance;
+  margin-bottom: var(--space-3);
+}
+.at-detail .answer-block p {
+  margin-bottom: 0;
+  font-size: var(--font-size-lg);
+  line-height: 1.75;
+  color: var(--color-gray-dark);
+}
+
+/* ---------- C3 dividers (2 styles: gentle wave + soft parallelograms) ---------- */
+.at-divider {
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+  height: var(--space-12);
+}
+.at-divider svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.at-divider--wave {
+  background: var(--color-white);
+}
+.at-divider--plates {
+  background: color-mix(in srgb, var(--color-accent) 4%, var(--color-light));
+}
+/* the why-grid section sits on white so the plates divider reads */
+.at-why {
+  background: var(--color-white);
+}
+
+/* ---------- C7 SIGNATURE: calm step-by-step guidance rail ---------- */
+.at-guide {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    var(--color-light) 0%,
+    color-mix(in srgb, var(--color-accent) 4%, var(--color-light)) 100%
+  );
+  padding: var(--space-16) 0;
+  overflow: hidden;
+}
+.at-guide-eyebrow {
+  display: block;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-12);
+}
+.at-guide-rail {
+  position: relative;
+  max-width: var(--bp-tablet);
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+/* the continuous calm rail line */
+.at-guide-rail::before {
+  content: '';
+  position: absolute;
+  left: var(--space-6);
+  top: var(--space-6);
+  bottom: var(--space-6);
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--color-accent) 0%,
+    color-mix(in srgb, var(--color-accent) 35%, transparent) 100%
+  );
+  border-radius: var(--radius-full);
+}
+.at-guide-step {
+  position: relative;
+  padding: var(--space-5) 0 var(--space-5) var(--space-16);
+}
+.at-guide-step-dot {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--space-12);
+  height: var(--space-12);
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  border: 2px solid var(--color-accent);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+  z-index: 1;
+}
+.at-guide-step-body {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-8);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(var(--color-secondary-rgb), 0.15);
+  transition: box-shadow var(--transition-slow), transform var(--transition-slow);
+}
+.at-guide-step:hover .at-guide-step-body {
+  box-shadow: var(--shadow-md);
+  transform: translateX(var(--space-2));
+}
+.at-guide-step-body strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: var(--space-1);
+  text-wrap: balance;
+}
+.at-guide-step-body span {
+  color: var(--color-gray);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+}
+/* alternate steps drift right for a gentle broken rhythm */
+.at-guide-step:nth-child(even) .at-guide-step-body {
+  margin-left: var(--space-8);
+  background: color-mix(in srgb, var(--color-accent) 5%, var(--color-white));
+}
+
+/* ---------- C6: asymmetric masonry benefit grid w/ full-width lead ---------- */
+.at-why .grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+/* first card becomes a full-width highlight banner */
+.at-why .benefit-item:first-child {
+  grid-column: 1 / -1;
+  background: linear-gradient(
+    120deg,
+    rgba(var(--color-primary-rgb), 0.07) 0%,
+    color-mix(in srgb, var(--color-accent) 6%, var(--color-white)) 100%
+  );
+  border-left: var(--space-1) solid var(--color-accent);
+}
+.at-why .benefit-item {
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(var(--color-secondary-rgb), 0.14);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-slow);
+}
+.at-why .benefit-item:hover {
+  box-shadow: var(--shadow-md);
+}
+/* muted rotating tints on the remaining cells */
+.at-why .benefit-item:nth-child(2) {
+  background: rgba(var(--color-secondary-rgb), 0.07);
+  transform: translateY(var(--space-4));
+}
+.at-why .benefit-item:nth-child(3) {
+  background: var(--color-white);
+}
+.at-why .benefit-item:nth-child(4) {
+  background: rgba(var(--color-primary-rgb), 0.05);
+  transform: translateY(calc(-1 * var(--space-4)));
+}
+.at-why .grid-2 {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-6);
+}
+.at-why .benefit-item h3 {
+  text-wrap: balance;
+  margin-bottom: var(--space-2);
+}
+.at-why .section-header h2 {
+  text-wrap: balance;
+}
+
+/* ---------- FAQ: quiet file-folder cards ---------- */
+.at-faq .faq-item {
+  border-radius: var(--radius-sm) var(--radius-xl) var(--radius-xl) var(--radius-xl);
+  border: 1px solid rgba(var(--color-secondary-rgb), 0.18);
+}
+.at-faq .faq-item:nth-child(odd) {
+  background: color-mix(in srgb, var(--color-secondary) 6%, var(--color-white));
+}
+.at-faq .faq-item:nth-child(even) {
+  background: color-mix(in srgb, var(--color-accent) 5%, var(--color-white));
+}
+.at-faq .faq-icon {
+  background: var(--color-secondary);
+}
+.at-faq .faq-item h3 {
+  text-wrap: balance;
+}
+.at-faq .section-header h2 {
+  text-wrap: balance;
+}
+
+/* ---------- Floating decorative accent: slow soft cross beacon ---------- */
+.at-float-cross {
+  position: absolute;
+  top: var(--space-16);
+  right: 6%;
+  width: clamp(7rem, 13vw, 12rem);
+  aspect-ratio: 1;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(var(--color-secondary), var(--color-secondary)),
+    linear-gradient(var(--color-secondary), var(--color-secondary));
+  background-size: 100% 34%, 34% 100%;
+  background-position: center, center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius-lg);
+  animation: at-float 16s ease-in-out infinite alternate;
+}
+@keyframes at-float {
+  from { transform: translateY(0) scale(1); }
+  to   { transform: translateY(var(--space-10)) scale(1.06); }
+}
+.at-detail,
+.at-why {
+  position: relative;
+  overflow: hidden;
+}
+.at-detail .container,
+.at-why .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- CTA banner variant: quiet dusk, no hard gradient stop ---------- */
+.at-cta {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary) 60%,
+    var(--color-secondary) 100%
+  );
+}
+.at-cta h2 {
+  text-wrap: balance;
+}
+.at-cta .eyebrow-label {
+  letter-spacing: 0.3em;
+}
+
+/* ---------- Optional JS-gated reveal polish (fail-open) ---------- */
+html.js-anim .at-guide-step .at-guide-step-body {
+  transition:
+    box-shadow var(--transition-slow),
+    transform var(--transition-slow),
+    opacity var(--transition-slow);
+}
+html.js-anim .at-guide-step:nth-child(2) .at-guide-step-body { transition-delay: 0.09s; }
+html.js-anim .at-guide-step:nth-child(3) .at-guide-step-body { transition-delay: 0.18s; }
+html.js-anim .at-guide-step:nth-child(4) .at-guide-step-body { transition-delay: 0.27s; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .at-why .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .at-why .benefit-item:nth-child(2),
+  .at-why .benefit-item:nth-child(4) {
+    transform: none;
+  }
+  .at-guide-step:nth-child(even) .at-guide-step-body {
+    margin-left: 0;
+  }
+  .at-guide-step {
+    padding-left: var(--space-16);
+  }
+  .at-float-cross {
+    display: none;
+  }
+  .at-hero {
+    min-height: 50vh;
+    min-height: 50svh;
+  }
+  .at-hero .at-hero-beacon {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .at-guide-step {
+    padding-left: var(--space-12);
+  }
+  .at-guide-step-dot {
+    width: var(--space-10);
+    height: var(--space-10);
+  }
+  .at-guide-rail::before {
+    left: var(--space-5);
+  }
+  .at-detail .answer-block {
+    padding: var(--space-5) var(--space-6);
+  }
+  .at-guide-step-body {
+    padding: var(--space-5);
+  }
+}
+
+/* ---------- Reduced motion: stillness is the calmer default ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .at-hero .at-hero-beacon,
+  .at-float-cross {
+    animation: none;
+  }
+  .at-guide-step .at-guide-step-body,
+  .at-guide-step:hover .at-guide-step-body {
+    transition: none;
+    transform: none;
+  }
+  html.js-anim .at-guide-step .at-guide-step-body {
+    transition: none;
+  }
+  .at-why .benefit-item {
+    transition: none;
+  }
+}
+</style>
 
 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
   <div class="container">
@@ -57,10 +559,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </nav>
 
-<section class="service-hero"
+<section class="service-hero at-hero"
          style="background-image: url('<?php echo htmlspecialchars($clientPhotos[12]); ?>');"
          aria-labelledby="service-hero-heading">
   <div class="hero-overlay"></div>
+  <div class="at-hero-beacon" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;"><circle cx="12" cy="12" r="10" />
@@ -87,7 +590,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
-<div class="ticker-strip" aria-hidden="true">
+<div class="ticker-strip at-ticker" aria-hidden="true">
   <div class="ticker-track">
     <span>&#128693;&nbsp; Accident Scene Recovery 24/7</span>
     <span class="ticker-sep">&#9670;</span>
@@ -112,7 +615,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </div>
 
-<section class="section-white" style="padding: var(--space-16) 0;">
+<section class="section-white at-detail" style="padding: var(--space-16) 0;">
+  <div class="at-float-cross" aria-hidden="true"></div>
   <div class="container">
     <div class="split" data-animate="fade-up">
       <div class="split-content">
@@ -165,7 +669,61 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
-<section class="section-light" style="padding: var(--space-16) 0;">
+<!-- Divider: gentle wave into the guidance rail -->
+<div class="at-divider at-divider--wave" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <path d="M0,45 C350,75 850,15 1200,45 L1200,80 L0,80 Z" fill="var(--color-light)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SIGNATURE: CALM STEP-BY-STEP GUIDANCE RAIL
+════════════════════════════════════════════════════════════════ -->
+<section class="at-guide" aria-label="What to do after an accident, step by step">
+  <div class="container">
+    <span class="at-guide-eyebrow">If You've Just Been in an Accident</span>
+    <ol class="at-guide-rail">
+      <li class="at-guide-step">
+        <span class="at-guide-step-dot" aria-hidden="true">1</span>
+        <div class="at-guide-step-body">
+          <strong>Move to safety</strong>
+          <span>Get yourself and passengers away from traffic. Stay clear of the vehicle and traffic lanes.</span>
+        </div>
+      </li>
+      <li class="at-guide-step">
+        <span class="at-guide-step-dot" aria-hidden="true">2</span>
+        <div class="at-guide-step-body">
+          <strong>Call 911 if anyone is injured</strong>
+          <span>Emergency responders come first — vehicle recovery waits until everyone is safe.</span>
+        </div>
+      </li>
+      <li class="at-guide-step">
+        <span class="at-guide-step-dot" aria-hidden="true">3</span>
+        <div class="at-guide-step-body">
+          <strong>Document the scene with photos</strong>
+          <span>Photos of the vehicles and scene help your insurance claim later.</span>
+        </div>
+      </li>
+      <li class="at-guide-step">
+        <span class="at-guide-step-dot" aria-hidden="true">4</span>
+        <div class="at-guide-step-body">
+          <strong>Call Twin Cities Towing INC for priority dispatch</strong>
+          <span>We target 20&ndash;40 minute arrival throughout Fort Bend County and handle the vehicle from there.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Divider: soft stacked parallelograms out of the guidance rail -->
+<div class="at-divider at-divider--plates" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <polygon fill="var(--color-white)" opacity="0.45" points="0,25 1200,45 1200,80 0,80"/>
+    <polygon fill="var(--color-white)" points="0,50 1200,25 1200,80 0,80"/>
+  </svg>
+</div>
+
+<section class="section-light at-why" style="padding: var(--space-16) 0;">
   <div class="container">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">Why Twin Cities Towing</span>
@@ -212,7 +770,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
-<section class="cta-banner" aria-labelledby="acc-cta-heading">
+<section class="cta-banner at-cta" aria-labelledby="acc-cta-heading">
   <div class="container">
     <span class="eyebrow-label" style="justify-content:center;display:flex;color:rgba(255,255,255,0.6);letter-spacing:3px;font-size:0.7rem;margin-bottom:var(--space-3);">Accident Scene in Fort Bend County?</span>
     <h2 id="acc-cta-heading" style="color:var(--color-white);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:var(--space-4);">Call Immediately — Priority Dispatch Gets Us There Fast</h2>
@@ -234,13 +792,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
-<section class="section-light" style="padding: var(--space-16) 0;" id="faq">
+<section class="section-light at-faq" style="padding: var(--space-16) 0;" id="faq">
   <div class="container">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">Common Questions</span>
       <h2>Accident Towing FAQs &mdash; Richmond, TX</h2>
     </div>
-    <div class="faq-grid" data-animate="fade-up">
+    <div class="faq-grid" data-animate="fade-up" data-p1-dynamic>
       <?php foreach ($serviceFaqs as $faq): ?>
       <div class="faq-item">
         <div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><circle cx="12" cy="12" r="10" />

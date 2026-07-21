@@ -16,16 +16,425 @@ $schemaMarkup = [
     '@graph'   => [
         ['@type' => 'BreadcrumbList', 'itemListElement' => [
             ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',     'item' => $domain],
-            ['@type' => 'ListItem', 'position' => 2, 'name' => 'Services'],
-        ]],
-        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business',
-         'aggregateRating' => ['@type' => 'AggregateRating', 'ratingValue' => '4.9', 'reviewCount' => '142', 'bestRating' => '5']],
-    ],
-];
+            ['@type' => 'ListItem', 'position' => 2, 'name' => 'Services']]],
+        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business']]];
 
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 ?>
+<style>
+/* ============================================================
+   SERVICES HUB — page-specific premium layer
+   Theme: "Dispatch Board" — diagonal energy, bento service grid
+   Techniques: C1 layered hero, C3 dividers x2 (diagonal + double
+   wave), C6 bento/asymmetric grid (signature), tinted card
+   rotation, floating accents, C4 radial glows, C5 balance.
+   Tokens only — no hardcoded colors/shadows/spacing.
+   ============================================================ */
+
+/* ---------- T7: typographic balance (every heading) ---------- */
+h1, h2, h3, h4 { text-wrap: balance; }
+
+/* ============================================================
+   T1 — LAYERED HERO (gradient overlay + noise via ::before/::after)
+   ============================================================ */
+.hub-hero { isolation: isolate; }
+.hub-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(var(--color-accent-rgb), 0.22) 0%, transparent 46%),
+    linear-gradient(150deg,
+      rgba(var(--color-primary-rgb), 0.94) 0%,
+      rgba(var(--color-primary-rgb), 0.80) 52%,
+      rgba(var(--color-secondary-rgb), 0.55) 100%);
+  z-index: 1;
+}
+.hub-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='hn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23hn)' opacity='0.05'/%3E%3C/svg%3E");
+  z-index: 1;
+  pointer-events: none;
+}
+.hub-hero .hero-overlay { background: transparent; }
+.hub-hero .hero-content { z-index: 2; }
+.hub-hero .hero-title {
+  font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-6xl));
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+.hub-hero .hero-eyebrow {
+  border: 1px solid rgba(var(--color-accent-rgb), 0.35);
+  background: rgba(var(--color-accent-rgb), 0.10);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-5);
+}
+.hub-hero .hero-subtitle {
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ticker: hub accent treatment — dark strip w/ accent top rule */
+.hub-ticker.ticker-strip {
+  background: var(--color-primary-dark);
+  border-top: 2px solid var(--color-accent);
+  border-bottom: 1px solid rgba(var(--color-accent-rgb), 0.25);
+}
+
+/* ============================================================
+   T2 — SVG SECTION DIVIDERS (two distinct styles)
+   ============================================================ */
+/* Style A: hard diagonal shear (white section -> CTA band) */
+.hub-divider {
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+}
+.hub-divider svg {
+  display: block;
+  width: 100%;
+  height: clamp(var(--space-8), 5vw, var(--space-16));
+}
+.hub-divider--diagonal {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+/* Style B: double wave (light section -> stats band) */
+.hub-divider--waves {
+  background: var(--color-primary);
+  color: var(--color-light);
+}
+.hub-divider--waves .wave-soft { opacity: 0.45; }
+
+/* ============================================================
+   T3 — SIGNATURE: BENTO SERVICE GRID (asymmetric/broken grid)
+   ============================================================ */
+.hub-intro { position: relative; overflow: hidden; }
+.hub-intro .section-header h2 {
+  font-size: clamp(var(--font-size-2xl), 3.4vw, var(--font-size-4xl));
+}
+.hub-intro .section-header { position: relative; z-index: 1; }
+
+.hub-bento.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+.hub-bento > .service-listing-card { grid-column: span 2; }
+.hub-bento > .service-listing-card:nth-child(1),
+.hub-bento > .service-listing-card:nth-child(7) { grid-column: span 4; }
+.hub-bento > .service-listing-card:nth-child(11) { grid-column: span 6; }
+
+/* Card chassis — this page owns these classes */
+.hub-bento .service-listing-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-light);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  position: relative;
+}
+.hub-bento .service-listing-card:hover {
+  transform: translateY(calc(-1 * var(--space-1)));
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(var(--color-accent-rgb), 0.45);
+}
+.hub-bento .service-listing-img {
+  position: relative;
+  aspect-ratio: 16 / 8;
+  overflow: hidden;
+}
+.hub-bento .service-listing-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+.hub-bento .service-listing-card:hover .service-listing-img img {
+  transform: scale(1.05);
+}
+.hub-bento .service-listing-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(var(--color-primary-rgb), 0.35) 0%, transparent 45%);
+}
+.hub-bento .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  position: relative;
+}
+.hub-bento .card-icon {
+  width: var(--space-12);
+  height: var(--space-12);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: var(--color-accent);
+  margin-top: calc(-1 * var(--space-10) - var(--space-2));
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.3);
+}
+.hub-bento .card-body h3 {
+  font-size: var(--font-size-xl);
+  margin: 0;
+  color: var(--color-primary);
+}
+.hub-bento .card-body .prose {
+  color: var(--color-gray);
+  font-size: var(--font-size-sm);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+.hub-bento .card-body .btn {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+}
+.hub-bento .card-body .btn svg {
+  transition: transform var(--transition-fast);
+}
+.hub-bento .service-listing-card:hover .card-body .btn svg {
+  transform: translateX(var(--space-1));
+}
+.hub-bento .service-listing-card a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+.hub-bento > .service-listing-card:nth-child(1) .btn-primary,
+.hub-bento > .service-listing-card:nth-child(7) .btn-primary {
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  border-color: var(--color-accent);
+}
+
+/* Featured bento tiles (wide spans) get the dark treatment */
+.hub-bento > .service-listing-card:nth-child(1),
+.hub-bento > .service-listing-card:nth-child(7) {
+  background: linear-gradient(155deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-color: rgba(var(--color-accent-rgb), 0.25);
+}
+.hub-bento > .service-listing-card:nth-child(1)::before,
+.hub-bento > .service-listing-card:nth-child(7)::before {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--space-16));
+  right: calc(-1 * var(--space-16));
+  width: clamp(var(--space-16), 22vw, calc(var(--space-16) * 4));
+  height: clamp(var(--space-16), 22vw, calc(var(--space-16) * 4));
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  opacity: 0.08;
+  pointer-events: none;
+}
+.hub-bento > .service-listing-card:nth-child(1) h3,
+.hub-bento > .service-listing-card:nth-child(7) h3 { color: var(--color-white); }
+.hub-bento > .service-listing-card:nth-child(1) .prose,
+.hub-bento > .service-listing-card:nth-child(7) .prose { color: color-mix(in srgb, var(--color-white) 78%, transparent); }
+.hub-bento > .service-listing-card:nth-child(1) .service-listing-img,
+.hub-bento > .service-listing-card:nth-child(7) .service-listing-img { aspect-ratio: 16 / 6; }
+
+/* Full-width finale tile lays out horizontally */
+.hub-bento > .service-listing-card:nth-child(11) {
+  flex-direction: row;
+  align-items: stretch;
+}
+.hub-bento > .service-listing-card:nth-child(11) .service-listing-img {
+  aspect-ratio: auto;
+  flex: 0 0 42%;
+}
+.hub-bento > .service-listing-card:nth-child(11) .card-body {
+  justify-content: center;
+}
+.hub-bento > .service-listing-card:nth-child(11) .card-icon {
+  margin-top: 0;
+}
+
+/* ============================================================
+   T4 — TINTED CARD BACKGROUNDS (rotating tints, never all-white)
+   ============================================================ */
+.hub-bento > .service-listing-card:nth-child(6n+2) .card-body {
+  background: color-mix(in srgb, var(--color-accent) 7%, var(--color-white));
+}
+.hub-bento > .service-listing-card:nth-child(6n+3) .card-body {
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-white));
+}
+.hub-bento > .service-listing-card:nth-child(6n+4) .card-body {
+  background: color-mix(in srgb, var(--color-secondary) 8%, var(--color-white));
+}
+.hub-bento > .service-listing-card:nth-child(6n+5) .card-body {
+  background: color-mix(in srgb, var(--color-warning) 6%, var(--color-white));
+}
+.hub-bento > .service-listing-card:nth-child(6n+6) .card-body {
+  background: color-mix(in srgb, var(--color-accent) 4%, var(--color-light));
+}
+
+/* ============================================================
+   T5 — FLOATING DECORATIVE ACCENTS (4–8% opacity, animated)
+   ============================================================ */
+.hub-float {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+.hub-float--orb {
+  top: var(--space-16);
+  right: calc(-1 * var(--space-16));
+  width: clamp(var(--space-16), 26vw, calc(var(--space-16) * 5));
+  aspect-ratio: 1;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+  opacity: 0.07;
+  animation: hub-drift 14s ease-in-out infinite alternate;
+}
+.hub-float--ring {
+  bottom: var(--space-16);
+  left: calc(-1 * var(--space-12));
+  width: clamp(var(--space-16), 18vw, calc(var(--space-16) * 3.5));
+  aspect-ratio: 1;
+  border-radius: var(--radius-full);
+  border: var(--space-1) dashed var(--color-primary);
+  opacity: 0.05;
+  animation: hub-spin 60s linear infinite;
+}
+@keyframes hub-drift {
+  from { transform: translateY(0) scale(1); }
+  to   { transform: translateY(var(--space-10)) scale(1.08); }
+}
+@keyframes hub-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   T6 — ASYMMETRIC "WHY" SECTION + tinted benefit rails
+   ============================================================ */
+.hub-why { position: relative; overflow: hidden; }
+.hub-why .grid-2 {
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: start;
+}
+.hub-why .benefit-item:nth-child(even) {
+  transform: translateY(var(--space-8));
+}
+.hub-why .benefit-item {
+  border-left: var(--space-1) solid transparent;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+}
+.hub-why .benefit-item:nth-child(4n+1) {
+  background: color-mix(in srgb, var(--color-accent) 7%, var(--color-white));
+  border-left-color: var(--color-accent);
+}
+.hub-why .benefit-item:nth-child(4n+2) {
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-white));
+  border-left-color: var(--color-primary);
+}
+.hub-why .benefit-item:nth-child(4n+3) {
+  background: color-mix(in srgb, var(--color-secondary) 9%, var(--color-white));
+  border-left-color: var(--color-secondary);
+}
+.hub-why .benefit-item:nth-child(4n+4) {
+  background: color-mix(in srgb, var(--color-warning) 6%, var(--color-white));
+  border-left-color: var(--color-warning);
+}
+.hub-why .benefit-item:hover { box-shadow: var(--shadow-md); }
+.hub-why .section-header .eyebrow {
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: var(--space-1);
+}
+
+/* ============================================================
+   Stats band — radial glow + oversized numerals (C4.1)
+   ============================================================ */
+.hub-stats { position: relative; overflow: hidden; }
+.hub-stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(var(--color-accent-rgb), 0.18) 0%, transparent 62%);
+  pointer-events: none;
+}
+.hub-stats .container { position: relative; }
+.hub-stats .stat-number {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-4xl), 5vw, var(--font-size-6xl));
+  color: var(--color-white);
+  line-height: 1;
+}
+.hub-stats .stat-number span { color: var(--color-accent); }
+.hub-stats .stat-label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--font-size-xs);
+  color: color-mix(in srgb, var(--color-white) 60%, transparent);
+  margin-top: var(--space-3);
+}
+.hub-stats .stat-item {
+  border-right: 1px solid color-mix(in srgb, var(--color-white) 12%, transparent);
+  padding: var(--space-4);
+}
+.hub-stats .stat-item:last-child { border-right: none; }
+
+/* Closing CTA — top-arc glow */
+.hub-closing { position: relative; overflow: hidden; }
+.hub-closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(var(--color-accent-rgb), 0.16) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hub-closing .container { position: relative; }
+
+/* ============================================================
+   Responsive collapse + reduced motion
+   ============================================================ */
+@media (max-width: 1024px) {
+  .hub-bento.grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .hub-bento > .service-listing-card,
+  .hub-bento > .service-listing-card:nth-child(1),
+  .hub-bento > .service-listing-card:nth-child(7) { grid-column: span 1; }
+  .hub-bento > .service-listing-card:nth-child(11) { grid-column: span 2; }
+  .hub-why .grid-2 { grid-template-columns: 1fr; }
+  .hub-why .benefit-item:nth-child(even) { transform: none; }
+  .hub-stats .stat-item:nth-child(even) { border-right: none; }
+}
+@media (max-width: 640px) {
+  .hub-bento.grid-3 { grid-template-columns: 1fr; gap: var(--space-4); }
+  .hub-bento > .service-listing-card:nth-child(11) { grid-column: span 1; flex-direction: column; }
+  .hub-bento > .service-listing-card:nth-child(11) .service-listing-img { flex: none; aspect-ratio: 16 / 8; }
+  .hub-bento > .service-listing-card:nth-child(1) .service-listing-img,
+  .hub-bento > .service-listing-card:nth-child(7) .service-listing-img { aspect-ratio: 16 / 8; }
+  .hub-divider svg { height: var(--space-6); }
+  .hub-float { display: none; }
+  .hub-stats .stat-item { border-right: none; border-bottom: 1px solid color-mix(in srgb, var(--color-white) 10%, transparent); }
+  .hub-stats .stat-item:last-child { border-bottom: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hub-float--orb, .hub-float--ring { animation: none; }
+  .hub-bento .service-listing-card,
+  .hub-bento .service-listing-img img { transition: none; }
+}
+</style>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php'; ?>
 
 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
   <div class="container">
@@ -41,7 +450,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 </nav>
 
 <!-- SERVICES HERO BANNER -->
-<section class="service-hero"
+<section class="service-hero hub-hero"
          style="background-image: url('<?php echo htmlspecialchars($clientPhotos[0]); ?>');"
          aria-labelledby="services-hero-heading">
   <div class="hero-overlay"></div>
@@ -74,7 +483,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 </section>
 
 <!-- TICKER -->
-<div class="ticker-strip" aria-hidden="true">
+<div class="ticker-strip hub-ticker" aria-hidden="true">
   <div class="ticker-track">
     <span>&#10004;&nbsp; 13 Years Serving Richmond TX</span>
     <span class="ticker-sep">&#9670;</span>
@@ -100,7 +509,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 </div>
 
 <!-- SERVICES INTRO -->
-<section class="section-white" style="padding: var(--space-16) 0;">
+<section class="section-white hub-intro" style="padding: var(--space-16) 0;">
+  <div class="hub-float hub-float--orb" aria-hidden="true"></div>
+  <div class="hub-float hub-float--ring" aria-hidden="true"></div>
   <div class="container">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">
@@ -116,8 +527,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <p class="prose-centered">Twin Cities Towing INC has operated out of Richmond, TX since 2011, handling every towing and roadside situation the roads of Fort Bend County can produce. Whether you need a heavy commercial vehicle recovery, a specialized flatbed for an AWD car, or a technician to pop your locked door — it's one call, immediate dispatch, and a real ETA before you hang up.</p>
     </div>
 
-    <!-- Services Grid -->
-    <div class="grid-3" data-animate="fade-up">
+    <!-- Services Grid — bento signature layout -->
+    <div class="grid-3 hub-bento" data-animate="fade-up" data-p1-dynamic>
       <?php
       $serviceIcons = [
           'truck'           => 'truck',
@@ -130,8 +541,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           'lockout'         => 'lock',
           'light'           => 'navigation',
           'accident'        => 'alert-circle',
-          'breakdown'       => 'zap-off',
-      ];
+          'breakdown'       => 'zap-off'];
       foreach ($services as $i => $service):
       $photoIndex = ($i * 2 + 4) % count($clientPhotos);
       ?>
@@ -159,6 +569,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
+<!-- DIVIDER: diagonal shear into CTA band -->
+<div class="hub-divider hub-divider--diagonal" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><polygon fill="currentColor" points="0,0 1200,0 0,60"/></svg>
+</div>
+
 <!-- MID-PAGE CTA -->
 <section class="cta-banner" aria-labelledby="services-cta-heading">
   <div class="container">
@@ -183,7 +598,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 </section>
 
 <!-- WHY CHOOSE US -->
-<section class="section-light" style="padding: var(--space-16) 0;">
+<section class="section-light hub-why" style="padding: var(--space-16) 0;">
   <div class="container">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">Why Twin Cities Towing</span>
@@ -226,8 +641,16 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
+<!-- DIVIDER: double wave into stats band -->
+<div class="hub-divider hub-divider--waves" aria-hidden="true">
+  <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+    <path class="wave-soft" d="M0,30 C300,70 900,10 1200,40 L1200,0 L0,0 Z" fill="currentColor"/>
+    <path d="M0,50 C300,90 900,20 1200,60 L1200,0 L0,0 Z" fill="currentColor"/>
+  </svg>
+</div>
+
 <!-- STATS -->
-<section class="stats-section">
+<section class="stats-section hub-stats">
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item" data-animate="fade-up">
@@ -251,7 +674,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 </section>
 
 <!-- CLOSING CTA -->
-<section class="closing-cta" aria-labelledby="services-close-heading">
+<section class="closing-cta hub-closing" aria-labelledby="services-close-heading">
   <div class="container">
     <div data-animate="fade-up">
       <span style="display:block;font-family:var(--font-heading);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--color-accent);margin-bottom:var(--space-3);">All Towing &amp; Roadside Services — Richmond TX</span>

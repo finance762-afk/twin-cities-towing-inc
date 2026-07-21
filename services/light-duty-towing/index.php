@@ -15,8 +15,7 @@ $serviceFaqs = [
     ['q' => 'What vehicles qualify as light duty towing in Richmond, TX?', 'a' => 'Light duty towing covers passenger cars, crossovers, SUVs, minivans, and small pickup trucks — typically vehicles under 10,000 lbs GVWR. This includes most personal vehicles driven daily in Fort Bend County. For larger pickup trucks or commercial vehicles, see our truck towing service.'],
     ['q' => 'What towing method do you use for light duty vehicles?', 'a' => 'We match the method to the vehicle. Standard FWD and RWD vehicles can use wheel-lift equipment safely. AWD, 4WD, luxury vehicles, and low-clearance cars go on the flatbed to protect the drivetrain and undercarriage. When you call, we confirm the right method for your specific car.'],
     ['q' => 'How much does light duty towing cost in Fort Bend County?', 'a' => 'Most light duty tows within Fort Bend County start around $75–$125 depending on distance and service type. We give you a clear quote before dispatch. Standard wheel-lift tows cost less than flatbed; we\'ll explain the difference when we confirm your vehicle type.'],
-    ['q' => 'Can you tow my car to a mechanic outside Fort Bend County?', 'a' => 'Yes. We can transport vehicles beyond our standard Fort Bend County service area on request. Longer hauls are quoted by distance. Call us with your pickup and dropoff locations and we\'ll give you a rate before we commit to the trip.'],
-];
+    ['q' => 'Can you tow my car to a mechanic outside Fort Bend County?', 'a' => 'Yes. We can transport vehicles beyond our standard Fort Bend County service area on request. Longer hauls are quoted by distance. Call us with your pickup and dropoff locations and we\'ll give you a rate before we commit to the trip.']];
 
 $schemaMarkup = [
     '@context' => 'https://schema.org',
@@ -24,20 +23,477 @@ $schemaMarkup = [
         ['@type' => 'BreadcrumbList', 'itemListElement' => [
             ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',     'item' => $domain],
             ['@type' => 'ListItem', 'position' => 2, 'name' => 'Services', 'item' => $domain . '/services'],
-            ['@type' => 'ListItem', 'position' => 3, 'name' => 'Light Duty Towing'],
-        ]],
+            ['@type' => 'ListItem', 'position' => 3, 'name' => 'Light Duty Towing']]],
         ['@type' => 'Service', '@id' => $domain . '/services/light-duty-towing/#service',
          'name' => 'Light Duty Towing', 'url' => $domain . '/services/light-duty-towing',
          'description' => 'Light duty towing in Richmond TX for cars, SUVs, and small trucks. 24/7 service throughout Fort Bend County.',
          'provider' => ['@type' => 'LocalBusiness', '@id' => $domain . '/#business'],
          'areaServed' => ['@type' => 'City', 'name' => 'Richmond, TX'], 'serviceType' => 'Light Duty Towing'],
-        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business',
-         'aggregateRating' => ['@type' => 'AggregateRating', 'ratingValue' => '4.9', 'reviewCount' => '142', 'bestRating' => '5']],
-        generateFAQSchema($serviceFaqs),
-    ],
-];
+        ['@type' => 'LocalBusiness', '@id' => $domain . '/#business'],
+        generateFAQSchema($serviceFaqs)]];
 
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
+?>
+<style>
+/* ============================================================
+   Light Duty Towing — page-specific premium styles
+   Archetype: "Precision Spec Sheet" — radial-focus hero,
+   curved wave + stacked parallelogram dividers, overlapping
+   broken-grid split, vehicle-class ladder signature strip.
+   Tokens only — no hardcoded values.
+   ============================================================ */
+
+/* ---------- Typography baseline (C5.5) ---------- */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* ---------- C1.4 Layered hero: radial gradient + fine noise ---------- */
+.service-hero {
+  min-height: 60vh;
+  isolation: isolate;
+}
+.service-hero .hero-overlay {
+  background: rgba(var(--color-primary-rgb), 0.5);
+}
+.service-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(
+      ellipse at 28% 38%,
+      rgba(var(--color-primary-rgb), 0.55) 0%,
+      rgba(var(--color-primary-rgb), 0.9) 78%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 55%,
+      color-mix(in srgb, var(--color-accent) 16%, transparent) 100%
+    );
+  pointer-events: none;
+}
+.service-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.045;
+  pointer-events: none;
+}
+.service-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-16) var(--space-6) var(--space-12);
+}
+/* Bracketed spec-sheet eyebrow */
+.service-hero .hero-eyebrow {
+  border-radius: var(--radius-sm);
+  border: 1px solid color-mix(in srgb, var(--color-white) 30%, transparent);
+  border-left: 3px solid var(--color-accent);
+  border-right: 3px solid var(--color-accent);
+  background: rgba(var(--color-primary-rgb), 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.service-hero .hero-subtitle {
+  border-top: 1px solid color-mix(in srgb, var(--color-white) 22%, transparent);
+  padding-top: var(--space-4);
+}
+
+/* ---------- Ticker: light precision strip ---------- */
+.ticker-strip {
+  background: var(--color-primary-dark);
+  border-top: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+  border-bottom: 4px solid var(--color-accent);
+}
+
+/* ---------- C3 Divider style 1: curved wave ---------- */
+.ld-divider {
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+}
+.ld-divider svg {
+  display: block;
+  width: 100%;
+  height: var(--space-16);
+}
+.ld-divider--wave {
+  background: var(--color-white);
+}
+.ld-divider--wave svg path {
+  fill: var(--color-light);
+}
+
+/* ---------- C3 Divider style 2: stacked parallelograms ---------- */
+.ld-divider--planes {
+  background: var(--color-light);
+}
+.ld-divider--planes svg .plane-soft {
+  fill: var(--color-primary);
+  opacity: 0.3;
+}
+.ld-divider--planes svg .plane-solid {
+  fill: var(--color-primary);
+}
+
+/* ============================================================
+   Broken-grid split (C6.2): image column narrows, and the
+   vehicle-class card overlaps INTO the content column.
+   ============================================================ */
+.section-white {
+  position: relative;
+  overflow: hidden;
+}
+.split {
+  grid-template-columns: 1.25fr 1fr;
+  align-items: start;
+}
+.split .split-image {
+  position: relative;
+  z-index: 1;
+}
+.split .img-reveal {
+  transform: rotate(1.2deg);
+  transition: transform var(--transition-slow);
+}
+.split .img-reveal:hover {
+  transform: rotate(0deg);
+}
+/* The sidebar card breaks the grid boundary to the left */
+.split .service-sidebar-card {
+  margin-left: calc(-1 * var(--space-16));
+  margin-top: calc(-1 * var(--space-10));
+  position: relative;
+  z-index: 2;
+}
+
+/* Floating decorative accent — soft chassis ring, slow float */
+.section-white::before {
+  content: '';
+  position: absolute;
+  bottom: var(--space-10);
+  left: calc(-1 * var(--space-12));
+  width: clamp(var(--space-16), 18vw, calc(var(--space-16) * 4));
+  aspect-ratio: 1;
+  border: var(--space-2) solid var(--color-accent);
+  border-radius: var(--radius-full);
+  opacity: 0.05;
+  pointer-events: none;
+  animation: ld-float 16s ease-in-out infinite alternate;
+}
+@keyframes ld-float {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(var(--space-10), calc(-1 * var(--space-12)), 0); }
+}
+
+/* Numbered-journal eyebrow (C5.1) */
+.split-content .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  background: color-mix(in srgb, var(--color-accent) 9%, transparent);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-4);
+}
+.split-content h2::after {
+  content: '';
+  display: block;
+  width: var(--space-12);
+  height: var(--space-1);
+  margin-top: var(--space-3);
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+}
+
+/* ============================================================
+   SIGNATURE SECTION (C7): Vehicle-Class Ladder
+   The "covers" checklist becomes a weight-class ladder — each
+   row carries an ascending capacity bar. Unique to this page.
+   ============================================================ */
+.service-sidebar-card {
+  background: linear-gradient(
+    170deg,
+    var(--color-white) 0%,
+    rgba(var(--color-primary-rgb), 0.05) 100%
+  );
+  border-top: none;
+  border-left: var(--space-1) solid var(--color-accent);
+  box-shadow: var(--shadow-xl);
+}
+.service-sidebar-card h4 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--font-size-base);
+  border-bottom: 2px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+.service-sidebar-card ul li {
+  position: relative;
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px dashed var(--color-gray-light);
+}
+/* Ascending capacity bar per class row */
+.service-sidebar-card ul li::after {
+  content: '';
+  position: absolute;
+  left: var(--space-6);
+  bottom: var(--space-1);
+  height: var(--space-1);
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    color-mix(in srgb, var(--color-accent) 25%, transparent) 100%
+  );
+  transition: transform var(--transition-base);
+  transform-origin: left center;
+}
+.service-sidebar-card ul li:nth-child(1)::after { width: 18%; }
+.service-sidebar-card ul li:nth-child(2)::after { width: 32%; }
+.service-sidebar-card ul li:nth-child(3)::after { width: 46%; }
+.service-sidebar-card ul li:nth-child(4)::after { width: 60%; }
+.service-sidebar-card ul li:nth-child(5)::after {
+  width: 74%;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 100%
+  );
+}
+.service-sidebar-card ul li:hover::after {
+  transform: scaleX(1.15);
+}
+.service-sidebar-card ul li:last-child {
+  border-bottom: none;
+}
+.service-sidebar-card .btn {
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- Answer block: spec-callout tint ---------- */
+.answer-block {
+  background: color-mix(in srgb, var(--color-accent) 6%, var(--color-white));
+  border-left: none;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+  border-radius: var(--radius-lg);
+  position: relative;
+}
+.answer-block::before {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--space-2));
+  left: var(--space-8);
+  width: var(--space-16);
+  height: var(--space-1);
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+}
+
+/* ---------- Benefits: rotating tinted cards, 2-col rhythm ---------- */
+.section-light .grid-2 {
+  gap: var(--space-6);
+}
+.section-light .benefit-item {
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  border-bottom: 3px solid transparent;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+.section-light .benefit-item:nth-child(4n+1) {
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-white));
+}
+.section-light .benefit-item:nth-child(4n+2) {
+  background: rgba(var(--color-primary-rgb), 0.06);
+}
+.section-light .benefit-item:nth-child(4n+3) {
+  background: rgba(var(--color-secondary-rgb), 0.09);
+}
+.section-light .benefit-item:nth-child(4n+4) {
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+}
+.section-light .benefit-item:hover {
+  transform: translateY(calc(-1 * var(--space-1)));
+  box-shadow: var(--shadow-lg);
+  border-bottom-color: var(--color-accent);
+}
+.section-light .benefit-item svg {
+  flex-shrink: 0;
+  margin-top: var(--space-1);
+  transition: transform var(--transition-base);
+}
+.section-light .benefit-item:hover svg {
+  transform: scale(1.15);
+}
+
+/* ---------- Mid CTA: dual-tone gradient + noise ---------- */
+.cta-banner {
+  background: linear-gradient(
+    115deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 45%,
+    color-mix(in srgb, var(--color-accent) 45%, var(--color-primary-dark)) 100%
+  );
+}
+.cta-banner p {
+  color: color-mix(in srgb, var(--color-white) 85%, transparent);
+  max-width: var(--bp-tablet);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- FAQ: keyline cards with numbered spines ---------- */
+#faq .faq-grid {
+  counter-reset: ld-faq;
+}
+#faq .faq-item {
+  counter-increment: ld-faq;
+  position: relative;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+#faq .faq-item::before {
+  content: counter(ld-faq, decimal-leading-zero);
+  position: absolute;
+  bottom: var(--space-2);
+  right: var(--space-4);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: rgba(var(--color-primary-rgb), 0.08);
+  line-height: 1;
+  pointer-events: none;
+}
+#faq .faq-item:nth-child(odd) {
+  border-top: 3px solid var(--color-accent);
+}
+#faq .faq-item:nth-child(even) {
+  border-top: 3px solid var(--color-primary);
+}
+#faq .faq-item:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- Closing CTA: left-anchored glow (C4.1 variant) ---------- */
+.closing-cta {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    160deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary) 100%
+  );
+}
+.closing-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 12% 88%,
+    color-mix(in srgb, var(--color-accent) 20%, transparent) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+.closing-cta .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Micro-interaction: arrow nudge on primary CTAs ---------- */
+.btn-accent {
+  transition: all var(--transition-base), letter-spacing var(--transition-base);
+}
+.btn-accent:hover {
+  letter-spacing: 0.08em;
+}
+.btn-accent svg {
+  transition: transform var(--transition-base);
+}
+.btn-accent:hover svg {
+  transform: translateX(var(--space-1)) rotate(-4deg);
+}
+
+/* ---------- Reveal support (fail-open, gated under html.js-anim) ---------- */
+html.js-anim .section-light .benefit-item {
+  opacity: 0;
+  transform: translateX(calc(-1 * var(--space-4)));
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+html.js-anim .section-light .benefit-item:nth-child(even) {
+  transform: translateX(var(--space-4));
+}
+html.js-anim .section-light .benefit-item.animated,
+html.js-anim .section-light .benefit-item.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+  .split .service-sidebar-card {
+    margin-left: calc(-1 * var(--space-8));
+  }
+}
+@media (max-width: 768px) {
+  .service-hero {
+    min-height: 50vh;
+  }
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .split .service-sidebar-card {
+    margin-left: 0;
+    margin-top: var(--space-6);
+  }
+  .split .img-reveal {
+    transform: none;
+  }
+  .section-white::before {
+    display: none;
+  }
+  .ld-divider svg {
+    height: var(--space-8);
+  }
+  #faq .faq-item::before {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .section-white::before {
+    animation: none;
+  }
+  .split .img-reveal,
+  .section-light .benefit-item,
+  .section-light .benefit-item svg,
+  .service-sidebar-card ul li::after,
+  .btn-accent,
+  .btn-accent svg {
+    transition: none;
+  }
+}
+</style>
+<?php
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 ?>
 
@@ -161,6 +617,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div>
 </section>
 
+<div class="ld-divider ld-divider--wave" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M0,40 C300,80 900,0 1200,40 L1200,80 L0,80 Z"/></svg>
+</div>
+
 <section class="section-light" style="padding: var(--space-16) 0;">
   <div class="container">
     <div class="section-header" data-animate="fade-up">
@@ -202,6 +662,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     </div>
   </div>
 </section>
+
+<div class="ld-divider ld-divider--planes" aria-hidden="true">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none"><polygon class="plane-soft" points="0,20 1200,40 1200,80 0,80"/><polygon class="plane-solid" points="0,40 1200,20 1200,80 0,80"/></svg>
+</div>
 
 <section class="cta-banner" aria-labelledby="light-cta-heading">
   <div class="container">
