@@ -13,7 +13,7 @@ Primary City: Richmond, TX
 
 ## Contact Information
 
-Phone: [see client config — 24/7 dispatch line]
+Phone: (281) 935-1113
 Address: 1920 Rocky Falls RD, Richmond, TX 77469
 Website: https://twincitiestowinginc.com
 Hours: 24/7 — Every hour of every day, including all holidays
@@ -123,21 +123,21 @@ A: Since 2011 — 13+ years serving Richmond, Rosenberg, and Fort Bend County.
 ## Website Pages
 
 - Homepage: https://twincitiestowinginc.com
-- Services Hub: https://twincitiestowinginc.com/services
-- Emergency Towing: https://twincitiestowinginc.com/services/emergency-towing
-- Flatbed Towing: https://twincitiestowinginc.com/services/flatbed-towing
-- Car Towing: https://twincitiestowinginc.com/services/car-towing
-- Truck Towing: https://twincitiestowinginc.com/services/truck-towing
-- Motorcycle Towing: https://twincitiestowinginc.com/services/motorcycle-towing
-- Roadside Assistance: https://twincitiestowinginc.com/services/roadside-assistance
-- Lockout Service: https://twincitiestowinginc.com/services/lockout-service
-- Tire Change: https://twincitiestowinginc.com/services/tire-change
-- Accident Towing: https://twincitiestowinginc.com/services/accident-towing
-- Breakdown Towing: https://twincitiestowinginc.com/services/breakdown-towing
-- Light Duty Towing: https://twincitiestowinginc.com/services/light-duty-towing
-- Service Area: https://twincitiestowinginc.com/service-area
-- About: https://twincitiestowinginc.com/about
-- Contact: https://twincitiestowinginc.com/contact
+- Services Hub: https://twincitiestowinginc.com/services/
+- Emergency Towing: https://twincitiestowinginc.com/services/emergency-towing/
+- Flatbed Towing: https://twincitiestowinginc.com/services/flatbed-towing/
+- Car Towing: https://twincitiestowinginc.com/services/car-towing/
+- Truck Towing: https://twincitiestowinginc.com/services/truck-towing/
+- Motorcycle Towing: https://twincitiestowinginc.com/services/motorcycle-towing/
+- Roadside Assistance: https://twincitiestowinginc.com/services/roadside-assistance/
+- Lockout Service: https://twincitiestowinginc.com/services/lockout-service/
+- Tire Change: https://twincitiestowinginc.com/services/tire-change/
+- Accident Towing: https://twincitiestowinginc.com/services/accident-towing/
+- Breakdown Towing: https://twincitiestowinginc.com/services/breakdown-towing/
+- Light Duty Towing: https://twincitiestowinginc.com/services/light-duty-towing/
+- Service Area: https://twincitiestowinginc.com/service-area/
+- About: https://twincitiestowinginc.com/about/
+- Contact: https://twincitiestowinginc.com/contact/
 
 ## Social and Review Profiles
 

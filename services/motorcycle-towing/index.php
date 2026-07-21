@@ -63,18 +63,22 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">
-      <i data-lucide="activity" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg>
       Motorcycles &bull; Scooters &bull; ATVs &bull; Cruisers
     </div>
     <h1 class="hero-title" id="service-hero-heading">Motorcycle Towing<br>in Richmond, TX</h1>
     <p class="hero-subtitle">Specialized equipment, proper tie-down technique, and 13 years of experience moving two-wheel vehicles throughout Fort Bend County — zero chrome contact, zero scratches.</p>
     <div class="hero-buttons">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
         Get a Free Estimate
       </a>
       <a href="/contact/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; 24/7
       </a>
     </div>
@@ -118,7 +122,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       </div>
       <div class="split-content">
         <span class="eyebrow">
-          <i data-lucide="activity" style="width:13px;height:13px;vertical-align:middle;margin-right:5px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;vertical-align:middle;margin-right:5px;"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg>
           Motorcycle Towing in Richmond TX
         </span>
         <h2>Your Bike Gets the Same Care You Give It</h2>
@@ -147,28 +151,31 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     </div>
     <div class="grid-2" data-animate="fade-up">
       <div class="benefit-item">
-        <i data-lucide="shield" style="width:24px;height:24px;color:var(--color-accent);"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:24px;height:24px;color:var(--color-accent);"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg>
         <div>
           <h3>Purpose-Built Equipment</h3>
           <p class="prose">Wheel chocks, soft straps, and frame cradles — not improvised solutions with ratchet straps hooked wherever convenient. The right equipment is the starting point for a damage-free transport.</p>
         </div>
       </div>
       <div class="benefit-item">
-        <i data-lucide="eye" style="width:24px;height:24px;color:var(--color-accent);"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:24px;height:24px;color:var(--color-accent);"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+  <circle cx="12" cy="12" r="3" /></svg>
         <div>
           <h3>Chrome and Paint Awareness</h3>
           <p class="prose">Our operators know where not to touch your bike. Padding, soft straps, and careful technique mean your finish looks exactly the same when you get it back as when we picked it up.</p>
         </div>
       </div>
       <div class="benefit-item">
-        <i data-lucide="settings" style="width:24px;height:24px;color:var(--color-accent);"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:24px;height:24px;color:var(--color-accent);"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
+  <circle cx="12" cy="12" r="3" /></svg>
         <div>
           <h3>Bikes of All Sizes and Styles</h3>
           <p class="prose">From lightweight 250cc commuters to 900-pound touring bikes, we've transported them all. Tell us the make and approximate weight and we'll confirm capacity before rolling.</p>
         </div>
       </div>
       <div class="benefit-item">
-        <i data-lucide="clock" style="width:24px;height:24px;color:var(--color-accent);"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:24px;height:24px;color:var(--color-accent);"><circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" /></svg>
         <div>
           <h3>24/7 Availability Throughout Fort Bend</h3>
           <p class="prose">Motorcycle breakdowns happen at all hours — weekend rides cut short, late-night highway issues. We're available every hour to cover the same roads and neighborhoods you ride.</p>
@@ -185,11 +192,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <p>Your motorcycle deserves a tow truck that carries the right gear. Twin Cities Towing brings wheel chocks, soft straps, and 13 years of two-wheel transport experience to every call.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
         Request Motorcycle Tow
       </a>
       <a href="/contact/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; 24/7
       </a>
     </div>
@@ -205,7 +216,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <div class="faq-grid" data-animate="fade-up">
       <?php foreach ($serviceFaqs as $faq): ?>
       <div class="faq-item">
-        <div class="faq-icon"><i data-lucide="help-circle" style="width:20px;height:20px;"></i></div>
+        <div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><circle cx="12" cy="12" r="10" />
+  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+  <path d="M12 17h.01" /></svg></div>
         <div>
           <h3><?php echo htmlspecialchars($faq['q']); ?></h3>
           <p><?php echo htmlspecialchars($faq['a']); ?></p>
@@ -225,15 +238,24 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     </div>
     <div class="closing-actions" data-animate="fade-up">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
         Get a Free Estimate
       </a>
       <a href="/contact/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; 24/7
       </a>
       <a href="/services/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="list" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M3 5h.01" />
+  <path d="M3 12h.01" />
+  <path d="M3 19h.01" />
+  <path d="M8 5h13" />
+  <path d="M8 12h13" />
+  <path d="M8 19h13" /></svg>
         All Services
       </a>
     </div>

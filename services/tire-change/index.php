@@ -63,18 +63,23 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">
-      <i data-lucide="disc" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;"><circle cx="12" cy="12" r="10" />
+  <circle cx="12" cy="12" r="2" /></svg>
       Flat Tire &bull; Roadside Swap &bull; Safe &amp; Fast
     </div>
     <h1 class="hero-title" id="service-hero-heading">Tire Change Service<br>in Richmond, TX</h1>
     <p class="hero-subtitle">Flat tire anywhere in Fort Bend County? We come to you, swap your spare on the roadside, and get you back on the road — typically within 45 minutes of your call.</p>
     <div class="hero-buttons">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
         Get Tire Help Now
       </a>
       <a href="/contact/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; 24/7
       </a>
     </div>
@@ -118,7 +123,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       </div>
       <div class="split-content">
         <span class="eyebrow">
-          <i data-lucide="disc" style="width:13px;height:13px;vertical-align:middle;margin-right:5px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;vertical-align:middle;margin-right:5px;"><circle cx="12" cy="12" r="10" />
+  <circle cx="12" cy="12" r="2" /></svg>
           Tire Change Service in Richmond TX
         </span>
         <h2>Flat on the Side of the Road? We're Closer Than You Think</h2>
@@ -185,11 +191,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <p>Twin Cities Towing INC responds to flat tire calls throughout Fort Bend County 24/7. Whether you're on a highway shoulder or in a parking lot, we get there fast and do the job right.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
         Request Tire Help
       </a>
       <a href="/contact/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; 24/7
       </a>
     </div>
@@ -205,7 +215,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <div class="faq-grid" data-animate="fade-up">
       <?php foreach ($serviceFaqs as $faq): ?>
       <div class="faq-item">
-        <div class="faq-icon"><i data-lucide="help-circle" style="width:20px;height:20px;"></i></div>
+        <div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><circle cx="12" cy="12" r="10" />
+  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+  <path d="M12 17h.01" /></svg></div>
         <div>
           <h3><?php echo htmlspecialchars($faq['q']); ?></h3>
           <p><?php echo htmlspecialchars($faq['a']); ?></p>
@@ -225,15 +237,19 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     </div>
     <div class="closing-actions" data-animate="fade-up">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
         Get Help Now
       </a>
       <a href="/contact/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; 24/7
       </a>
       <a href="/services/roadside-assistance/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="tool" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg>
         All Roadside Services
       </a>
     </div>

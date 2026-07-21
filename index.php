@@ -309,7 +309,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- Featured Card: Emergency Towing -->
       <div class="service-card service-card-featured" data-animate="fade-up">
         <div class="service-card-icon">
-          <i data-lucide="alert-triangle" style="width:28px;height:28px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:28px;height:28px;"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+  <path d="M12 9v4" />
+  <path d="M12 17h.01" /></svg>
         </div>
         <h3>Emergency Towing &mdash; 24/7</h3>
         <p>When your car is disabled on the highway, you need someone local, fast, and experienced. We dispatch immediately and arrive at most locations in Richmond and Fort Bend County within 20&ndash;40 minutes.</p>
@@ -341,55 +343,65 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         </ul>
         <a href="/services/emergency-towing/" class="learn-more">
           Learn About Emergency Towing
-          <i data-lucide="arrow-right" style="width:14px;height:14px;margin-left:4px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;margin-left:4px;"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg>
         </a>
       </div>
 
       <!-- Card: Flatbed Towing -->
       <div class="service-card" data-animate="fade-up">
         <div class="service-card-icon">
-          <i data-lucide="minus-square" style="width:26px;height:26px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:26px;height:26px;"><rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M8 12h8" /></svg>
         </div>
         <h3>Flatbed Towing</h3>
         <p>The safest way to move any vehicle &mdash; especially luxury cars, AWD vehicles, lowered rides, or anything that can&rsquo;t touch the ground. All four wheels stay off the road the entire trip.</p>
         <a href="/services/flatbed-towing/" class="learn-more">
-          Learn More <i data-lucide="arrow-right" style="width:13px;height:13px;margin-left:4px;"></i>
+          Learn More <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;margin-left:4px;"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg>
         </a>
       </div>
 
       <!-- Card: Roadside Assistance -->
       <div class="service-card" data-animate="fade-up">
         <div class="service-card-icon">
-          <i data-lucide="tool" style="width:26px;height:26px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:26px;height:26px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg>
         </div>
         <h3>Roadside Assistance</h3>
         <p>Jump starts, fuel delivery, tire changes, and on-site help when your car won&rsquo;t cooperate. We get you moving again without needing a tow whenever possible.</p>
         <a href="/services/roadside-assistance/" class="learn-more">
-          Learn More <i data-lucide="arrow-right" style="width:13px;height:13px;margin-left:4px;"></i>
+          Learn More <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;margin-left:4px;"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg>
         </a>
       </div>
 
       <!-- Card: Car Towing -->
       <div class="service-card" data-animate="fade-up">
         <div class="service-card-icon">
-          <i data-lucide="car" style="width:26px;height:26px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:26px;height:26px;"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+  <circle cx="7" cy="17" r="2" />
+  <path d="M9 17h6" />
+  <circle cx="17" cy="17" r="2" /></svg>
         </div>
         <h3>Car &amp; Light-Duty Towing</h3>
         <p>Standard towing for cars, SUVs, and light trucks to any destination in Fort Bend County or beyond. Careful handling, no unnecessary mileage, transparent pricing.</p>
         <a href="/services/car-towing/" class="learn-more">
-          Learn More <i data-lucide="arrow-right" style="width:13px;height:13px;margin-left:4px;"></i>
+          Learn More <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;margin-left:4px;"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg>
         </a>
       </div>
 
       <!-- Card: Lockout Service -->
       <div class="service-card" data-animate="fade-up">
         <div class="service-card-icon">
-          <i data-lucide="lock" style="width:26px;height:26px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:26px;height:26px;"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+  <path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
         </div>
         <h3>Lockout Service</h3>
         <p>Locked your keys inside? Our technicians unlock passenger vehicles without damage in minutes. Available throughout Richmond, Rosenberg, Sugar Land, and surrounding cities.</p>
         <a href="/services/lockout-service/" class="learn-more">
-          Learn More <i data-lucide="arrow-right" style="width:13px;height:13px;margin-left:4px;"></i>
+          Learn More <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;margin-left:4px;"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg>
         </a>
       </div>
 
@@ -397,7 +409,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
     <div class="services-cta-row" data-animate="fade-up">
       <a href="/services/" class="btn btn-primary btn-lg">
-        <i data-lucide="list" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M3 5h.01" />
+  <path d="M3 12h.01" />
+  <path d="M3 19h.01" />
+  <path d="M8 5h13" />
+  <path d="M8 12h13" />
+  <path d="M8 19h13" /></svg>
         View All 11 Services
       </a>
     </div>
@@ -465,17 +482,21 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
         Request a Free Estimate
       </a>
       <?php if (!empty($phone)): ?>
       <a href="tel:<?php echo preg_replace('/\D/', '', $phone); ?>" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call <?php echo htmlspecialchars($phoneDisplay ?: $phone); ?>
       </a>
       <?php else: ?>
       <a href="/contact/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; Same-Day Response
       </a>
       <?php endif; ?>
@@ -710,7 +731,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
       <div class="faq-item">
         <div class="faq-icon">
-          <i data-lucide="clock" style="width:20px;height:20px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" /></svg>
         </div>
         <div>
           <h3>How fast can you respond in Richmond, TX?</h3>
@@ -720,7 +742,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
       <div class="faq-item">
         <div class="faq-icon">
-          <i data-lucide="minus-square" style="width:20px;height:20px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M8 12h8" /></svg>
         </div>
         <div>
           <h3>Do you offer flatbed towing for luxury or low-clearance vehicles?</h3>
@@ -730,7 +753,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
       <div class="faq-item">
         <div class="faq-icon">
-          <i data-lucide="dollar-sign" style="width:20px;height:20px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><line x1="12" x2="12" y1="2" y2="22" />
+  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
         </div>
         <div>
           <h3>How much does emergency towing cost in Richmond?</h3>
@@ -740,7 +764,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
       <div class="faq-item">
         <div class="faq-icon">
-          <i data-lucide="calendar" style="width:20px;height:20px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><path d="M8 2v4" />
+  <path d="M16 2v4" />
+  <rect width="18" height="18" x="3" y="4" rx="2" />
+  <path d="M3 10h18" /></svg>
         </div>
         <div>
           <h3>Are you available on holidays and weekends?</h3>
@@ -750,7 +777,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
       <div class="faq-item">
         <div class="faq-icon">
-          <i data-lucide="activity" style="width:20px;height:20px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg>
         </div>
         <div>
           <h3>Can you tow motorcycles and small ATVs?</h3>
@@ -760,7 +787,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
       <div class="faq-item">
         <div class="faq-icon">
-          <i data-lucide="map-pin" style="width:20px;height:20px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
         </div>
         <div>
           <h3>What cities near Richmond do you serve?</h3>
@@ -773,7 +801,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <div style="text-align:center;margin-top:var(--space-10);" data-animate="fade-up">
       <p style="color:var(--color-gray);margin-bottom:var(--space-4);">Have a question not listed here?</p>
       <a href="/contact/" class="btn btn-primary">
-        <i data-lucide="message-circle" style="width:17px;height:17px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px;"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
         Ask Us Directly
       </a>
     </div>
@@ -806,22 +834,27 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
     <div class="closing-actions" data-animate="fade-up">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
         Get a Free Estimate
       </a>
       <?php if (!empty($phone)): ?>
       <a href="tel:<?php echo preg_replace('/\D/', '', $phone); ?>" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call <?php echo htmlspecialchars($phoneDisplay ?: $phone); ?> &mdash; 24/7
       </a>
       <?php else: ?>
       <a href="/contact/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; 24/7 Dispatch
       </a>
       <?php endif; ?>
       <a href="/service-area/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="map-pin" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
         View Service Area
       </a>
     </div>

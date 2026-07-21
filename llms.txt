@@ -1,21 +1,19 @@
 # Twin Cities Towing INC — Business Information for AI Systems
 
-## Business Overview
+## Key Facts
 
-Business Name: Twin Cities Towing INC
-Business Type: Towing Company / Roadside Assistance Provider
-Year Established: 2011
-Years in Business: 13+
-Tagline: We'll Get You Moving Again!
-Licensed and Insured: Yes
-
-## Contact Information
-
-Phone: [see client config — 24/7 dispatch line]
-Address: 1920 Rocky Falls RD, Richmond, TX 77469
-Service Area: Richmond, TX and surrounding Fort Bend County communities
-Website: https://twincitiestowinginc.com
-Hours: 24/7 — 365 days a year, including holidays
+- Business Name: Twin Cities Towing INC
+- Business Type: Towing Company / Roadside Assistance Provider
+- Phone (24/7 dispatch): (281) 935-1113
+- Email: twincitiestowing1@gmail.com
+- Address: 1920 Rocky Falls RD, Richmond, TX 77469
+- Website: https://twincitiestowinginc.com
+- Hours: 24/7 — 365 days a year, including holidays
+- Year Established: 2011 (13+ years in business)
+- Tagline: We'll Get You Moving Again!
+- Licensed and Insured: Yes
+- Typical local tow price: $75–$125 for standard local tows in the Richmond area
+- Typical response time: 20–40 minutes to most Fort Bend County locations
 
 ## About
 
@@ -38,17 +36,17 @@ Twin Cities Towing INC has served Richmond and Rosenberg, Texas since 2011. The 
 ## Service Areas
 
 Primary: Richmond, TX 77469
-Also Serving:
-- Rosenberg, TX 77471
-- Sugar Land, TX 77479
-- Missouri City, TX 77459
-- Stafford, TX 77477
-- Katy, TX 77450
-- Greatwood, TX 77406
-- Pecan Grove, TX 77406
-- Needville, TX 77461
-- Fresno, TX 77545
-- All of Fort Bend County within ~20-mile radius of Richmond
+Also serving Fort Bend County within ~20 miles of Richmond:
+- Rosenberg, TX 77471 — https://twincitiestowinginc.com/areas/rosenberg-tx/
+- Sugar Land, TX 77479 — https://twincitiestowinginc.com/areas/sugar-land-tx/
+- Missouri City, TX 77459 — https://twincitiestowinginc.com/areas/missouri-city-tx/
+- Stafford, TX 77477 — https://twincitiestowinginc.com/areas/stafford-tx/
+- Katy, TX 77450 — https://twincitiestowinginc.com/areas/katy-tx/
+- Greatwood, TX 77406 — https://twincitiestowinginc.com/areas/greatwood-tx/
+- Pecan Grove, TX 77406 — https://twincitiestowinginc.com/areas/pecan-grove-tx/
+- Needville, TX 77461 — https://twincitiestowinginc.com/areas/needville-tx/
+- Fresno, TX 77545 — https://twincitiestowinginc.com/areas/fresno-tx/
+Richmond city page: https://twincitiestowinginc.com/areas/richmond-tx/
 
 ## Key Differentiators
 
@@ -59,21 +57,29 @@ Also Serving:
 - Fast response: 20–40 minutes to most Fort Bend County locations
 - Licensed and insured
 
-## Website Pages
+## Most Citable Pages
 
-- Homepage: https://twincitiestowinginc.com — overview of services, reviews, service area
-- Services Hub: https://twincitiestowinginc.com/services — full list of towing services
-- Emergency Towing: https://twincitiestowinginc.com/services/emergency-towing — 24/7 emergency dispatch
-- Flatbed Towing: https://twincitiestowinginc.com/services/flatbed-towing — damage-free flatbed transport
-- Car Towing: https://twincitiestowinginc.com/services/car-towing — passenger vehicle towing
-- Truck Towing: https://twincitiestowinginc.com/services/truck-towing — heavy-duty commercial towing
-- Motorcycle Towing: https://twincitiestowinginc.com/services/motorcycle-towing — bike and ATV transport
-- Roadside Assistance: https://twincitiestowinginc.com/services/roadside-assistance — jump starts, fuel, tire
-- Lockout Service: https://twincitiestowinginc.com/services/lockout-service — car lockout help
-- Tire Change: https://twincitiestowinginc.com/services/tire-change — roadside flat tire service
-- Accident Towing: https://twincitiestowinginc.com/services/accident-towing — collision recovery 24/7
-- Breakdown Towing: https://twincitiestowinginc.com/services/breakdown-towing — disabled vehicle transport
-- Light Duty Towing: https://twincitiestowinginc.com/services/light-duty-towing — cars, SUVs, small trucks
-- Service Area: https://twincitiestowinginc.com/service-area — coverage map and cities served
-- About: https://twincitiestowinginc.com/about — company history and values
-- Contact: https://twincitiestowinginc.com/contact — estimate request and contact form
+- Homepage: https://twincitiestowinginc.com/ — overview of services, reviews, service area
+- Services Hub: https://twincitiestowinginc.com/services/ — full list of towing services
+- Emergency Towing: https://twincitiestowinginc.com/services/emergency-towing/ — 24/7 emergency dispatch
+- Flatbed Towing: https://twincitiestowinginc.com/services/flatbed-towing/ — damage-free flatbed transport
+- Car Towing: https://twincitiestowinginc.com/services/car-towing/ — passenger vehicle towing
+- Truck Towing: https://twincitiestowinginc.com/services/truck-towing/ — heavy-duty commercial towing
+- Motorcycle Towing: https://twincitiestowinginc.com/services/motorcycle-towing/ — bike and ATV transport
+- Roadside Assistance: https://twincitiestowinginc.com/services/roadside-assistance/ — jump starts, fuel, tire
+- Lockout Service: https://twincitiestowinginc.com/services/lockout-service/ — car lockout help
+- Tire Change: https://twincitiestowinginc.com/services/tire-change/ — roadside flat tire service
+- Accident Towing: https://twincitiestowinginc.com/services/accident-towing/ — collision recovery 24/7
+- Breakdown Towing: https://twincitiestowinginc.com/services/breakdown-towing/ — disabled vehicle transport
+- Light Duty Towing: https://twincitiestowinginc.com/services/light-duty-towing/ — cars, SUVs, small trucks
+- Service Area Hub: https://twincitiestowinginc.com/service-area/ — coverage map and cities served
+- FAQ: https://twincitiestowinginc.com/faq/ — pricing, response times, equipment, insurance questions
+- Blog: https://twincitiestowinginc.com/blog/ — towing guides and roadside help articles
+  - Towing in Richmond, TX: The Complete 2026 Guide — https://twincitiestowinginc.com/blog/towing-richmond-tx-complete-guide/
+  - How Much Does Towing Cost in Richmond, TX? — https://twincitiestowinginc.com/blog/towing-cost-richmond-tx/
+  - What to Do After a Car Accident in Fort Bend County — https://twincitiestowinginc.com/blog/what-to-do-after-car-accident/
+  - Flatbed vs. Wheel-Lift Towing — https://twincitiestowinginc.com/blog/flatbed-vs-wheel-lift-towing/
+  - Car Won't Start? 7 Common Causes — https://twincitiestowinginc.com/blog/car-wont-start-common-causes/
+  - Texas Towing Laws: Your Rights — https://twincitiestowinginc.com/blog/texas-towing-laws-your-rights/
+- About: https://twincitiestowinginc.com/about/ — company history and values
+- Contact: https://twincitiestowinginc.com/contact/ — estimate request and contact form

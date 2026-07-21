@@ -4,6 +4,9 @@
  * Phase 2 — auto-loaded by head.php
  */
 
+// Inline Lucide SVG map + lucide_icon() renderer (v6.2: no runtime icon JS)
+require_once __DIR__ . '/icons.php';
+
 /**
  * Check if the given page slug matches the current page.
  */

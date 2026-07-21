@@ -52,18 +52,23 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">
-      <i data-lucide="map-pin" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
       Towing Near Me &bull; Fort Bend County &bull; 20-Mile Radius
     </div>
     <h1 class="hero-title" id="area-hero-heading">Towing Service in Richmond TX<br>&amp; Surrounding Communities</h1>
     <p class="hero-subtitle">Twin Cities Towing INC covers all of Fort Bend County — Richmond, Rosenberg, Sugar Land, Missouri City, Stafford, Katy, and beyond — with 24/7 emergency towing and roadside assistance.</p>
     <div class="hero-buttons">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
         Get a Free Estimate
       </a>
       <a href="/contact/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; 24/7
       </a>
     </div>
@@ -101,7 +106,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   <div class="container">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">
-        <i data-lucide="map" style="width:13px;height:13px;vertical-align:middle;margin-right:5px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;vertical-align:middle;margin-right:5px;"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" />
+  <path d="M15 5.764v15" />
+  <path d="M9 3.236v15" /></svg>
         Coverage Area
       </span>
       <h2>Fort Bend County Towing &mdash; From Richmond to Katy and Every City Between</h2>
@@ -132,7 +139,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- Richmond — Primary -->
       <div class="area-card area-card-primary">
         <div class="area-card-header">
-          <i data-lucide="star" style="width:18px;height:18px;color:var(--color-accent);"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;color:var(--color-accent);"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
           <h3>Richmond, TX</h3>
           <span class="area-badge">Primary Location</span>
         </div>
@@ -148,7 +155,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- Rosenberg -->
       <div class="area-card">
         <div class="area-card-header">
-          <i data-lucide="map-pin" style="width:16px;height:16px;color:var(--color-accent);"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;color:var(--color-accent);"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
           <h3>Rosenberg, TX</h3>
         </div>
         <p class="prose">Right next door to Richmond, Rosenberg is one of our highest-volume service areas. We respond to breakdowns along Highway 90, Business 90, and the commercial corridors through downtown Rosenberg daily. Typical ETA: 15–30 minutes from call.</p>
@@ -162,7 +170,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- Sugar Land -->
       <div class="area-card">
         <div class="area-card-header">
-          <i data-lucide="map-pin" style="width:16px;height:16px;color:var(--color-accent);"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;color:var(--color-accent);"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
           <h3>Sugar Land, TX</h3>
         </div>
         <p class="prose">We serve all of Sugar Land — including First Colony, New Territory, and the Hwy 59/Hwy 90 interchange zone. Sugar Land's mix of retail centers, residential neighborhoods, and business parks keeps us active here throughout the day and overnight. Typical ETA: 25–40 minutes.</p>
@@ -176,7 +185,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- Missouri City -->
       <div class="area-card">
         <div class="area-card-header">
-          <i data-lucide="map-pin" style="width:16px;height:16px;color:var(--color-accent);"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;color:var(--color-accent);"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
           <h3>Missouri City, TX</h3>
         </div>
         <p class="prose">Missouri City towing covers the Hwy 6 and FM 1092 corridors, Sienna Plantation, and all residential communities throughout the city. We respond to breakdowns on Highway 6 frequently and know the local roads well. Typical ETA: 25–40 minutes.</p>
@@ -190,7 +200,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- Stafford -->
       <div class="area-card">
         <div class="area-card-header">
-          <i data-lucide="map-pin" style="width:16px;height:16px;color:var(--color-accent);"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;color:var(--color-accent);"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
           <h3>Stafford, TX</h3>
         </div>
         <p class="prose">Stafford's commercial concentration along US-90A and Murphy Road means plenty of business vehicle breakdowns and parking lot situations. We serve the entire city including its industrial and retail zones. Typical ETA: 30–40 minutes from Richmond.</p>
@@ -204,7 +215,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- Katy -->
       <div class="area-card">
         <div class="area-card-header">
-          <i data-lucide="map-pin" style="width:16px;height:16px;color:var(--color-accent);"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;color:var(--color-accent);"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
           <h3>Katy, TX</h3>
         </div>
         <p class="prose">Katy marks the northwest edge of our regular service area. We serve I-10 and Hwy 90 corridors through Katy along with Cinco Ranch and surrounding communities. Motorcycle towing and flatbed calls from the Katy area are common. Typical ETA: 35–50 minutes.</p>
@@ -218,7 +230,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- Greatwood -->
       <div class="area-card">
         <div class="area-card-header">
-          <i data-lucide="map-pin" style="width:16px;height:16px;color:var(--color-accent);"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;color:var(--color-accent);"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
           <h3>Greatwood, TX</h3>
         </div>
         <p class="prose">The Greatwood community sits just southwest of Sugar Land along Hwy 90. We cover Greatwood's residential streets and the FM 359 corridor connecting it to Richmond. Typical ETA: 20–35 minutes — close to our base.</p>
@@ -231,7 +244,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- Pecan Grove -->
       <div class="area-card">
         <div class="area-card-header">
-          <i data-lucide="map-pin" style="width:16px;height:16px;color:var(--color-accent);"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;color:var(--color-accent);"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
           <h3>Pecan Grove, TX</h3>
         </div>
         <p class="prose">Pecan Grove is a residential community just north of Richmond along FM 359. We serve Pecan Grove regularly and its location near our Richmond base means faster response times — often under 20 minutes for emergency calls in the area.</p>
@@ -244,7 +258,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- Needville -->
       <div class="area-card">
         <div class="area-card-header">
-          <i data-lucide="map-pin" style="width:16px;height:16px;color:var(--color-accent);"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;color:var(--color-accent);"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
           <h3>Needville, TX</h3>
         </div>
         <p class="prose">Located south of Richmond along Hwy 36, Needville is at the southern edge of our regular service radius. We cover highway breakdowns on Hwy 36 and Hwy 360 through the Needville area. Typical ETA: 30–45 minutes.</p>
@@ -257,7 +272,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- Fresno -->
       <div class="area-card">
         <div class="area-card-header">
-          <i data-lucide="map-pin" style="width:16px;height:16px;color:var(--color-accent);"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;color:var(--color-accent);"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
           <h3>Fresno, TX</h3>
         </div>
         <p class="prose">Fresno lies between Missouri City and Richmond along FM 521. We cover Fresno's residential areas and the FM 521 corridor. Towing and roadside assistance calls from Fresno are routed from our Richmond base. Typical ETA: 25–40 minutes.</p>
@@ -286,11 +302,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <p>Twin Cities Towing INC dispatches from Richmond and reaches most Fort Bend County locations in 20–40 minutes. Call now for immediate response — 24/7, all cities, all services.</p>
     <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
         Get a Free Estimate
       </a>
       <a href="/contact/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; 24/7
       </a>
     </div>
@@ -307,7 +327,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     <div class="faq-grid" data-animate="fade-up">
       <?php foreach ($areaFaqs as $faq): ?>
       <div class="faq-item">
-        <div class="faq-icon"><i data-lucide="help-circle" style="width:20px;height:20px;"></i></div>
+        <div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><circle cx="12" cy="12" r="10" />
+  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+  <path d="M12 17h.01" /></svg></div>
         <div>
           <h3><?php echo htmlspecialchars($faq['q']); ?></h3>
           <p><?php echo htmlspecialchars($faq['a']); ?></p>
@@ -328,15 +350,24 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     </div>
     <div class="closing-actions" data-animate="fade-up">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="file-text" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
         Get a Free Estimate
       </a>
       <a href="/contact/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; 24/7
       </a>
       <a href="/services/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="list" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M3 5h.01" />
+  <path d="M3 12h.01" />
+  <path d="M3 19h.01" />
+  <path d="M8 5h13" />
+  <path d="M8 12h13" />
+  <path d="M8 19h13" /></svg>
         View All Services
       </a>
     </div>

@@ -52,7 +52,7 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
             <?php endif; ?>
           </a>
           <p>Reliable 24/7 towing and roadside assistance throughout Richmond, Rosenberg, and Fort Bend County. When you're stranded, we're on the way.</p>
-          <div class="footer-trust">
+          <div class="footer-trust" data-p1-dynamic>
             <?php foreach ($trustSignals as $badge): ?>
             <span class="trust-badge"><?php echo htmlspecialchars($badge); ?></span>
             <?php endforeach; ?>
@@ -88,7 +88,7 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
         <!-- Col 2: Services (first half) -->
         <div class="footer-col">
           <h4>Our Services</h4>
-          <ul>
+          <ul data-p1-dynamic>
             <?php foreach ($_servicesCol1 as $s): ?>
             <li>
               <a href="/services/<?php echo htmlspecialchars($s['slug']); ?>/">
@@ -103,7 +103,7 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
         <div class="footer-col">
           <?php if (!empty($_servicesCol2)): ?>
           <h4>More Services</h4>
-          <ul>
+          <ul data-p1-dynamic>
             <?php foreach ($_servicesCol2 as $s): ?>
             <li>
               <a href="/services/<?php echo htmlspecialchars($s['slug']); ?>/">
@@ -115,17 +115,22 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
           </ul>
           <?php endif; ?>
           <h4 style="margin-top: var(--space-6);">Service Areas</h4>
-          <ul>
+          <ul data-p1-dynamic>
             <?php foreach (array_slice($serviceAreas, 0, 4) as $area): ?>
             <?php if (!empty($area['city'])): ?>
             <li>
-              <a href="/service-area/#<?php echo htmlspecialchars($area['slug']); ?>">
+              <a href="/areas/<?php echo htmlspecialchars($area['slug']); ?>/">
                 <?php echo htmlspecialchars($area['city']); ?>, <?php echo htmlspecialchars($area['state']); ?>
               </a>
             </li>
             <?php endif; ?>
             <?php endforeach; ?>
             <li><a href="/service-area/"><strong>View All Areas &rarr;</strong></a></li>
+          </ul>
+          <h4 style="margin-top: var(--space-6);">Resources</h4>
+          <ul>
+            <li><a href="/blog/">Towing Tips &amp; Guides</a></li>
+            <li><a href="/faq/">Frequently Asked Questions</a></li>
           </ul>
         </div>
 

@@ -50,7 +50,7 @@ $_phoneDisplay = !empty($phoneDisplay) ? $phoneDisplay : (!empty($phone) ? forma
             Services
             <span class="nav-chevron" aria-hidden="true">&#9660;</span>
           </a>
-          <ul class="nav-dropdown-menu" role="list">
+          <ul class="nav-dropdown-menu" role="list" data-p1-dynamic>
             <?php foreach ($services as $s): ?>
             <li>
               <a href="/services/<?php echo htmlspecialchars($s['slug']); ?>/"
@@ -73,11 +73,11 @@ $_phoneDisplay = !empty($phoneDisplay) ? $phoneDisplay : (!empty($phone) ? forma
             Service Areas
             <span class="nav-chevron" aria-hidden="true">&#9660;</span>
           </a>
-          <ul class="nav-dropdown-menu" role="list">
+          <ul class="nav-dropdown-menu" role="list" data-p1-dynamic>
             <?php foreach ($serviceAreas as $area): ?>
             <?php if (!empty($area['city'])): ?>
             <li>
-              <a href="/service-area/#<?php echo htmlspecialchars($area['slug']); ?>">
+              <a href="/areas/<?php echo htmlspecialchars($area['slug']); ?>/">
                 <?php echo htmlspecialchars($area['city']); ?>, <?php echo htmlspecialchars($area['state']); ?>
               </a>
             </li>
@@ -93,6 +93,20 @@ $_phoneDisplay = !empty($phoneDisplay) ? $phoneDisplay : (!empty($phone) ? forma
           <a href="/about/"
              <?php if (isActivePage('about')) echo 'aria-current="page"'; ?>>
             About
+          </a>
+        </li>
+
+        <li>
+          <a href="/faq/"
+             <?php if (isActivePage('faq')) echo 'aria-current="page"'; ?>>
+            FAQ
+          </a>
+        </li>
+
+        <li>
+          <a href="/blog/"
+             <?php if (isActivePage('blog')) echo 'aria-current="page"'; ?>>
+            Blog
           </a>
         </li>
 

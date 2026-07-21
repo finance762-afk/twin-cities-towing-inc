@@ -45,7 +45,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">
-      <i data-lucide="phone" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:6px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
       Free Estimates &bull; 24/7 Dispatch &bull; No Hold Music
     </div>
     <h1 class="hero-title" id="contact-hero-heading">Get in Touch &mdash;<br>We Respond Immediately</h1>
@@ -87,7 +87,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <!-- FORM COLUMN -->
       <div class="contact-form-col">
         <span class="eyebrow">
-          <i data-lucide="file-text" style="width:13px;height:13px;vertical-align:middle;margin-right:5px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;vertical-align:middle;margin-right:5px;"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+  <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+  <path d="M10 9H8" />
+  <path d="M16 13H8" />
+  <path d="M16 17H8" /></svg>
           Request a Free Estimate
         </span>
         <h2>Tell Us What You Need — We'll Get Back to You Fast</h2>
@@ -156,7 +160,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           </div>
 
           <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">
-            <i data-lucide="send" style="width:18px;height:18px;margin-right:8px;"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;margin-right:8px;"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
+  <path d="m21.854 2.147-10.94 10.939" /></svg>
             Send My Request
           </button>
 
@@ -175,7 +180,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           <ul class="contact-detail-list">
             <?php if (!empty($phone)): ?>
             <li>
-              <i data-lucide="phone" style="width:18px;height:18px;color:var(--color-accent);"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;color:var(--color-accent);"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
               <div>
                 <span class="contact-detail-label">Phone</span>
                 <a href="tel:<?php echo preg_replace('/\D/', '', $phone); ?>" class="contact-detail-value">
@@ -186,7 +191,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
             <?php endif; ?>
             <?php if (!empty($email)): ?>
             <li>
-              <i data-lucide="mail" style="width:18px;height:18px;color:var(--color-accent);"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;color:var(--color-accent);"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+  <rect x="2" y="4" width="20" height="16" rx="2" /></svg>
               <div>
                 <span class="contact-detail-label">Email</span>
                 <a href="mailto:<?php echo htmlspecialchars($email); ?>" class="contact-detail-value">
@@ -196,14 +202,16 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
             </li>
             <?php endif; ?>
             <li>
-              <i data-lucide="map-pin" style="width:18px;height:18px;color:var(--color-accent);"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;color:var(--color-accent);"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
               <div>
                 <span class="contact-detail-label">Address</span>
                 <span class="contact-detail-value"><?php echo htmlspecialchars($addressFull); ?></span>
               </div>
             </li>
             <li>
-              <i data-lucide="clock" style="width:18px;height:18px;color:var(--color-accent);"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;color:var(--color-accent);"><circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" /></svg>
               <div>
                 <span class="contact-detail-label">Hours</span>
                 <span class="contact-detail-value"><?php echo htmlspecialchars($hoursDisplay); ?></span>
@@ -223,19 +231,23 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
             <?php endforeach; ?>
           </div>
           <a href="/service-area/" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--space-4);font-size:var(--font-size-sm);color:var(--color-accent);">
-            <i data-lucide="map" style="width:14px;height:14px;"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" />
+  <path d="M15 5.764v15" />
+  <path d="M9 3.236v15" /></svg>
             View full service area map
           </a>
         </div>
 
         <!-- Emergency Banner -->
         <div class="emergency-contact-card" style="margin-top:var(--space-6);">
-          <i data-lucide="alert-triangle" style="width:24px;height:24px;color:#fff;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:24px;height:24px;color:#fff;"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+  <path d="M12 9v4" />
+  <path d="M12 17h.01" /></svg>
           <div>
             <h4>Emergency Towing?</h4>
             <p>Don't fill out the form — call us directly for immediate 24/7 dispatch. We pick up and we dispatch fast.</p>
             <a href="/contact/" class="btn btn-accent btn-sm" style="margin-top:var(--space-3);">
-              <i data-lucide="phone" style="width:15px;height:15px;"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
               Call Now — 24/7
             </a>
           </div>
@@ -274,15 +286,21 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
     </div>
     <div class="closing-actions" data-animate="fade-up">
       <a href="/contact/" class="btn btn-accent btn-lg">
-        <i data-lucide="phone" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
         Call Now &mdash; 24/7
       </a>
       <a href="/services/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="list" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M3 5h.01" />
+  <path d="M3 12h.01" />
+  <path d="M3 19h.01" />
+  <path d="M8 5h13" />
+  <path d="M8 12h13" />
+  <path d="M8 19h13" /></svg>
         View All Services
       </a>
       <a href="/service-area/" class="btn btn-outline-white btn-lg">
-        <i data-lucide="map-pin" style="width:18px;height:18px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
         Service Area
       </a>
     </div>
