@@ -178,6 +178,21 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
 
   <!-- ── Footer Bottom Bar ──────────────────────────────── -->
   <div class="container">
+    <!-- Footer Legal Utility Row (v6.1) -->
+    <nav class="footer-legal-links" aria-label="Legal">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-legal-divider">|</span>
+      <a href="/terms/">Terms of Service</a>
+      <span class="footer-legal-divider">|</span>
+      <a href="/cookie-policy/">Cookie Policy</a>
+      <span class="footer-legal-divider">|</span>
+      <a href="/accessibility/">Accessibility</a>
+      <span class="footer-legal-divider">|</span>
+      <a href="/privacy-policy/#ccpa-rights">Do Not Sell or Share My Personal Information</a>
+      <span class="footer-legal-divider">|</span>
+      <a href="/sitemap.xml">Sitemap</a>
+    </nav>
+
     <div class="footer-bottom">
       <p>&copy; <?php echo date('Y'); ?> <?php echo htmlspecialchars($siteName); ?>. All rights reserved.</p>
       <p class="footer-credit">
@@ -205,6 +220,17 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
   </div>
 </div>
 
+<!-- ── Cookie Banner (v6.1) ─────────────────────────────── -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <p class="cookie-banner__text">
+    We use cookies to improve your experience on our site. By using this site, you agree to our use of cookies.
+    <a href="/cookie-policy/">Learn more</a>
+  </p>
+  <button class="cookie-banner__dismiss" id="cookie-dismiss" aria-label="Dismiss cookie banner">
+    Got it
+  </button>
+</div>
+
 <!-- ─────────────────────────────────────────────────────────
      Scripts
 ────────────────────────────────────────────────────────── -->
@@ -220,17 +246,11 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" defer></script>
 <?php endif; ?>
 
-<!-- Lucide Icons CDN -->
-<script src="https://unpkg.com/lucide@latest" defer></script>
+<!-- v6.2: No Lucide CDN — icons inlined as SVG at build time -->
 
-<!-- Init: Lucide icons — dropdown toggle is handled in main.js -->
+<!-- Init: Mobile nav close-on-outside-click + Cookie banner -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-
-  // Init Lucide icons
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-  }
 
   // Close mobile nav when clicking outside the overlay
   document.addEventListener('click', function(e) {
@@ -245,6 +265,25 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   });
+
+  // Cookie banner (v6.1) — show if not previously dismissed
+  var cookieBanner = document.getElementById('cookie-banner');
+  var cookieDismiss = document.getElementById('cookie-dismiss');
+
+  if (cookieBanner && cookieDismiss) {
+    var cookieAccepted = localStorage.getItem('cookieAccepted');
+
+    if (!cookieAccepted) {
+      setTimeout(function() {
+        cookieBanner.classList.add('is-visible');
+      }, 1000);
+    }
+
+    cookieDismiss.addEventListener('click', function() {
+      cookieBanner.classList.remove('is-visible');
+      localStorage.setItem('cookieAccepted', 'true');
+    });
+  }
 
 });
 </script>

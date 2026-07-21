@@ -1,6 +1,283 @@
 # CLAUDE.md — Page One Insights Build Standards
 
-> Claude Code reads this file automatically on every build. All rules here are mandatory unless explicitly overridden by the build prompt.
+> Claude Code reads this file automatically on every build. All rules here are **mandatory** unless explicitly overridden by the build prompt.
+
+---
+
+## How This File Works
+
+CLAUDE.md is the **enforcement layer** — it defines what a build must contain and what's forbidden. The **how** lives in reference files. Read the references before writing code:
+
+- `~/crm/references/design-system.md` — visual architecture, CSS tokens, premium technique library, visual vocabulary archetypes (**READ FIRST**)
+- `~/crm/references/seo-aeo-2026.md` — SEO + AEO specifications, schema markup, sitemap.php, llms.txt patterns
+- `~/crm/references/build-phases.md` — PHP architecture, build phase order, deployment pipeline
+- `~/crm/references/blog-standard.md` — blog registry, post anatomy, topic clusters (Premium builds)
+
+Rules below win when they conflict with anything in references.
+
+---
+
+## MODEL POLICY
+
+The pipeline selects a Claude model **per task** (Opus for design-critical /
+vision phases, Sonnet for bulk content, QA, fixes, and edits) — it never
+inherits the CLI default. Full per-phase table is in `CLAUDE-websites-v2.md` →
+**MODEL POLICY**; the authoritative config is
+`packages/design-portal/lib/phase-prompts.ts` (`getPhaseModel`, `TASK_MODELS`).
+
+---
+
+## Performance & Asset Standards (v6.2 — MANDATORY, ENFORCED BY `qa_audit.py`)
+
+These are hard QA blockers on every new build. Full spec: `references/performance-2026.md`.
+
+- **Self-hosted fonts — NO Google Fonts CDN.** The scaffold copies the chosen variable woff2 into `/assets/fonts/` and declares `@font-face` (with `font-display: swap`) in `framework.css`. Never add `fonts.googleapis.com` / `fonts.gstatic.com` preconnect or `<link>`. Preload only the above-the-fold heading face: `<link rel="preload" href="/assets/fonts/<file>.woff2" as="font" type="font/woff2" crossorigin>`. Font sources live in `references/fonts/`; filenames are the lowercased-hyphenated family name (`Bricolage Grotesque` → `bricolage-grotesque.woff2`).
+- **Inline SVG icons — NO runtime injection.** Paste the raw `<svg>` from `references/lucide-icons/<name>.svg` at build time (add `aria-hidden="true"` + `width`/`height`). Never `<i data-lucide>`, `lucide.createIcons()`, or a Lucide/unpkg CDN `<script>`.
+- **Responsive images.** Every hero/card `<img>` needs `srcset` + `sizes`. The pipeline pre-generates `/assets/images/<name>-480.webp`, `-960.webp`, `-1600.webp` for on-disk photos — reference those exact files (omit a descriptor whose file is absent). Remote/Imgur photos still get a `sizes` attribute. Explicit `width`/`height` always; hero uses `loading="eager" fetchpriority="high"`, others `loading="lazy"`.
+- **No CDN JS toys.** No VanillaTilt CDN; carousels are CSS scroll-snap unless a Swiper feature is genuinely required. Total JS ≤ 100KB, hero image ≤ 150KB.
+- **Forbidden tags (also QA blockers):** `<meta name="keywords">`, any Twitter/X Card tags (`twitter:*`), and `aggregateRating`/`ratingValue` in JSON-LD.
+
+> Pre-v6.2 sites audit with `qa_audit.py --legacy`. New builds are graded against v6.2 by default.
+
+---
+
+## Tier Visual Quality Matrix (MANDATORY — ENFORCED BY QA)
+
+Every build is assigned a tier in the build prompt. The tier determines the visual bar.
+
+| Tier | CSS lines/page (inline `<style>`) | Distinct techniques/page | QA enforcement on failure |
+|---|---|---|---|
+| **Premium** | **≥ 400** | **≥ 6** from technique library | **FAIL HARD** — build cannot deploy |
+| **Standard** | **≥ 200** | **≥ 4** from technique library | WARN — logged but build proceeds |
+| **Basic** | **≥ 100** | **≥ 2** from technique library | WARN — logged but build proceeds |
+
+### Automatic-fail conditions (ALL tiers)
+
+- A page with **zero** inline `<style>` blocks fails regardless of tier
+- A page that reuses CSS class names from another page's `<style>` block without visual differentiation (just copying) fails
+- A page using only default/global `styles.css` classes with no page-specific work fails
+- A page where `<style>` contains hardcoded colors, shadows, or spacing values (not `var()` tokens) fails
+
+### Required techniques (per-page minimum)
+
+Each page must use techniques from `design-system.md` Part C. The per-page requirements in C12 define which techniques are mandatory on which page types. At a minimum, every page includes:
+
+- Layered hero (C1) with `::before` gradient overlay + `::after` noise texture
+- At least 2 different section divider styles (C3)
+- Text-wrap: balance on every heading
+- No two consecutive sections with identical layout or background treatment
+- One signature section (C7) that doesn't repeat elsewhere on the page
+
+### Why this exists
+
+Without quantitative enforcement, builds produced by AI agents drift toward the minimum — pages with zero custom CSS technically meet qualitative "use premium techniques" rules. The line count and technique count are the floor. Hitting them does not guarantee quality, but falling below them guarantees failure.
+
+---
+
+## Legal & Compliance Requirements (REQUIRED — EVERY BUILD)
+
+Every Page One Insights client website MUST include the following legal and compliance elements. These are non-negotiable and required for TCPA 2025/2026, CCPA/CPRA, ADA WCAG 2.1 AA, and multi-state privacy law compliance. Missing any of these items is an automatic QA fail.
+
+### Four Required Legal Pages (All Tiers)
+
+All pages use subdirectory/index.php pattern:
+
+- `/privacy-policy/index.php` — CCPA/CPRA + 19 other state rights, SMS terms, data processor disclosure
+- `/terms/index.php` — Governing law from client's state of formation
+- `/cookie-policy/index.php` — GA4, Fonts, Maps, CDN cookies disclosed
+- `/accessibility/index.php` — WCAG 2.1 AA conformance statement
+
+Legal pages are linked ONLY from the footer legal row. Never in top nav or body CTAs.
+
+### Footer Legal Row (Every Page)
+
+Above the copyright line in `includes/footer.php`:
+
+```
+Privacy Policy | Terms of Service | Cookie Policy | Accessibility | Do Not Sell or Share My Personal Information | Sitemap
+```
+
+"Do Not Sell or Share" links to `/privacy-policy/#ccpa-rights` anchor.
+
+### Contact Form: Dual Consent Checkboxes (TCPA 2025/2026)
+
+Contact forms MUST include THREE separate checkboxes:
+
+1. **Email opt-in (optional)** — receives marketing emails from company
+2. **SMS opt-in (optional)** — receives text messages; includes "Consent is not a condition of purchase," "Message and data rates may apply," "Reply STOP to unsubscribe"
+3. **Terms acceptance (REQUIRED)** — agreement to Privacy Policy and Terms of Service
+
+These must be SEPARATE, UNBUNDLED, NOT pre-checked. This is a Texas TCPA requirement (Sept 2025) and industry best practice everywhere.
+
+Hidden form fields required:
+
+- `consent_version` — currently `"v2.1"`
+- `consent_page` — PHP: `<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>`
+
+These arrive in the Formsubmit.co notification email (which is CC'd to Customer Service), preserving a consent record per submission. (Legacy sites that post to the Page One lead endpoint use `_consent_version`/`_consent_page` and get server-side capture into `consent_records`.)
+
+### Required Intake Questions
+
+Intake MUST collect before building:
+
+- Business entity type (LLC, Sole Proprietorship, Corporation, Partnership)
+- State of formation (for Terms governing law)
+- Does client run paid advertising (Google Ads, Meta Ads)?
+- States where business operates
+
+### Why These Are Non-Negotiable
+
+- **TCPA violations** = $500–$1,500 per text. Settlements in 2024–2025 averaged $7–15M. Class actions common.
+- **CCPA/CPRA** — $2,500–$7,500 per violation. Applies if any California resident visits.
+- **ADA Title III lawsuits** — up 25% YoY. Small businesses targeted.
+- **Texas TCPA (Sept 2025)** — requires separate unbundled checkbox specifically.
+- **FCC Opt-Out Rule (April 2025)** — businesses must honor any reasonable opt-out method.
+- **CCPA 2026 updates** — mandatory confirmation that opt-out was honored.
+
+### Full Templates
+
+Complete page templates, consent HTML/CSS, footer legal row, sitemap entries, Phase 4 audit checklist, retrofit prompt, and agency disclaimer are documented at:
+
+`/home/calvin/crm/references/legal-compliance.md`
+
+- Phase 2 (Header/Footer/Head) must include the footer legal row.
+- Phase 4 (Inner Pages) must generate all 4 legal page subdirectories.
+- Phase 5 (SEO/Final Polish) must ensure legal pages are in the sitemap.php page registry.
+- QA must verify the compliance items in legal-compliance.md: four legal pages, footer legal row, cookie banner, TCPA consent checkboxes, sitemap entries.
+
+---
+
+## Contact Form Submission (REQUIRED — Formsubmit.co, 2026-07-11 standard)
+
+New builds submit contact forms via **Formsubmit.co** to the client's email. Use the exact `form_action` URL from `build-plan.json` — it is `https://formsubmit.co/{client email}`. Customer Service is CC'd on every submission via the `_cc` field.
+
+> **Legacy note:** sites migrated in June 2026 post to a Page One lead endpoint (`db.pageone.cloud/functions/v1/leads/{slug}` or `design.pageone.cloud/api/leads/{slug}`). Those are still valid — do NOT rewrite an existing site's form action in either direction unless explicitly instructed.
+
+### Form action URL
+
+```
+https://formsubmit.co/{client email}    ← use form_action from build-plan.json verbatim
+```
+
+### Required form markup
+
+```html
+<form action="https://formsubmit.co/owner@example-client.com" method="POST">
+
+  <!-- Honeypot — MUST be hidden from users, bots fill it out -->
+  <input type="text" name="_honey" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+  <!-- Formsubmit.co directives -->
+  <input type="hidden" name="_next" value="<?php echo htmlspecialchars($siteUrl); ?>/thank-you">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_subject" value="New lead from <?php echo htmlspecialchars($siteName); ?>">
+  <input type="hidden" name="_cc" value="CustomerService@pageoneinsights.com">
+
+  <!-- Consent tracking (plain names — Formsubmit forwards them in the email) -->
+  <input type="hidden" name="consent_version" value="v2.1">
+  <input type="hidden" name="consent_page" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>">
+
+  <!-- Required fields (names MUST match exactly) -->
+  <label>
+    <span>Your Name</span>
+    <input type="text" name="name" required>
+  </label>
+
+  <label>
+    <span>Email</span>
+    <input type="email" name="email" required>
+  </label>
+
+  <label>
+    <span>Phone</span>
+    <input type="tel" name="phone" required>
+  </label>
+
+  <!-- Optional but strongly recommended -->
+  <label>
+    <span>Service Needed</span>
+    <select name="service">
+      <option value="">Select a service</option>
+      <!-- Populate with client-specific service options from intake data -->
+    </select>
+  </label>
+
+  <label>
+    <span>Message</span>
+    <textarea name="message" rows="4"></textarea>
+  </label>
+
+  <!-- ═══ SEPARATE CONSENT CHECKBOXES (TCPA 2025/2026 + Texas TCPA) ═══ -->
+
+  <fieldset class="form-consent-fieldset">
+    <legend class="form-consent-legend">Communication Consent</legend>
+
+    <label class="form-consent-item">
+      <input type="checkbox" name="email_opt_in" value="yes" class="consent-checkbox">
+      <span class="consent-label">
+        <strong>Email updates (optional):</strong> I agree to receive emails from
+        <?php echo htmlspecialchars($siteName); ?> about my inquiry, services, promotions, and news. I understand I can unsubscribe anytime via the link in any email
+        or by emailing <?php echo htmlspecialchars($contactEmail); ?>. Message frequency varies.
+      </span>
+    </label>
+
+    <label class="form-consent-item">
+      <input type="checkbox" name="sms_opt_in" value="yes" class="consent-checkbox">
+      <span class="consent-label">
+        <strong>SMS/Text messages (optional):</strong> I agree to receive text messages from
+        <?php echo htmlspecialchars($siteName); ?> at the phone number I provided. Message types may include appointment reminders, service updates, and promotional
+        offers. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe, HELP for help.
+        <strong>Consent is not a condition of purchase.</strong>
+      </span>
+    </label>
+
+    <label class="form-consent-item form-consent-required">
+      <input type="checkbox" name="terms_accepted" value="yes" class="consent-checkbox" required>
+      <span class="consent-label">
+        I have read and agree to the
+        <a href="/privacy-policy/">Privacy Policy</a>
+        and
+        <a href="/terms/">Terms of Service</a>. <span class="required-star">*</span>
+      </span>
+    </label>
+
+  </fieldset>
+
+  <button type="submit">Send Message</button>
+</form>
+```
+
+### Field name rules
+
+- `name`, `email`, `phone` — REQUIRED on every form. Field `name` attributes must match these strings exactly (lowercase).
+- `service` — OPTIONAL but strongly recommended (dropdown of the client's services).
+- `message` — OPTIONAL. Free-text field.
+- `_honey` — REQUIRED. Spam protection. Must be visually hidden AND have `tabindex="-1"` and `autocomplete="off"`. Do NOT use `display:none` alone without `!important` — bots that parse CSS will skip it.
+- `_next` — REQUIRED. ABSOLUTE URL (`$siteUrl . '/thank-you'`) — Formsubmit.co requires a full URL for the redirect.
+- `_captcha` = `false`, `_template` = `table`, `_subject`, `_cc` = `CustomerService@pageoneinsights.com` — REQUIRED Formsubmit.co directives on every form.
+
+### What happens on submission
+
+1. Formsubmit.co emails the lead to the client's email (table format)
+2. Customer Service receives a CC copy (internal visibility + consent record)
+3. User is redirected to `_next` (the thank-you page)
+
+Note: the first submission to a new client email triggers Formsubmit.co's one-time activation email — the client (or CS via the _cc copy) must click to activate. Submit a test lead at launch and confirm activation.
+
+### What NOT to include
+
+- **NO** JavaScript for submission — native HTML form submit works and is more reliable
+- **NO** external spam libraries (reCAPTCHA, hCaptcha) — honeypot is sufficient
+- **NO** mailto: action links
+
+### Thank-you page
+
+Every build includes `/thank-you.php` with:
+- `<meta name="robots" content="noindex,nofollow">` in head.php (via page-specific `$noindex = true`)
+- Branded success message
+- Phone number + CTA to call now
+- Link back to home
 
 ---
 
@@ -12,45 +289,13 @@ Every page must include via footer.php:
 <a href="https://pageoneinsights.com" rel="dofollow" target="_blank">Web Design & Hosting by Page One Insights, LLC</a>
 ```
 
----
-
-## Formsubmit.co Rules
-
-- Form action: `https://formsubmit.co/[client-email]`
-- Required hidden fields:
-  - `_next` → absolute URL to thank-you.php
-  - `_captcha` → false
-  - `_honey` → empty (spam trap)
-  - `_template` → table
-  - `_subject` → "[Company Name] — New Website Inquiry"
-- All form inputs: floating labels with animated focus states (border-color → --primary, subtle box-shadow lift, label scales and translates above input)
-- Never use default unstyled inputs
+No exceptions. Do not alter the anchor text. Do not add `rel="nofollow"`.
 
 ---
 
-## PHP Component Architecture
+## PHP Include Path Rule (CRITICAL)
 
-Build using PHP includes for all shared components:
-
-```
-/includes/
-  head.php          ← doctype, <head>, meta, OG, schema, CSS (accepts $page variables)
-  nav.php           ← shared navbar with $currentPage active state
-  footer.php        ← dofollow link, contact info, entity block, social, scripts
-/assets/
-  /css/styles.css   ← single shared stylesheet
-  /js/animations.js ← IntersectionObserver scroll reveals, counters, wipe
-  /js/effects.js    ← ripple, magnetic, VanillaTilt init, ticker
-  /images/
-index.php
-[all other pages as .php]
-.htaccess           ← clean URLs
-sitemap.xml, sitemap-images.xml, robots.txt, llms.txt, llms-full.txt
-```
-
-### CRITICAL: PHP Include Path Rule
-
-Every include statement across ALL .php files — root level and subdirectories — must use `$_SERVER['DOCUMENT_ROOT']`:
+Every include across ALL .php files — root level and subdirectories — uses `$_SERVER['DOCUMENT_ROOT']`:
 
 ```php
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
@@ -58,313 +303,79 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php';
 ```
 
-**NEVER use relative paths** like `include 'includes/head.php'` or `include '../includes/head.php'`. Relative paths break on Hostinger when mod_rewrite rewrites the URL but PHP's working directory stays at the document root. This causes all pages except the homepage to 404 or render broken. `$_SERVER['DOCUMENT_ROOT']` is the only reliable method.
+**NEVER use relative paths** like `include 'includes/head.php'` or `include '../includes/head.php'`. Relative paths break on Hostinger when mod_rewrite rewrites the URL but PHP's working directory stays at the document root. Pages in real subdirectories (like `/services/`) will 404 or render broken.
 
-Every page declares SEO variables then includes head.php:
+`$_SERVER['DOCUMENT_ROOT']` is the only reliable method.
 
-```php
-<?php
-$pageTitle = "...";
-$pageDescription = "...";
-$pageKeywords = "...";
-$canonicalUrl = "...";
-$ogImage = "...";
-$currentPage = "page-slug";
-$schemaMarkup = '{...}';
-include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
-?>
-```
+---
 
-### head.php outputs:
-charset, viewport, title, meta description, keywords, canonical, OG tags, Twitter Card, Google Fonts link (with preload for key font files), icon CDN, Swiper CSS (if carousel exists), styles.css link, preconnect/dns-prefetch hints, GA4 placeholder, GSC placeholder (homepage conditional), hero image preload, schema JSON-LD, skip-to-content link
+## .htaccess (Subdirectory-Safe)
 
-### nav.php outputs:
-Fixed navbar, logo → /, all page links (clean URLs), phone (desktop), hamburger (mobile), active state via $currentPage, animated underline on hover, scroll behavior (height reduction + glassmorphism)
-
-### footer.php outputs:
-Company info, page links, social icons, entity block, copyright with `<?php echo date('Y'); ?>`, dofollow link, script tags (animations.js, effects.js, conditional CDN links)
-
-### .htaccess (Subdirectory-Safe):
-
-The rewrite rules must explicitly exclude /assets/ and /includes/, and must NOT use a `!-d` condition (which breaks pages inside real subdirectories like /services/ on Hostinger):
+The rewrite rules MUST exclude `/assets/` and `/includes/`, and MUST NOT use `!-d` (which breaks subdirectory pages on Hostinger):
 
 ```apache
 RewriteEngine On
+
+# Dynamic sitemap — /sitemap.xml is served by sitemap.php
+RewriteRule ^sitemap\.xml$ /sitemap.php [L]
+
 RewriteCond %{REQUEST_URI} !^/assets/
 RewriteCond %{REQUEST_URI} !^/includes/
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
 RewriteRule ^ /%1 [NC,L,R=301]
 ```
 
-The `!-d` condition is intentionally removed. Without this fix, pages inside real subdirectories like `services/kitchen-remodeling.php` fail to resolve on Hostinger.
+The `RewriteCond %{DOCUMENT_ROOT}/$1.php -f` target-existence condition is MANDATORY. Without it, a request for a real directory (`/services/`, `/about/`) is rewritten to `dir/.php` and 404s sitewide on Apache/Hostinger (confirmed live on god-s-country-tree-service-llc and xtreme-construction-llc, 2026-07-17); nginx previews mask the bug. With the condition, directories fall through to DirectoryIndex on every host.
 
----
-
-## CSS Architecture
-
-### Build Order (do not deviate):
-1. /assets/css/styles.css (complete — reset, variables, spacing, container, prose, grids, all shared components)
-2. /assets/js/animations.js
-3. /assets/js/effects.js
-4. /includes/head.php, nav.php, footer.php
-5. index.php
-6. Each additional page in tier order
-7. .htaccess, sitemap.xml, sitemap-images.xml, robots.txt, llms.txt, llms-full.txt, 404.php
-8. Final audit
-
-### CSS Reset (top of styles.css, no exceptions):
-```css
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { overflow-x: hidden; scroll-behavior: smooth; }
-img { display: block; max-width: 100%; }
-a { text-decoration: none; color: inherit; }
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-```
-
-### :root Variables (define ALL tokens):
-```css
-:root {
-  /* Layout */
-  --navbar-height: 80px;
-  --max-width: 1200px;
-  --content-width: 65ch;
-  --section-pad: 80px 20px;
-  --section-pad-mobile: 50px 16px;
-  --radius: 8px;
-
-  /* Spacing Scale (use ONLY these — never arbitrary px/rem) */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
-  --space-3xl: 64px;
-  --space-4xl: 96px;
-
-  /* Colors (project-specific — set per build) */
-  --primary: [hex];
-  --primary-dark: [hex];
-  --primary-rgb: [R, G, B];
-  --secondary: [hex];
-  --accent: [hex];
-  --text: #1a1a1a;
-  --text-light: #555;
-  --bg: #ffffff;
-  --bg-alt: #f7f7f7;
-  --bg-dark: [hex];
-
-  /* Elevation System (3 tiers only — never arbitrary box-shadow) */
-  --elevation-1: 0 1px 3px rgba(0,0,0,0.08);
-  --elevation-2: 0 4px 16px rgba(0,0,0,0.10);
-  --elevation-3: 0 8px 28px rgba(0,0,0,0.16);
-
-  /* Transitions */
-  --transition: 0.2s ease;
-  --transition-slow: 0.4s ease;
-}
-```
-
-Never hardcode a color, spacing value, shadow, or navbar height. Use var() everywhere.
-
-### Container Utility (required on every section's inner wrapper):
-```css
-.container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin-inline: auto;
-  padding-inline: var(--space-lg);
-}
-@media (max-width: 767px) {
-  .container { padding-inline: var(--space-md); }
-}
-```
-
-### Prose Width (required on all body text):
-```css
-.prose { max-width: var(--content-width); }
-.prose-centered { max-width: var(--content-width); margin-inline: auto; }
-```
-
-All paragraph text MUST use .prose or .prose-centered. No paragraph spans the full 1200px container.
-
-### Shared Component Classes (define once in styles.css, reuse everywhere):
-.btn-primary, .btn-secondary, .section-title, .section-subtitle, .card, .badge-strip, .cta-banner, .stat-counter, .eyebrow-label, .ticker-strip, .img-reveal, .numbered-section, .container, .prose, .prose-centered, .grid-2, .grid-3, .grid-asym, .split, .split-reverse, .answer-block, .skip-link
+**URL shape rule:** ALL pages — including service pages — are built as `directory/index.php` with trailing-slash URLs (`/services/roof-repair/`). Never the dual flat-`.php` + directory-stub pattern (canonical/internal-link mismatch). See build-phases.md.
 
 ---
 
 ## Accessibility Baseline (REQUIRED)
 
-- Skip-to-content link as first element in nav.php:
+Every build includes:
+
+- **Skip-to-content link** as first element in nav.php:
   ```html
   <a href="#main-content" class="skip-link">Skip to main content</a>
   ```
-  Styled: visually hidden by default, visible on :focus, positioned above navbar
+  Visually hidden by default, visible on `:focus-visible`, positioned above navbar.
 - `<main id="main-content">` wraps page content on every page
-- All interactive elements: visible :focus-visible outline (2px solid var(--accent), 2px offset)
+- All interactive elements: visible `:focus-visible` outline (2px solid `var(--color-accent)`, 2px offset)
 - ARIA landmarks: `<nav aria-label="Main navigation">`, `<main>`, `<footer>`
-- All form inputs: associated `<label>` elements (floating label pattern satisfies this)
-- Color contrast: minimum WCAG AA ratio (4.5:1 body text, 3:1 large text) — verify chosen brand colors meet this
+- All form inputs: associated `<label>` element (floating label pattern satisfies this)
+- Color contrast: minimum WCAG AA (4.5:1 body text, 3:1 large text) — verify brand colors meet this before finalizing palette
 - Keyboard navigation: all interactive elements reachable and operable via keyboard
-- `aria-expanded` on mobile menu toggle button
+- `aria-expanded` toggled on mobile menu toggle button
 - `aria-current="page"` on active nav link
+- `prefers-reduced-motion` respected in CSS reset (see design-system.md Part A)
 
 ---
 
-## Image Standards
+## Copy Quality Standards (REQUIRED)
 
-- CSS reset: `img { display: block; max-width: 100%; }`
-- All image containers: aspect-ratio set in CSS (prevents CLS)
-- All images: explicit width + height attributes
-- All images: `<picture>` element with AVIF source + WebP source + JPEG/PNG fallback, srcset, sizes, loading="lazy", descriptive keyword alt tags
-  ```html
-  <picture>
-    <source srcset="image.avif" type="image/avif">
-    <source srcset="image.webp" type="image/webp">
-    <img src="image.jpg" alt="[keyword descriptive alt]" width="800" height="600" loading="lazy">
-  </picture>
-  ```
-- Hero: CSS background-image with dark gradient overlay — never raw `<img>`
-- Hero image: preloaded via `<link rel="preload" as="image" href="...">` in head.php
-- All content images: wrap in .img-reveal container for clip-path wipe on scroll
-- Gallery: Swiper.js carousel (Standard/Premium) or vanilla JS lightbox (Basic)
-- Testimonials: Swiper.js carousel with auto-play, loop, pause-on-hover
-- About/team photos: duotone brand tint treatment
-- Google Maps: `loading="lazy"` on iframe
+### Banned phrases (never use)
 
-### Image Composition Rules (REQUIRED)
-- Images must not be dropped as raw rectangles
-- Use at least one of per image instance:
-  - Framed containers with border/shadow
-  - Overlapping layout (image breaks section boundary)
-  - Edge-to-edge bleed
-  - Masked or styled corners (border-radius, clip-path)
-  - Overlay content blocks (text/stats over image edge)
-- Maintain consistent visual treatment across the site
+- "quality service" / "quality workmanship"
+- "trusted professionals"
+- "contact us today" (as a headline — fine as button text)
+- "your satisfaction is our priority"
+- "we go above and beyond"
+- "one-stop shop"
+- "second to none"
 
----
+### Required copy characteristics
 
-## Design & Animation Standards
-
-### Navbar:
-- Fixed/sticky, height = var(--navbar-height)
-- Phone number or primary CTA visible on desktop
-- On scroll past 80px: .scrolled class via JS
-  ```css
-  .navbar.scrolled {
-    background: rgba(var(--primary-rgb), 0.88);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    height: calc(var(--navbar-height) - 10px);
-    box-shadow: var(--elevation-2);
-  }
-  ```
-- body padding-top: var(--navbar-height) on every page
-- Nav links: animated underline on hover (::after slides from left)
-- Active page: highlighted via $currentPage + aria-current="page"
-
-### Mobile Menu:
-- Animate open/close smoothly (transform or opacity transition — never instant display toggle)
-- Lock body scroll when open (overflow: hidden on body)
-- Full-screen UI layer feel — not a dropdown list
-- Include all nav links, phone number, and primary CTA
-- Close on link tap and on overlay/background tap
-- `aria-expanded` toggled on hamburger button
-
-### Hero:
-- min-height: 90vh desktop / 70vh mobile
-- CSS background-image with dark gradient overlay
-- Ken Burns animation (CSS):
-  ```css
-  @keyframes kenburns {
-    from { background-size: 110%; background-position: center top; }
-    to { background-size: 120%; background-position: center bottom; }
-  }
-  .hero { animation: kenburns 20s ease-in-out infinite alternate; }
-  ```
-- Hero H1: gradient text treatment
-- Hero elements load-animate in sequence (CSS @keyframes with delays, not JS): H1 → subheadline → CTA → trust badges
-- Hero CTA: magnetic hover effect (desktop only, disabled on touch)
-- SVG noise texture overlay (opacity: 0.04)
-
-### CTA Strategy (3 per page — mandatory):
-1. Above the fold — hero CTA button + phone number
-2. Mid-page — CTA banner with diagonal gradient (--primary to --primary-dark) + noise texture + phone + button
-3. Closing — contrast background CTA before footer with urgency copy + phone + button
-
-### Proof Ticker Strip (all pages, between hero and first content):
-- Pure CSS infinite horizontal scroll — no JS
-- Duplicate content blocks for seamless loop
-- Pauses on hover
-- Brand background, white text, accent separators
-- Uppercase, letter-spacing: 0.1em, font-size: 0.8rem
-
-### Section Standards:
-- Eyebrow label above every H2 heading
-- Section dividers between every section pair (clip-path or SVG wave — rotate through diagonal-down, wave, diagonal-up, never two identical in a row)
-- Backgrounds alternate: --bg → --bg-alt → --bg → --bg-dark (never two identical in a row)
-- Padding: var(--section-pad) desktop, var(--section-pad-mobile) mobile
-- Inner content: always .container
-- All body text: always .prose or .prose-centered
-- Numbered section indicators on homepage main content sections
-
-### Cards & Grids:
-- All grid children: min-width: 0
-- Predefined grid classes: .grid-2, .grid-3, .grid-asym, .split, .split-reverse
-- Grid collapse: .grid-3 → 3→2 at 1023px, 2→1 at 767px; .grid-2 → 2→1 at 767px; .split → 1 col at 767px
-- Asymmetric grid on homepage services (2fr 1fr 1fr, first card spans rows)
-- VanillaTilt.js on .card elements: max 8°, speed 400, glare true, max-glare 0.15
-- Card elevation: --elevation-2 at rest, --elevation-3 on hover
-- Card hover: background → --primary, text → white, icon → --accent, translateY(-6px)
-
-### Buttons:
-- .btn-primary: 3D press effect (box-shadow: 0 4px 0 var(--primary-dark))
-- Hover: translateY(-2px), shadow grows
-- Active: translateY(2px), shadow shrinks
-- Ripple effect on all buttons (effects.js)
-- overflow: hidden on all buttons
-
-### Scroll Animations (animations.js):
-- data-animate="fade-up" on sections, cards, headings, content blocks
-- data-animate="wipe-right" on image containers
-- IntersectionObserver threshold: 0.15
-- Stagger grid children: nth-child delay increments of 100ms (cap at 500ms)
-
-### Typography:
-- Industry font pairings (Google Fonts, font-display: swap):
-  - Lawn/Tree/Outdoor: Oswald + Lato
-  - Towing/Auto: Bebas Neue + Roboto
-  - Handyman/Construction: Rajdhani + Open Sans
-  - Medical/Wellness: Playfair Display + Source Sans 3
-  - Travel/Hospitality: Playfair Display + Lato
-  - Default/General: Montserrat + Nunito
-- All heading font-sizes: clamp() only
-  - H1: clamp(2.5rem, 6vw, 4.5rem)
-  - H2: clamp(1.8rem, 4vw, 2.8rem)
-  - H3: clamp(1.2rem, 2.5vw, 1.6rem)
-- Headings: letter-spacing: -0.02em; font-weight: 700-800; line-height: 1.15; text-wrap: balance
-- Body: min 16px, line-height: 1.6
-- font-kerning: auto; text-rendering: optimizeLegibility on headings
-- Preload primary heading font file in head.php
-
-### Icons:
-- One library only per build: Lucide Icons or Phosphor Icons (CDN in head.php). Never mix.
-- Icon animations: scale(1.15) rotate(-5deg) on service card hover, translateY(-4px) on process step hover, scale(1.1) on social icons
-
-### Extras:
-- Back-to-top button (fixed bottom-right, appears after 300px scroll)
-- Floating mobile CTA bar (fixed bottom, <768px only): tap-to-call + "Free Estimate" anchor, brand background, white text, high z-index
+- **Benefit-driven headlines** — what the customer gets, not what the company claims
+- **Specific service language with local context** — reference neighborhoods, landmarks, regional conditions
+- **Confident, direct tone** — no hedging, no marketing filler
+- **Clear CTAs with urgency or specificity** — "Get Your Free Estimate" / "Call Now — Same-Day Available" (not "Contact Us")
+- **Real numbers where possible** — cost ranges, timeframes, years in business, jobs completed
+- **Answer-first paragraphs** — every service/area page opens with a direct answer in the first 50 words, not marketing fluff
+- **Written for this specific business** — not templated. If the same copy could appear on a competitor's site, rewrite it.
 
 ---
 
@@ -372,265 +383,361 @@ All paragraph text MUST use .prose or .prose-centered. No paragraph spans the fu
 
 - No generic centered text blocks repeated section after section
 - No equal-height bland sections stacked with no visual variation
-- No default/unstyled buttons — every button: 3D press + ripple
+- No default/unstyled buttons — every button uses the button pattern from design-system.md (C9 and button patterns)
 - No stock layout repetition across pages — each page uniquely composed
 - No decorative-only animations — every animation serves UX
-- No more than 2 fonts — one heading + one body
+- No more than 2 fonts — one heading + one body (plus optional accent script/italic for specific use cases only)
 - No weak hero sections — hero must feel premium immediately
 - No flat depthless designs — use elevation system on all elements
 - No unstyled form inputs — floating labels with animated focus states required
-- No paragraphs wider than 65ch — all prose width-constrained
-- No raw rectangle images — all images must have compositional treatment
+- No paragraphs wider than 65ch — all prose width-constrained via `.prose` or `.prose-centered`
+- No raw rectangle images — all images use a composition treatment from design-system.md C11
+- No meta keywords tag — Google has ignored it since 2009
+- No Twitter/X card tags — no discovery value for local home service businesses
+- No hardcoded colors, shadows, or spacing values in CSS — use `var()` tokens only
 
 ---
 
 ## Visual Restraint Rule (CRITICAL)
 
-- Not all effects should be used on every site
-- Maximum of 3–4 major visual effects per page (VanillaTilt, magnetic, typed text, parallax, before/after slider each count as a major effect)
-- Standard effects that do NOT count toward the limit: scroll fade-up, image wipe reveal, ripple on click, card hover shift, Ken Burns hero, ticker strip
+- Not every technique in the library should be used on every site
+- Maximum of **3–4 major visual effects** per page (VanillaTilt, magnetic CTA, typed text, parallax, before/after slider each count as a major effect)
+- Standard effects that do NOT count toward the limit: scroll fade-up reveals, image wipe reveal on scroll, ripple on click, card hover shift, Ken Burns hero, ticker strip
 - If an effect does not enhance clarity or UX for this specific page, do not include it
 - Prefer simplicity over stacking features
 - Each site must feel intentionally designed, not feature-loaded
 
 ---
 
-## Performance Safeguard
-
-- Only load libraries that are actually used on the page:
-  - Do not include Typed.js unless text animation is present
-  - Do not include Swiper.js unless a carousel exists
-  - Do not include VanillaTilt unless card tilt is active
-- Prefer native JS over libraries when possible
-- Conditional loading in footer.php:
-  ```php
-  <?php if (isset($useSwiper) && $useSwiper): ?>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-  <?php endif; ?>
-  ```
-- All non-critical scripts: defer attribute
-- Google Fonts: font-display: swap + preconnect + dns-prefetch
-- Preload primary heading font file: `<link rel="preload" as="font" type="font/woff2" href="..." crossorigin>`
-- Target: 90+ Lighthouse performance, under 3MB total page weight
-
----
-
-## Copy Quality Standards (REQUIRED)
-
-- Avoid generic phrases on all pages:
-  - "quality service" / "quality workmanship"
-  - "trusted professionals"
-  - "contact us today" (as a headline — fine as button text)
-  - "your satisfaction is our priority"
-  - "we go above and beyond"
-  - "one-stop shop"
-  - "second to none"
-- Use instead:
-  - Benefit-driven headlines (what the customer gets, not what the company claims)
-  - Specific service language with local context
-  - Confident, direct tone
-  - Clear CTAs with urgency or specificity ("Get Your Free Estimate" / "Call Now — Same-Day Available")
-- Copy must feel written for this specific business and location, not templated
-- Answer-first paragraphs: every service/area page opens with a direct answer, not marketing fluff
-- Include real numbers where possible: cost ranges, timeframes, years in business, jobs completed
-
----
-
-## Content Density Variation (REQUIRED)
-
-- Alternate between section density types:
-  - Dense: 500+ words, split layouts, detailed copy
-  - Light: gallery, stat counters, single image with short copy
-  - Compact: CTA banner, badge strip, ticker
-  - Narrative: long-form editorial, owner story, process walkthrough
-- Never stack three sections of similar density in a row
-- Use spacing and layout shifts to create visual rhythm down the page
-- Each page should feel like it has a tempo — not a uniform wall of content
-
----
-
-## Layout Composition Rules (REQUIRED)
-
-- No page may follow a predictable "stacked section" pattern
-- Every page must include at minimum:
-  - One asymmetrical layout (offset grid, staggered cards, or split variation)
-  - One overlapping element (image overlapping a section edge, card breaking a grid boundary, or CTA overlapping a divider)
-  - One full-bleed section (edge-to-edge background with contained inner content)
-  - One constrained editorial section (.prose-centered, tight column, focused reading experience)
-- Do not repeat the same section structure on consecutive sections
-- Each page's layout sequence must differ from other pages in the same build
-
----
-
-## Signature Section Requirement (MANDATORY)
-
-- Every page must include at least ONE standout section that uses a layout pattern not repeated elsewhere on that page
-- Qualifying signature sections:
-  - Overlapping image/text composition with offset positioning
-  - Full-bleed photo background with overlay stat counters or testimonial
-  - Editorial pullquote block with large typography and accent border
-  - Staggered card layout with alternating image/content positions
-  - Split section where one half bleeds to the edge while the other is contained
-- The signature section should feel intentionally elevated — more visual weight, tighter composition, stronger hierarchy
-- A well-executed simple layout with strong typography and spacing qualifies — do not force complexity
-
----
-
-## Project Differentiation (REQUIRED)
-
-- Each project must vary:
-  - Layout structure (section ordering, grid patterns)
-  - Hero composition (split hero vs full-bleed vs asymmetric)
-  - Section order (do not reuse the same page flow across projects)
-  - Visual accents (divider styles, accent color application, image treatments)
-  - CTA style (banner design, button treatment, urgency copy)
-- No two client sites should feel identical in layout or flow
-- Refer to the build prompt's DESIGN NOTES for project-specific direction
-
----
-
 ## Adaptive Design Flexibility
 
-- Claude Code may adjust spacing values, section ordering, grid ratios, or visual accent placement when doing so measurably improves readability or visual flow
-- Claude Code must NOT skip or omit any of the following under this rule:
-  - PHP includes architecture
-  - CSS variable system and spacing scale
-  - Schema markup requirements
-  - 3 CTAs per page
-  - Entity blocks and AEO content
-  - Accessibility features (skip-to-content, prefers-reduced-motion, alt tags, semantic HTML, focus-visible)
-  - Footer dofollow link
-  - Formsubmit.co form configuration
-- This rule permits refinement of visual execution, not removal of structural requirements
+Claude Code MAY adjust:
+- Spacing values within the token scale (choose appropriate `--space-*` per context)
+- Section ordering (sequence of content sections on a page)
+- Grid ratios (e.g. `2fr 1fr 1fr` vs `1fr 1fr 1fr` when appropriate)
+- Visual accent placement (where floating elements, decorative corners, etc. land)
+- Divider style selection (choose from design-system.md C3 based on archetype fit)
 
----
+Claude Code MUST NOT skip or omit:
+- PHP includes architecture (head.php, nav.php, footer.php)
+- CSS variable system and token scale
+- Schema markup requirements
+- 3 CTAs per page
+- Entity blocks and AEO content
+- Accessibility features (skip-to-content, prefers-reduced-motion, alt tags, semantic HTML, focus-visible)
+- Footer dofollow link
+- Lead form endpoint configuration
+- Tier-minimum CSS line count and technique count
 
-## Elevation System
-
-Three tiers only — never arbitrary box-shadow values:
-- --elevation-1: static elements, subtle containers
-- --elevation-2: cards at rest, navbar .scrolled, form containers
-- --elevation-3: card hover, active dropdowns, floating elements
-
----
-
-## CTA Strategy
-
-Every page: exactly 3 CTAs (see Design & Animation Standards above). CTA banners must use diagonal gradient (--primary to --primary-dark), noise texture overlay, large click-to-call phone, and urgency-driven copy.
-
----
-
-## Google Reviews Integration
-
-- Swiper.js carousel: star ratings, auto-play, loop, pause on hover
-- Review platform badge strip: styled Google/Yelp/Facebook badges with star icons, linked to live profiles
-- AggregateRating schema on Homepage, all Service pages, About
-
----
-
-## Tier System
-
-**BASIC:** Home, Services, Service Area, About, Contact
-**STANDARD:** Home, Services Main, Individual Service Pages, Service Area, About, Contact
-**PREMIUM:** Home, Services Main, Individual Service Pages, Service Areas Main, Individual Area Pages, About, Contact, FAQ
-
----
-
-## SEO Standards
-
-### On-Page:
-- Every page: unique `<title>` (50-60 chars), `<meta description>` (140-155 chars), `<meta keywords>`, canonical self-reference
-- ONE H1 per page: primary keyword + location
-- H2/H3: secondary keywords and question-based phrases
-- All images: descriptive alt tags with keywords and location
-- Internal links: every page links to 2-3 others with descriptive anchor text
-- All phone numbers: `<a href="tel:">`
-- OG tags + Twitter Card on every page via head.php
-- "Last Updated: [Month Year]" on every service page
-
-### Schema (per page):
-- LocalBusiness JSON-LD on EVERY page — NAP must match GBP character-for-character
-- AggregateRating: Homepage, Service pages, About
-- BreadcrumbList: all pages except Home + visible HTML breadcrumb nav
-- Service schema: every individual service page
-- HowTo schema: service pages where process applies
-- FAQPage schema: Homepage FAQ, service page FAQs, area page FAQs, FAQ page
-- WebSite schema with SearchAction: Homepage
-- Organization schema: About page
-- Person schema for owner: About page
-- ImageObject schema: primary hero image on each page
-
-### Technical:
-- sitemap.xml: all pages with `<lastmod>`, `<changefreq>`, `<priority>` — clean URLs
-- sitemap-images.xml: all client photo URLs with `<image:caption>` and `<image:title>`
-- robots.txt: allow all, point to both sitemaps
-- Custom 404.php with nav/footer
-- noindex on thank-you.php
-- Clean URLs via .htaccess
-- GA4 + GSC placeholders in head.php
-
----
-
-## AEO Rules (Answer Engine Optimization)
-
-### Entity Block (every page via footer.php):
-"[Company Name] is a [industry] company based in [City, State], serving [service area]. Founded [year or 'with X years of experience'], [Company Name] specializes in [top 3 services]. Contact: [phone] | [email] | [website]. Licensed and insured."
-
-### Answer Blocks (service and area pages):
-```html
-<div class="answer-block">
-  <h2>[Natural question people ask]</h2>
-  <p>[Direct, factual answer in 1-2 sentences with specific details — cost range, timeframe, or scope]</p>
-</div>
-```
-
-### llms.txt:
-Company name, owner, phone, email, address, hours, service area, licensed & insured, bulleted services, all pages with URLs and one-line descriptions, 2-3 sentence about section.
-
-### llms-full.txt:
-Same as llms.txt plus: full about (3-5 sentences), one paragraph per service, 8-10 FAQ pairs in Q:/A: format, certifications and trust signals, all social/review profile URLs.
-
-### Content Rules:
-- Answer-first opening on every service and area page
-- Conversational keywords: at least one H2/H3 per service page as a full question
-- "near me" phrasing in area page body copy
-- FAQ distribution: Homepage 5-7, Service pages 3-4, Area pages 2-3, FAQ page 10-12
-- First 50 words of every section answer the implied question
-- Include factual trust indicators naturally: licensed/insured, years in business, certifications, cost ranges, timelines
-- Local authority: reference neighborhoods, nearby cities, landmarks, regional conditions
-- Consistent entity naming: identical business name, service terms, and location references across all pages
-
----
-
-## Responsive Breakpoints
-
-Desktop: 1024px+ / Tablet: 768–1023px / Mobile: <768px
-
-All breakpoints in shared styles.css. Grid collapse rules predefined.
-
----
-
-## CDN References
-
-- VanillaTilt: `https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js`
-- Swiper.js: `https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js` (+ CSS)
-- Typed.js (optional): `https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js`
-- Load conditionally — see Performance Safeguard.
+This rule permits refinement of visual execution, not removal of structural requirements.
 
 ---
 
 ## Local Preview — PHP Required
 
 Preview command is always:
-```
+
+```bash
 php -S localhost:8000
 ```
 
 Before running, verify PHP is installed:
-```
+
+```bash
 which php && php -v
 ```
 
 If PHP is not found, do NOT suggest `npx serve` or `python3 -m http.server` — these cannot process PHP includes and will render broken pages. Instead:
+
 1. Offer to generate a single temporary static file (`index-preview.html`) with all includes inlined so the homepage can be visually verified
 2. Inform the user to install PHP via Homebrew for full preview: `brew install php`
+
+---
+
+## Enforcement Pipeline
+
+Builds pass through these checks in order:
+
+1. **Phase 5 QA** — site-qa-agent skill runs 62+ checks + tier-specific CSS validation (file exists + line counts + technique detection). Generates structured JSON report.
+2. **Fix All remediation (Premium only)** — if Premium build fails, Phase 6 auto-runs to bring failing pages up to standard by applying missing techniques page-by-page.
+3. **Re-QA** — after Phase 6, full QA runs again. If still failing, build halts for manual review.
+4. **Deployment** — only builds passing QA deploy to production.
+
+See site-qa-agent/SKILL.md for validator implementation.
+
+---
+
+## Blog Standard (Premium — REQUIRED)
+
+Every Premium build ships a blog. Full spec: `~/crm/references/blog-standard.md`. Enforcement summary:
+
+- **Registry:** `includes/blog-data.php` — single `$blogPosts` array (slug, title, excerpt, image, alt, date, dateISO, category, readtime). The blog index, homepage preview, related-articles blocks, and sitemap.php ALL read from this registry. Hardcoded post lists anywhere = fail.
+- **Structure:** `/blog/index.php` (editorial cards, category badges) + `/blog/{slug}/index.php` per post.
+- **Homepage:** "From the Blog" preview section auto-pulling the latest registry post (featured card: image, category badge, date, read time, excerpt, CTA) + View All button.
+- **Post anatomy:** answer-first intro (direct answer in first 50 words), TOC sidebar with anchors, sidebar CTA, Related Services block, Related Articles block (2-3 registry cards, same category first), ≥2 inline links to other posts and ≥2 to service pages in body copy.
+- **Schema per post:** @graph — BlogPosting (author = Organization @id, datePublished/dateModified, keywords) + BreadcrumbList + FAQPage mirroring the visible FAQ.
+- **SEO:** post titles ≤60 chars (no full brand suffix), unique descriptions, self-referencing canonical, auto-included in sitemap.php.
+- **Content strategy:** topic clusters — 1 pillar + 4-7 supporting posts answering related long-tail questions, targeting DataForSEO keyword gaps.
+
+---
+
+## Pointers to Reference Files
+
+For anything not covered above:
+
+- **Visual architecture, CSS tokens, technique library, archetypes** → `~/crm/references/design-system.md`
+- **SEO schema, meta tags, llms.txt, AEO content rules** → `~/crm/references/seo-aeo-2026.md`
+- **PHP component structure, build phases, file organization, deployment** → `~/crm/references/build-phases.md`
+- **Blog registry, post anatomy, topic clusters** → `~/crm/references/blog-standard.md`
+- **Legal pages, TCPA consent, cookie banner, footer legal row** → `~/crm/references/legal-compliance.md`
+
+If a requirement is not explicitly in this file and not in a reference file, it does not exist. Do not invent requirements.
+
+---
+
+## Required Components
+
+This section defines reusable component patterns that MUST appear on every build, identical in structure across tiers. Brand colors, fonts, and copy are tier/client specific. Structure, class names, and HTML pattern are NOT.
+
+QA validates these by class name. Builds missing these classes auto-fail.
+
+---
+
+### Services Section (REQUIRED — All Tiers, All Pages)
+
+**Where it appears (mandatory):**
+- Home page (the services overview)
+- `/services/index.php` (the services listing page)
+- Bottom of each individual service page (as "Related Services" — 3 cards)
+
+**Where it does NOT appear:** legal pages, contact, thank-you.
+
+**HTML pattern (exact class names — QA validates these):**
+
+```html
+<section class="section" aria-label="{Industry} services">
+  <div class="container">
+    <div class="section-title reveal-up">
+      <span class="eyebrow-label">What We Do</span>
+      <h2>{Question-format heading specific to the business}</h2>
+      <p class="hero-answer">{40-60 word direct answer paragraph that answers the H2}</p>
+      <span class="section-subtitle">{tagline phrase}</span>
+      <p class="prose">{1-2 sentence description of the company's service mix}</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Repeat this card for each service. Tints rotate 1, 2, 3, 1, 2, 3... -->
+      <article class="service-card-with-image card-tint-1 reveal-up reveal-delay-1">
+        <div class="service-card__image">
+          <img src="/assets/images/{photo}.jpg" srcset="/assets/images/{photo}-480.webp 480w, /assets/images/{photo}-960.webp 960w, /assets/images/{photo}-1600.webp 1600w" sizes="(max-width: 768px) 100vw, 600px" alt="{descriptive alt}" width="600" height="360" loading="lazy">
+        </div>
+        <div class="service-card__body">
+          <div class="service-card__icon"><!-- inline SVG from references/lucide-icons/{icon-name}.svg (NOT data-lucide) --></div>
+          <h3>{Service Name}</h3>
+          <p class="service-card__desc">{1-sentence description, no fluff}</p>
+          <ul>
+            <li>{benefit/feature 1 — 3-6 words}</li>
+            <li>{benefit/feature 2 — 3-6 words}</li>
+            <li>{benefit/feature 3 — 3-6 words}</li>
+          </ul>
+          <a href="/services/{slug}/" class="service-card__cta">Learn more</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+```
+
+**Tint rotation rule:** Cards cycle through `card-tint-1` → `card-tint-2` → `card-tint-3` → `card-tint-1` → ... Never place two cards with the same tint class adjacent in the source. The `reveal-delay-1/2/3` modifier follows the same rotation.
+
+**Bullet rule:** EXACTLY 3 bullets per card. Not 2, not 4. Each bullet 3-6 words, scannable, benefit-driven (not feature-only). Examples: "Same-day install on most homes", "Insurance claim support", "20–30 year service life". Avoid: "We use the best materials" (vague), "High-quality professional service" (filler).
+
+**Icon mapping:** Use icons appropriate to the service, inlined as raw `<svg>` from `references/lucide-icons/<name>.svg` at build time (v6.2 — never `data-lucide`, `createIcons`, or a Lucide CDN). Industry guidance (names map to the `.svg` files):
+- Roofing: `home`, `shield`, `cloud-rain`, `wrench`, `hammer`, `hard-hat`, `building-2`
+- Gutters: `ruler`, `droplets`, `filter`, `wrench`, `shield`, `building-2`, `sparkles`
+- Lawn/Landscape: `leaf`, `scissors`, `sprout`, `flower-2`, `tree-pine`, `sun`
+- Tree Service: `tree-pine`, `axe`, `chainsaw`, `shovel`, `wrench`
+- HVAC: `thermometer`, `wind`, `flame`, `snowflake`, `wrench`, `zap`
+- Plumbing: `droplets`, `wrench`, `pipe`, `shower-head`, `bath`
+- Electrical: `zap`, `lightbulb`, `plug`, `bolt`, `wrench`
+- Cleaning: `sparkles`, `spray-can`, `brush`, `wind`
+- Generic: `check-circle`, `star`, `award`, `tool`
+
+Each card's icon must be different from adjacent cards.
+
+**Image rule:** Every card MUST have a real client photo. The build pipeline pre-stages photos in `/assets/images/`. Reference the AVAILABLE CLIENT IMAGES manifest. NO gradient placeholders, NO blank divs. If no client photo exists for a service, fall back to Unsplash Source API as last resort.
+
+**Copy rules:**
+- Card title: just the service name (no qualifiers like "Premium" or "Affordable")
+- Description: 1 sentence, max 14 words, says what it actually is — not what it does for the customer's emotions
+- Section heading: phrase as a CONVERSATIONAL QUESTION using customer-search language. Examples:
+  - "What construction services does {company name} offer?"
+  - "Which roofing services are available in {city}?"
+  - "How does {company name} handle commercial HVAC needs?"
+  - DO NOT use generic "Our Services" / "What We Do" / "Services Overview" — these are banned by aeo-content-schema.md §1.1
+  - Two-tone treatment: highlight 1-3 keywords with <span class="text-accent">...</span> within the question
+- Section eyebrow: "What We Do" (literal, do not vary)
+
+**Required CSS variables (add to `:root` in styles.css):**
+
+```css
+:root {
+  /* Tinted card backgrounds — recipe: brand colors at 6-9% alpha */
+  --color-card-tint-1: rgba({primary-rgb}, 0.08);   /* primary brand color */
+  --color-card-tint-2: rgba({primary-dark-rgb}, 0.06); /* darker primary */
+  --color-card-tint-3: rgba({accent-rgb}, 0.09);    /* accent color */
+  --color-card-tint-neutral: rgba(245, 247, 250, 1);
+}
+```
+
+**Required CSS rules (add to styles.css — these class names are non-negotiable):**
+
+```css
+/* Tint utility classes */
+.card-tint-1 { background: var(--color-card-tint-1); box-shadow: none; }
+.card-tint-2 { background: var(--color-card-tint-2); box-shadow: none; }
+.card-tint-3 { background: var(--color-card-tint-3); box-shadow: none; }
+.card-tint-neutral { background: var(--color-card-tint-neutral); box-shadow: none; }
+
+/* Services grid layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+@media (max-width: 1199px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* Tinted image card */
+.service-card-with-image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.service-card-with-image:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.service-card__image {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+}
+.service-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.service-card__body {
+  padding: var(--space-lg) var(--space-md) var(--space-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  position: relative;
+}
+.service-card__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -44px;  /* overlaps the image edge */
+  margin-bottom: var(--space-xs);
+  color: var(--color-accent);
+}
+.service-card__icon i,
+.service-card__icon svg {
+  width: 26px;
+  height: 26px;
+}
+.service-card-with-image h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+.service-card__desc {
+  color: var(--color-text);
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.service-card-with-image ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xs) 0 0;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding-top: var(--space-md);
+}
+.service-card-with-image ul li {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  padding-left: 1.25rem;
+  position: relative;
+}
+.service-card-with-image ul li::before {
+  content: "•";
+  color: var(--color-accent);
+  font-weight: 700;
+  position: absolute;
+  left: 0.25rem;
+  top: 0;
+}
+.service-card__cta {
+  margin-top: auto;
+  padding-top: var(--space-sm);
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  width: 100%;
+  text-align: center;
+  padding: var(--space-sm) 0 0;
+  transition: color var(--transition-base);
+}
+.service-card__cta::after {
+  content: " →";
+  display: inline-block;
+  transition: transform var(--transition-base);
+}
+.service-card__cta:hover { color: var(--color-primary); }
+.service-card__cta:hover::after { transform: translateX(3px); }
+```
+
+**Service count handling:**
+- 3 services: render 3 cards in a 3-column row at desktop (CSS handles this — first row only fills what exists)
+- 4 services: 4-up grid as specified
+- 5-7 services: fills first row + partial second row
+- 8 services: two clean rows of 4
+- 9+ services: render the first 8 in the home grid, then below the grid render `<a href="/services/" class="btn-secondary">View All {N} Services →</a>`. Render ALL services on `/services/index.php`.
+
+**Reuse on individual service pages (Related Services):**
+At the bottom of each `/services/{slug}/index.php` page, render 3 randomly-selected OTHER services in the same `services-grid` + `service-card-with-image` pattern. Section heading: "Other Services You May Need". Use the same tint rotation rule.
+
+**DO NOT (these auto-fail QA):**
+- Use the legacy class names: `service-card`, `service-card-image`, `service-card-content`, `service-card-cta`
+- Render service cards without the image-on-top pattern
+- Use icon-only or gradient-only cards
+- Use more than 3 bullets per card
+- Use the same tint on adjacent cards
+- Use stock photos when client photos exist for that service
+

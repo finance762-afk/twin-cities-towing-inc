@@ -482,5 +482,7 @@
   "phone_secondary": "",
   "lead_notification_email": "",
   "lead_notification_phone": "",
-  "google_business_profile_url": ""
+  "google_business_profile_url": "https://www.google.com/maps/place/?q=place_id:ChIJ-5C4z4geQYYRrTA2DH4elVw",
+  "business_hours": "{\"timetable\": {\"friday\": [{\"open\": {\"hour\": 0, \"minute\": 0}, \"close\": {\"hour\": 24, \"minute\": 0}}], \"monday\": [{\"open\": {\"hour\": 0, \"minute\": 0}, \"close\": {\"hour\": 24, \"minute\": 0}}], \"sunday\": [{\"open\": {\"hour\": 0, \"minute\": 0}, \"close\": {\"hour\": 24, \"minute\": 0}}], \"tuesday\": [{\"open\": {\"hour\": 0, \"minute\": 0}, \"close\": {\"hour\": 24, \"minute\": 0}}], \"saturday\": [{\"open\": {\"hour\": 0, \"minute\": 0}, \"close\": {\"hour\": 24, \"minute\": 0}}], \"thursday\": [{\"open\": {\"hour\": 0, \"minute\": 0}, \"close\": {\"hour\": 24, \"minute\": 0}}], \"wednesday\": [{\"open\": {\"hour\": 0, \"minute\": 0}, \"close\": {\"hour\": 24, \"minute\": 0}}]}, \"current_status\": \"open\"}",
+  "gbp_place_id": "ChIJ-5C4z4geQYYRrTA2DH4elVw"
 }

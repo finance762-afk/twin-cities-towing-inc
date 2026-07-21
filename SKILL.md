@@ -3,160 +3,71 @@ name: pageone-web-builder
 description: Build production-grade local business websites for Page One Insights clients. Use this skill whenever building, editing, auditing, or generating prompts for client websites — including static HTML/CSS/JS sites and PHP-include sites deployed via GitHub to Hostinger. Covers the full build pipeline (tiered site structures, PHP component architecture, CSS design system, premium visual techniques, logo analysis, animations), plus cutting-edge 2026 local SEO and Answer Engine Optimization (AEO). Trigger this skill for any mention of client sites, website builds, CLAUDE.md standards, SEO audits, AEO optimization, schema markup, llms.txt, entity blocks, service area pages, or the Page One Insights web design workflow — even if the user doesn't explicitly name the skill.
 ---
 
-# Page One Web Builder — Build Standards & SEO/AEO System
+# Page One Web Builder — Orientation
 
-This skill defines the complete build system for Page One Insights client websites. Every site follows these standards. No exceptions.
-
-Before starting any build, read the relevant reference files:
-- `references/design-system.md` — CSS architecture, logo analysis, premium visual techniques, nav standards, animations (read FIRST — this drives all visual decisions)
-- `references/seo-aeo-2026.md` — Full SEO and AEO specification
-- `references/build-phases.md` — Phased build workflow, PHP architecture, and deployment
+This skill is the entry point for client website builds. It is intentionally thin — all specifications live in reference files and in CLAUDE.md. This file tells Claude Code what to read, in what order, before writing any code.
 
 ---
 
-## Website Tier System
+## Read Order (MANDATORY)
 
-Always confirm the tier before building.
+Before writing a single line of code, read these files in this order. Each builds on the previous.
 
-### BASIC
-Home, Services (single page), Service Area (single page), About, Contact
+1. **`~/crm/CLAUDE-websites.md`** — Enforcement rules. What every build must contain. What's forbidden. Tier visual quality matrix. Lead form endpoint. Non-negotiable.
 
-### STANDARD
-Home, Services Main + Individual Service Pages, Service Area (single page), About, Contact
+2. **`~/crm/references/design-system.md`** — Visual architecture. CSS token system, logo analysis process, premium technique library (12 categories of reusable patterns), 5 visual vocabulary archetypes. This is the largest and most important reference — every visual decision flows from here.
 
-### PREMIUM
-Home, Services Main + Individual Service Pages, Service Areas Main + Individual Area Pages, About, Contact, FAQ
+3. **`~/crm/references/seo-aeo-2026.md`** — SEO + AEO specifications. Schema markup for every page type, llms.txt / llms-full.txt templates, entity blocks, answer blocks, conversational keyword integration.
 
----
+4. **`~/crm/references/build-phases.md`** — PHP component structure. Build phase order. File organization. Deployment pipeline.
 
-## PHP Component Architecture (Required)
-
-```
-/includes/
-  head.php       ← doctype, <head>, meta, OG, schema, CSS, preloads
-  nav.php        ← fixed navbar with transparent-to-solid scroll, logo analysis sizing, aria
-  footer.php     ← entity block, dofollow link, contact, social, scripts
-/assets/
-  /css/styles.css
-  /js/animations.js
-  /js/effects.js
-  /images/
-  /svg/            ← section dividers, floating accents, decorative elements
-index.php
-[all other pages as .php]
-.htaccess
-sitemap.xml, sitemap-images.xml, robots.txt
-llms.txt, llms-full.txt
-404.php, thank-you.php
-```
-
-**Every include uses absolute paths:**
-```php
-include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
-```
-Never relative paths. They break on Hostinger.
-
-**Every page declares SEO variables before including head.php:**
-```php
-<?php
-$pageTitle       = "Service Name | Company | City, State";
-$pageDescription = "150-160 char description with keyword and CTA";
-$canonicalUrl    = "https://domain.com/services/service-name";
-$ogImage         = "/assets/images/og-service.jpg";
-$currentPage     = "service-slug";
-$schemaMarkup    = '{...}';
-include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
-?>
-```
+If CLAUDE.md and a reference file conflict, CLAUDE.md wins. If two reference files conflict, flag the conflict and stop — do not guess.
 
 ---
 
-## Critical Build Rules
+## Build Input Contract
 
-1. **Logo analysis first.** Before choosing colors, fonts, or nav style — analyze the client logo. See `references/design-system.md` Logo Analysis section.
-2. **Build in phases.** Never attempt a full site in one session. See `references/build-phases.md`.
-3. **CSS first.** Complete styles.css (including all premium visual technique classes) before any page markup.
-4. **Homepage review gate.** Build index.php, review it, fix issues before continuing.
-5. **No meta keywords tag.** Google has ignored it since 2009.
-6. **No Twitter/X card tags.** No discovery value for local home service businesses.
-7. **Dofollow link required in every footer:**
-   ```html
-   <a href="https://pageoneinsights.com" rel="dofollow" target="_blank">Web Design & Hosting by Page One Insights, LLC</a>
-   ```
-8. **Formsubmit.co for all forms** with honeypot, captcha off, table template, styled success page.
-9. **NAP consistency** — Name, address, phone must be character-for-character identical to Google Business Profile listing everywhere they appear.
-10. **All images:** lazy loading, explicit width/height, descriptive alt with keyword + location.
-11. **Internal linking:** every page links to 2-3 other pages naturally. No orphan pages.
-12. **No template look.** Every page must use at least 2 premium visual techniques from the design system (SVG dividers, asymmetric layouts, floating accents, custom image shapes, tinted cards, mixed typography scales). See the Visual Quality Checklist in `references/design-system.md`.
+Every build prompt should specify:
+
+- **Client slug** — matches build directory name and `site_build_intakes.client_slug`
+- **Tier** — Basic, Standard, or Premium (determines CSS line bar + required technique count — see CLAUDE.md)
+- **Archetype** — Editorial/Premium, Bold/Industrial, Warm/Human, Minimalist/Tech, or Rustic/Handmade (see design-system.md Part D). If not specified, analyze logo and industry, propose an archetype, get confirmation.
+- **Brand colors** — primary, accent, and optionally secondary. Pulled from logo analysis if not supplied.
+- **Industry + services list** — drives content generation and schema markup
+- **Service areas** — drives area page structure (Standard tier: one area page; Premium tier: main + individual area pages)
 
 ---
 
-## Premium Visual Standards (Quick Reference)
+## Phase Structure (summary — full detail in build-phases.md)
 
-The full specification lives in `references/design-system.md`. Every build must include:
+| Phase | Scope |
+|---|---|
+| 1 | Intake + logo analysis + token extraction |
+| 2 | CSS architecture (styles.css complete with all tokens) + PHP includes (head, nav, footer) |
+| 3 | Homepage (index.php) with inline `<style>` block hitting tier line bar |
+| 4 | Inner pages (about, services, service areas, contact) each with their own inline `<style>` block |
+| 5 | SEO/AEO files (sitemap.xml, sitemap-images.xml, robots.txt, llms.txt, llms-full.txt, 404.php, thank-you.php) + QA pass |
+| 6 | Enhance (Premium only — auto-applies missing techniques if QA failed) |
 
-**Logo-driven design:**
-- Colors extracted from logo → site palette
-- Logo sizing based on aspect ratio analysis
-- Nav background matched to logo edge colors
-
-**Custom-built feel (required techniques):**
-- SVG section dividers (min 2 per homepage — wave, angle, curve, torn edge, multi-wave)
-- Floating decorative accents (industry-appropriate, 4-8% opacity, animated)
-- At least 1 asymmetric/broken-grid layout section per page
-- Overlapping image compositions in About or hero sections
-- Tinted card backgrounds (not all-white cards)
-- Mixed typography: heading font + body font + accent script/italic font
-- Multi-directional scroll reveals (not all fade-up)
-
-**Premium nav (every build):**
-- Desktop: transparent-to-glassmorphism scroll transition, animated underline hovers, CTA button
-- Mobile: full-screen overlay menu with staggered fade-in, animated hamburger→X, sticky bottom CTA bar
-
-**Conversion elements:**
-- Before/after image sliders (for visual trades)
-- Sticky mobile CTA bar ("Call Now" + "Free Estimate")
-- Large stat blocks ("15+ Years", "500+ Projects") with big numbers + small labels
-- Click-to-call on every phone number
+Each phase commits to git before the next runs. Git history is the audit trail.
 
 ---
 
-## SEO & AEO Quick Reference
+## Deployment
 
-The full specification lives in `references/seo-aeo-2026.md`. Read it before every build. Here's the minimum:
+Builds are triggered from the Design Portal run-phase API. Claude Code runs on the VPS with `--dangerously-skip-permissions` in each build's directory. After each phase: `git add -A && git commit && git push`. Hostinger auto-deploys from the `main` branch.
 
-**On every page:**
-- Unique `<title>`: "Page Name | Company | City, State"
-- Unique `<meta description>` 150-160 chars with keyword + CTA
-- One H1 with primary keyword, proper H2/H3 hierarchy
-- Self-referencing canonical tag
-- LocalBusiness JSON-LD schema
-- Entity block in visible body content (first 100 words) AND footer
-- BreadcrumbList schema (all pages except homepage)
-- Answer-first copy structure
-
-**AEO files at root:**
-- `llms.txt` — structured business summary for AI crawlers
-- `llms-full.txt` — expanded version with service details, FAQ pairs, all URLs
-
-**Schema stacking per page type** — see reference file for full JSON-LD specs.
+Do not suggest Mac-local deploy scripts (`./new-site.sh`, `./deploy.sh`). Those don't exist on the VPS — deployment is orchestrated by the Design Portal, not by Claude Code.
 
 ---
 
-## Deployment Pipeline
+## Critical Reminders
 
-```
-Mac Terminal / Ubuntu PC → Claude Code → GitHub → Hostinger (auto-deploy webhook)
-```
+- Every page gets its own inline `<style>` block for page-specific CSS. Shared styles go in `/assets/css/styles.css`. A page without a `<style>` block is an automatic QA fail regardless of tier.
+- All includes use `$_SERVER['DOCUMENT_ROOT']` — never relative paths.
+- All CSS values use `var()` tokens — never hardcoded colors, shadows, or spacing.
+- Every heading uses `text-wrap: balance`.
+- Form action URL: use `form_action` from build-plan.json verbatim — `https://formsubmit.co/{client email}` on new builds (2026-07-11 standard). Do not rewrite existing sites' pageone.cloud lead-endpoint actions.
+- No meta keywords tag. No Twitter/X card tags. (Both are forbidden in CLAUDE.md.)
 
-All projects live in `~/client-sites/` under GitHub account `finance762-afk`.
-
-```bash
-# New site
-cd ~/client-sites && ./new-site.sh
-
-# Deploy
-cd ~/client-sites && ./deploy.sh
-```
-
-Hostinger Git panel connects to repo, branch `main`, auto-deploy webhook configured.
+Read CLAUDE.md for the full list of enforceable rules.

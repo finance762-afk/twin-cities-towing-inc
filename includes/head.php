@@ -141,20 +141,12 @@ if (!empty($_sameAs)) {
   <meta name="twitter:description" content="<?php echo htmlspecialchars($_desc); ?>">
   <meta name="twitter:image"       content="<?php echo htmlspecialchars($_ogImage); ?>">
 
-  <!-- Performance: Preconnect & DNS-prefetch -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  <link rel="dns-prefetch" href="https://unpkg.com">
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <!-- Performance: Preload above-the-fold fonts (v6.2 self-hosted) -->
+  <link rel="preload" href="/assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Google Fonts: Bebas Neue (headings) + Roboto (body) — Towing/Auto industry pairing per CLAUDE.md -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap">
-  </noscript>
+  <!-- DNS-prefetch for CDN embeds only (no Google Fonts in v6.2) -->
+  <link rel="dns-prefetch" href="https://db.pageone.cloud">
 
   <!-- Swiper CSS (conditional — set $useSwiper = true on pages that use carousels) -->
   <?php if (!empty($useSwiper)): ?>

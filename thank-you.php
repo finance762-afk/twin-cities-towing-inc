@@ -17,7 +17,7 @@ $noindex = true;
 include $_SERVER['DOCUMENT_ROOT'] . '/includes/head.php';
 // Override robots for this page
 echo '<meta name="robots" content="noindex, nofollow">';
-include $_SERVER['DOCUMENT_ROOT'] . '/includes/header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 ?>
 
 <section class="section-white" style="padding: var(--space-16) 0; min-height: 70vh; display: flex; align-items: center;">
