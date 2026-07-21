@@ -9,9 +9,7 @@ Disallow: /includes/
 Disallow: /assets/js/
 
 # Disallow utility pages
-Disallow: /thank-you
-Disallow: /thank-you.php
+Disallow: /thank-you/
 
 # Sitemaps
 Sitemap: https://twincitiestowinginc.com/sitemap.xml
-Sitemap: https://twincitiestowinginc.com/sitemap-images.xml
