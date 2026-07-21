@@ -407,6 +407,44 @@ $gridPosts    = array_slice($blogPosts, 1);
   .tcb-featured__media::after { display: none; }
   .tcb-featured__media { padding: 0; }
 }
+
+/* ── 7. Interaction polish ───────────────────────────────────── */
+.tcb-grid .blog-card {
+  position: relative;
+}
+.tcb-grid .blog-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 3px;
+  background: var(--color-accent);
+  transition: right var(--transition-slow);
+  pointer-events: none;
+}
+.tcb-grid .blog-card:hover::after { right: 0; }
+.tcb-featured__cta:focus-visible,
+.tcb-hero__breadcrumb a:focus-visible,
+.blog-card__read-more:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+.tcb-cta__copy a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity var(--transition-fast);
+}
+.tcb-cta__copy a:hover { opacity: 0.8; }
+.tcb-hero h1,
+.tcb-featured__title,
+.tcb-cta__copy h2 { text-wrap: balance; }
+@media (prefers-reduced-motion: reduce) {
+  .tcb-hero__accent { animation: none; }
+  .tcb-featured:hover .tcb-featured__img-wrap img { transform: none; }
+  .tcb-grid .blog-card::after { transition: none; }
+}
 </style>
 
 <!-- ═══════════════════════════════════════════════════════════════

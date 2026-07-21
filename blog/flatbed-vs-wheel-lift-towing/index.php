@@ -126,7 +126,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       </nav>
 
       <span class="blog-hero__category">
-        <i data-lucide="tag" style="width:14px;height:14px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></svg>
         <?php echo htmlspecialchars($postCategory); ?>
       </span>
 
@@ -134,17 +135,22 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
       <div class="blog-hero__meta">
         <div class="blog-hero__meta-item">
-          <i data-lucide="calendar" style="width:15px;height:15px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px;"><path d="M8 2v4" />
+  <path d="M16 2v4" />
+  <rect width="18" height="18" x="3" y="4" rx="2" />
+  <path d="M3 10h18" /></svg>
           <time datetime="<?php echo $postDateISO; ?>"><?php echo $postDate; ?></time>
         </div>
         <div class="blog-hero__meta-divider" aria-hidden="true"></div>
         <div class="blog-hero__meta-item">
-          <i data-lucide="user" style="width:15px;height:15px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px;"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+  <circle cx="12" cy="7" r="4" /></svg>
           <span><?php echo htmlspecialchars($siteName); ?></span>
         </div>
         <div class="blog-hero__meta-divider" aria-hidden="true"></div>
         <div class="blog-hero__meta-item">
-          <i data-lucide="clock" style="width:15px;height:15px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px;"><circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" /></svg>
           <span><?php echo htmlspecialchars($postReadtime); ?></span>
         </div>
       </div>
@@ -169,7 +175,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <div class="blog-prose" itemprop="articleBody">
 
         <a href="/blog/" class="back-to-blog">
-          <i data-lucide="arrow-left" style="width:15px;height:15px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px;"><path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" /></svg>
           Back to Blog
         </a>
 
@@ -196,11 +203,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
         <div class="method-cards">
           <div class="method-card">
-            <h3><i data-lucide="minus-square" style="width:18px;height:18px;color:var(--color-accent);"></i> Flatbed (Rollback)</h3>
+            <h3><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;color:var(--color-accent);"><rect width="18" height="18" x="3" y="3" rx="2" />
+  <path d="M8 12h8" /></svg> Flatbed (Rollback)</h3>
             <p>The full vehicle rides on the deck. Winch loading handles cars that will not start, roll, or steer. Zero drivetrain engagement, zero ground contact, zero added wear — the method we run for anything valuable, damaged, or drivetrain-sensitive. See our <a href="/services/flatbed-towing/">flatbed towing service</a> for details.</p>
           </div>
           <div class="method-card method-card--lift">
-            <h3><i data-lucide="navigation" style="width:18px;height:18px;color:var(--color-secondary);"></i> Wheel-Lift</h3>
+            <h3><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;color:var(--color-secondary);"><polygon points="3 11 22 2 13 21 11 13 3 11" /></svg> Wheel-Lift</h3>
             <p>A hydraulic yoke cradles the tires of one axle — no chains on the frame like the old hook-and-chain rigs. The other axle rolls on the road. Faster to hook up, cheaper to run, and able to reach parking garages and tight apartment lots a 19,000-pound rollback cannot enter.</p>
           </div>
         </div>
@@ -305,7 +313,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           <div class="faq-grid">
             <?php foreach ($blogFaqs as $faq): ?>
             <div class="faq-item">
-              <div class="faq-icon"><i data-lucide="help-circle" style="width:20px;height:20px;"></i></div>
+              <div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><circle cx="12" cy="12" r="10" />
+  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+  <path d="M12 17h.01" /></svg></div>
               <div>
                 <h3><?php echo htmlspecialchars($faq['q']); ?></h3>
                 <p><?php echo htmlspecialchars($faq['a']); ?></p>
@@ -326,7 +336,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
         <!-- Table of Contents -->
         <div class="blog-toc">
-          <h4><i data-lucide="list" style="width:15px;height:15px;"></i> In This Article</h4>
+          <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px;"><path d="M3 5h.01" />
+  <path d="M3 12h.01" />
+  <path d="M3 19h.01" />
+  <path d="M8 5h13" />
+  <path d="M8 12h13" />
+  <path d="M8 19h13" /></svg> In This Article</h4>
           <ul class="blog-toc__list" role="list">
             <li><a href="#how-they-work">How Each Method Works</a></li>
             <li><a href="#flatbed-required">Vehicles That Require a Flatbed</a></li>
@@ -343,14 +358,18 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           <h4>Need a Tow Right Now?</h4>
           <p>Twin Cities Towing INC dispatches flatbed and wheel-lift trucks 24/7 across Richmond and Fort Bend County. Tell us your vehicle — we send the right truck the first time.</p>
           <a href="tel:+12819351113" class="btn btn-accent">
-            <i data-lucide="phone" style="width:16px;height:16px;"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
             <?php echo htmlspecialchars($phoneDisplay); ?>
           </a>
         </div>
 
         <!-- Related Services -->
         <div class="blog-toc">
-          <h4><i data-lucide="truck" style="width:15px;height:15px;"></i> Related Services</h4>
+          <h4><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px;"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+  <path d="M15 18H9" />
+  <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+  <circle cx="17" cy="18" r="2" />
+  <circle cx="7" cy="18" r="2" /></svg> Related Services</h4>
           <ul class="blog-toc__list" role="list">
             <li><a href="/services/flatbed-towing/">Flatbed Towing</a></li>
             <li><a href="/services/light-duty-towing/">Light Duty Towing</a></li>
@@ -408,11 +427,15 @@ $relatedPosts = array_slice($relatedPosts, 0, 3);
         <div class="blog-card__body">
           <div class="blog-card__meta">
             <div class="blog-card__meta-item">
-              <i data-lucide="calendar" style="width:14px;height:14px;"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;"><path d="M8 2v4" />
+  <path d="M16 2v4" />
+  <rect width="18" height="18" x="3" y="4" rx="2" />
+  <path d="M3 10h18" /></svg>
               <time datetime="<?php echo htmlspecialchars($rp['dateISO']); ?>"><?php echo htmlspecialchars($rp['date']); ?></time>
             </div>
             <div class="blog-card__meta-item">
-              <i data-lucide="clock" style="width:14px;height:14px;"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;"><circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" /></svg>
               <span><?php echo htmlspecialchars($rp['readtime']); ?></span>
             </div>
           </div>
@@ -424,7 +447,8 @@ $relatedPosts = array_slice($relatedPosts, 0, 3);
           </h3>
 
           <a href="/blog/<?php echo htmlspecialchars($rp['slug']); ?>/" class="blog-card__read-more">
-            Read Article <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+            Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg>
           </a>
         </div>
 

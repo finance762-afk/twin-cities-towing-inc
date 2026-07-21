@@ -287,6 +287,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         <p>
           <a href="/services/accident-towing/">Accident towing</a> is different work from a routine breakdown tow: collision-damaged vehicles often can't roll, leak fluids, or have crushed panels that rule out a wheel lift, which is why wrecked cars almost always ride a flatbed. For the complete step-by-step — insurance calls, photo checklists, and the storage-lot fees to avoid — read our full guide on <a href="/blog/what-to-do-after-car-accident/">what to do after a car accident</a>.
         </p>
+        <p>
+          One more Fort Bend-specific note: the highest-frequency crash zones in our dispatch log are the US-59/I-69 interchanges at SH-99 and at FM 762, and the Grand Parkway ramps during the morning push toward Katy. If your collision happens there, get everyone behind the barrier before you touch your phone. Photos, insurance apps, and tow calls can all wait the thirty seconds it takes to stand somewhere a distracted driver can't reach.
+        </p>
 
         <!-- ── ROADSIDE ALTERNATIVES ─────────────────────────────── -->
         <h2 id="roadside-alternatives">When Is Roadside Assistance Better Than a Tow?</h2>

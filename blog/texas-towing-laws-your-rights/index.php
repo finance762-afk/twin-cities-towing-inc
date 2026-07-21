@@ -121,7 +121,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       </nav>
 
       <span class="blog-hero__category">
-        <i data-lucide="tag" style="width:14px;height:14px;"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+  <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" /></svg>
         <?php echo htmlspecialchars($postCategory); ?>
       </span>
 
@@ -131,17 +132,22 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
       <div class="blog-hero__meta">
         <div class="blog-hero__meta-item">
-          <i data-lucide="calendar" style="width:15px;height:15px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px;"><path d="M8 2v4" />
+  <path d="M16 2v4" />
+  <rect width="18" height="18" x="3" y="4" rx="2" />
+  <path d="M3 10h18" /></svg>
           <time datetime="<?php echo $postDateISO; ?>"><?php echo $postDate; ?></time>
         </div>
         <div class="blog-hero__meta-divider" aria-hidden="true"></div>
         <div class="blog-hero__meta-item">
-          <i data-lucide="user" style="width:15px;height:15px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px;"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+  <circle cx="12" cy="7" r="4" /></svg>
           <span><?php echo htmlspecialchars($postAuthor); ?></span>
         </div>
         <div class="blog-hero__meta-divider" aria-hidden="true"></div>
         <div class="blog-hero__meta-item">
-          <i data-lucide="clock" style="width:15px;height:15px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px;"><circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" /></svg>
           <span><?php echo htmlspecialchars($postReadtime); ?></span>
         </div>
       </div>
@@ -173,7 +179,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
       <div class="article-body" itemprop="articleBody">
 
         <a href="/blog/" class="back-to-blog">
-          <i data-lucide="arrow-left" style="width:16px;height:16px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;"><path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" /></svg>
           Back to Blog
         </a>
 
@@ -252,12 +259,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           Vehicle storage facilities (VSFs) in Texas are licensed by TDLR and must follow their own set of rules: regulated daily storage fees, required notification letters to the vehicle owner, posted fee schedules, and documented release procedures. Storage charges accrue daily, so acting quickly after a tow directly limits what you owe.
         </p>
         <p>
-          Two rights matter most in practice. First, you can retrieve certain personal belongings from your vehicle — items like medication, identification, and important documents — even before paying the towing and storage charges. Bring a government-issued ID and expect the facility to document what you remove. Second, the facility must tell you the total charges and accept payment during its posted hours so you can get your vehicle out. If a facility refuses access to essential belongings, will not itemize its charges, or tacks on fees that do not appear in the state's rules, that conduct can be reported to TDLR and raised at a hearing.
+          Two rights matter most in practice. First, you can retrieve certain personal belongings from your vehicle — items like medication, identification, and important documents — even before paying the towing and storage charges. Bring a government-issued ID and expect the facility to document what you remove. Second, the facility must tell you the total charges and accept payment during posted hours so you can get your vehicle out. A facility that refuses access to essential belongings, will not itemize charges, or invents fees can be reported to TDLR and challenged at a hearing.
         </p>
 
         <div class="highlight-box" data-animate="fade-up">
           <div class="highlight-box__icon" aria-hidden="true">
-            <i data-lucide="clock" style="width:20px;height:20px;"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px;"><circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" /></svg>
           </div>
           <div class="highlight-box__body">
             <strong>Storage fees run daily — move fast.</strong>
@@ -314,14 +322,17 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         </section>
 
         <div class="legal-note">
-          <i data-lucide="info" style="width:18px;height:18px;"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><circle cx="12" cy="12" r="10" />
+  <path d="M12 16v-4" />
+  <path d="M12 8h.01" /></svg>
           <span>This article is general information about Texas towing law, not legal advice. Statutes and TDLR rules change, and how they apply depends on your specific situation. For advice about a particular tow, consult a licensed Texas attorney or contact TDLR directly.</span>
         </div>
 
         <!-- Bottom CTA block -->
         <div class="article-cta-block" data-animate="fade-up">
           <div class="article-cta-icon" aria-hidden="true">
-            <i data-lucide="shield-check" style="width:24px;height:24px;"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:24px;height:24px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+  <path d="m9 12 2 2 4-4" /></svg>
           </div>
           <div class="article-cta-copy">
             <h3>Need a Tow You Actually Agreed To?</h3>
@@ -329,11 +340,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           </div>
           <div class="article-cta-actions">
             <a href="tel:2819351113" class="btn btn-accent">
-              <i data-lucide="phone" style="width:18px;height:18px;"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
               Call (281) 935-1113
             </a>
             <a href="/services/car-towing/" class="btn btn-outline-white">
-              <i data-lucide="car" style="width:18px;height:18px;"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px;"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+  <circle cx="7" cy="17" r="2" />
+  <path d="M9 17h6" />
+  <circle cx="17" cy="17" r="2" /></svg>
               Car Towing
             </a>
           </div>
@@ -346,7 +360,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
 
         <!-- Table of Contents -->
         <div class="sidebar-card">
-          <h4><i data-lucide="list" style="width:16px;height:16px;"></i> In This Article</h4>
+          <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;"><path d="M3 5h.01" />
+  <path d="M3 12h.01" />
+  <path d="M3 19h.01" />
+  <path d="M8 5h13" />
+  <path d="M8 12h13" />
+  <path d="M8 19h13" /></svg> In This Article</h4>
           <ul class="toc-list" role="list">
             <li><a href="#consent-vs-nonconsent">Consent vs. Nonconsent Tows</a></li>
             <li><a href="#tdlr-licensing">Verifying a TDLR License</a></li>
@@ -365,14 +384,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           <h4>Stranded in Fort Bend County?</h4>
           <p>Get a quote before the truck is dispatched — 24/7 consent towing from Richmond's licensed, by-the-book operator.</p>
           <a href="tel:2819351113" class="btn btn-accent btn-sm">
-            <i data-lucide="phone" style="width:16px;height:16px;"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
             (281) 935-1113
           </a>
         </div>
 
         <!-- Related Services -->
         <div class="sidebar-card">
-          <h4><i data-lucide="wrench" style="width:16px;height:16px;"></i> Related Services</h4>
+          <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg> Related Services</h4>
           <ul class="toc-list" role="list">
             <li><a href="/services/car-towing/">Car Towing</a></li>
             <li><a href="/services/accident-towing/">Accident Towing</a></li>
@@ -430,11 +449,15 @@ $relatedPosts = array_slice(array_merge($_sameCat, $_otherCat), 0, 3);
         <div class="blog-card__body">
           <div class="blog-card__meta">
             <div class="blog-card__meta-item">
-              <i data-lucide="calendar" style="width:14px;height:14px;"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;"><path d="M8 2v4" />
+  <path d="M16 2v4" />
+  <rect width="18" height="18" x="3" y="4" rx="2" />
+  <path d="M3 10h18" /></svg>
               <time datetime="<?php echo htmlspecialchars($rp['dateISO']); ?>"><?php echo htmlspecialchars($rp['date']); ?></time>
             </div>
             <div class="blog-card__meta-item">
-              <i data-lucide="clock" style="width:14px;height:14px;"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;"><circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" /></svg>
               <span><?php echo htmlspecialchars($rp['readtime']); ?></span>
             </div>
           </div>
@@ -446,7 +469,8 @@ $relatedPosts = array_slice(array_merge($_sameCat, $_otherCat), 0, 3);
           </h3>
 
           <a href="/blog/<?php echo htmlspecialchars($rp['slug']); ?>/" class="blog-card__read-more">
-            Read Article <i data-lucide="arrow-right" style="width:15px;height:15px;"></i>
+            Read Article <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:15px;height:15px;"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg>
           </a>
         </div>
 

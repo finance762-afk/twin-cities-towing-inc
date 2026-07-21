@@ -201,7 +201,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
         <ol class="crash-steps">
           <li>
             <strong>Stop and get clear of traffic</strong>
-            <p>Texas law requires you to stop. If the car is drivable, pull onto the shoulder, a median crossover, or the nearest parking lot — do not stay in a live lane on US-59 or the Grand Parkway to "preserve the scene." If it will not move, leave it, exit away from traffic, and get behind a barrier.</p>
+            <p>Texas law requires you to stop. If the car is drivable, pull onto the shoulder or the nearest parking lot — do not stay in a live lane on US-59 or the Grand Parkway to "preserve the scene." If it will not move, leave it, exit away from traffic, and get behind a barrier.</p>
           </li>
           <li>
             <strong>Check for injuries and call 911</strong>
@@ -235,10 +235,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           Texas requires a crash to be reported to law enforcement when it involves injury, death, or apparent damage that leaves a vehicle unable to be normally and safely driven. A police-investigated crash report is also required when total apparent damage reaches $1,000 — a threshold almost any modern bumper repair exceeds. In practice: if the crash is more than a parking-lot tap, call.
         </p>
         <p>
-          There is a practical reason to call beyond the legal one. The officer's crash report (the CR-3, covered below) is the single most useful document in your insurance claim, and it only exists if an officer investigates. On a busy corridor, law enforcement also manages traffic around the scene — which protects you while you wait for the tow.
-        </p>
-        <p>
-          Who shows up depends on where you crash. Fort Bend County has overlapping jurisdictions, and knowing which agency worked your crash matters later when you request the report.
+          There is a practical reason to call beyond the legal one: the officer's crash report (the CR-3, covered below) is the single most useful document in your insurance claim, and it only exists if an officer investigates. Who shows up depends on where you crash — Fort Bend County has overlapping jurisdictions, and knowing which agency worked your wreck matters when you request the report.
         </p>
 
         <div class="jurisdiction-grid">
@@ -270,7 +267,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           To get your CR-3, use TxDOT's online Crash Report purchase system. Reports are generally available about ten days after the crash; a standard copy runs about $6 and a certified copy about $8. You will need basic details — date, county, and a driver name — to find it. Your insurance adjuster will ask for the report number early in the claim, so order it promptly.
         </p>
         <p>
-          If no officer came to the scene — common for minor two-car wrecks that get moved off the road quickly — download the CR-2 from TxDOT, fill it out while your memory is fresh, and keep a copy with your photos. It becomes your contemporaneous record if the other driver's story changes later.
+          If no officer came to the scene — common for minor wrecks moved off the road quickly — download the CR-2 from TxDOT, fill it out while your memory is fresh, and keep a copy with your photos in case the other driver's story changes later.
         </p>
 
         <!-- ── WHO CHOOSES THE TOW COMPANY ─────────────────────────── -->
@@ -291,7 +288,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           Crash-damaged cars usually cannot be towed the way a broken-down car can. Seized wheels, blown tires, and bent suspension mean the vehicle will not roll onto a wheel-lift — it has to be winched up the deck of a flatbed under control, without dragging anything that adds damage. That is why <a href="/services/flatbed-towing/">flatbed towing</a> is the default for collision recovery, and why our <a href="/services/accident-towing/">accident towing</a> trucks carry winches rated for non-rolling loads. Our drivers work alongside the Fort Bend County Sheriff's Office, Richmond PD, and DPS regularly, so scene protocol — where to stage the truck, when the lane reopens, what the officer needs before releasing the vehicle — is routine, not improvised.
         </p>
         <p>
-          Since 2011 we have cleared crash scenes from the US-59 frontage roads in Rosenberg to the Grand Parkway interchanges near Greatwood. Tell the dispatcher your location, whether the car rolls, and where you want it delivered — a body shop, a dealership, or your home if you have not chosen a shop yet.
+          Since 2011 we have cleared crash scenes from the US-59 frontage roads in Rosenberg to the Grand Parkway interchanges near Greatwood. Tell the dispatcher your location, whether the car rolls, and where you want it delivered.
         </p>
 
         <!-- ── INSURANCE ───────────────────────────────────────────── -->

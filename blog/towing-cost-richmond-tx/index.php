@@ -191,13 +191,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           Most standard local tows in Richmond, TX cost between $75 and $125. That range covers a typical passenger car moved a short distance within Fort Bend County — from a US-59/I-69 shoulder to a nearby shop, for example. Longer distances, after-hours calls, heavy-duty vehicles, and difficult recoveries all push the price higher.
         </p>
         <p>
-          This guide breaks down exactly what goes into that number: how hook fees and per-mile rates work, what each service type typically costs, which factors move the price up or down, and how Texas law protects you from being overcharged. It is part of our larger <a href="/blog/towing-richmond-tx-complete-guide/">complete guide to towing in Richmond, TX</a> — start there if you want the full picture beyond pricing.
+          This guide breaks down what goes into that number: hook fees and per-mile rates, typical costs by service type, the factors that move the price, and the Texas rules that protect you from being overcharged. For everything beyond pricing, see our <a href="/blog/towing-richmond-tx-complete-guide/">complete guide to towing in Richmond, TX</a>.
         </p>
 
         <!-- AEO Answer Block -->
         <div class="answer-block">
           <h3>The direct answer: expect $75-$125 for a standard local tow in Richmond.</h3>
-          <p>That covers the hook-up fee plus a few miles of transport for a passenger car within Fort Bend County. Motorcycles run about the same or slightly more, flatbed transport carries a modest premium, and heavy-duty truck towing starts around $250 and climbs with weight and complexity. After-hours surcharges, extra mileage, and winching or recovery work are the most common add-ons — and every one of them should be quoted to you before a truck is dispatched.</p>
+          <p>That covers the hook-up fee plus a few miles of transport for a passenger car within Fort Bend County. Motorcycles run about the same, flatbed transport carries a modest premium, and heavy-duty truck towing starts around $250. After-hours surcharges, extra mileage, and winching are the most common add-ons — and every one should be quoted before a truck is dispatched.</p>
         </div>
 
         <!-- ── HOOK FEE + PER-MILE ────────────────────────────────── -->
@@ -207,7 +207,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           Nearly every towing bill in Texas is built from two numbers: a base hook-up fee and a per-mile rate. The hook fee — typically $75-$125 in the Richmond area — pays for dispatch, the drive to you, and loading your vehicle. It usually includes the first 5 to 10 miles of transport. Beyond that, per-mile charges of roughly $3-$7 apply.
         </p>
         <p>
-          That structure explains why two tows of the "same" car can cost very different amounts. A dead battery in Pecan Grove towed two miles to a Richmond shop stays inside the base rate. The same car hauled from the SH-99 Grand Parkway up to a dealership in Katy adds fifteen-plus billable miles on top of the hook fee. When Twin Cities Towing INC quotes a job, both numbers are stated on the phone — the hook fee and the mileage to your exact destination — so the figure you hear is the figure you pay.
+          That structure is why two tows of the "same" car can cost very different amounts. A dead battery in Pecan Grove towed two miles to a Richmond shop stays inside the base rate; the same car hauled from the SH-99 Grand Parkway to a Katy dealership adds fifteen-plus billable miles. Twin Cities Towing INC states both numbers on the phone, so the figure you hear is the figure you pay.
         </p>
         <p>
           A few operators around Houston advertise a low teaser hook fee, then make it back with inflated mileage, fuel surcharges, or "equipment fees" added after the car is loaded. Ask any tow company for the all-in total to your destination before you say yes. A dispatcher who won't give you one is telling you something.
@@ -310,7 +310,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           Often, yes — and many drivers pay out of pocket for tows they could have claimed. Roadside assistance riders on most Texas auto policies cover or reimburse towing up to a set limit, memberships like AAA include several covered tows per year, and after an accident your collision or comprehensive coverage generally pays for towing from the scene.
         </p>
         <p>
-          Three things to know before you assume you're covered. First, most policy riders cap the benefit — commonly a dollar amount like $100 or a mileage limit — so a long-distance tow may only be partially covered. Second, many insurers reimburse rather than pay directly: you pay the tow company, submit the itemized receipt, and get paid back, which is one more reason to insist on a proper receipt. Third, credit cards and new-vehicle warranties often include roadside benefits that owners forget they have. If a flat, dead battery, or lockout is the real problem, <a href="/services/roadside-assistance/">roadside assistance</a> is usually cheaper than a tow — and frequently covered at 100% under the same riders.
+          Three things to know before assuming you're covered. Most policy riders cap the benefit — a dollar amount like $100 or a mileage limit — so a long haul may only be partially covered. Many insurers reimburse rather than pay directly, which is one more reason to insist on an itemized receipt. And credit cards and new-vehicle warranties often include roadside benefits owners forget they have. If a flat, dead battery, or lockout is the real problem, <a href="/services/roadside-assistance/">roadside assistance</a> is usually cheaper than a tow — and frequently covered in full under the same riders.
         </p>
 
         <!-- ── AVOID OVERPAYING ───────────────────────────────────── -->
@@ -320,7 +320,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           Get the all-in price before dispatch, insist on an itemized receipt, and know that Texas regulates the industry. Every tow operator in the state must be licensed by the Texas Department of Licensing and Regulation (TDLR), nonconsent tow fees are capped by law, and you have the right to challenge an improper tow in court.
         </p>
         <p>
-          The distinction that matters is consent versus nonconsent. When you call and request a tow, that is a consent tow — the price is whatever you agree to, which is why the quote-before-dispatch habit is your real protection. When your car is towed without your permission, such as from a private lot or apartment complex, that is a nonconsent tow, and state law caps what you can be charged, requires an itemized tow ticket, and gives you the right to a hearing before a justice of the peace if you believe the tow or the fee was improper. We cover the full set of protections — drop fees, storage lot rules, and how to file a tow hearing — in our guide to <a href="/blog/texas-towing-laws-your-rights/">Texas towing laws and your rights</a>.
+          The distinction that matters is consent versus nonconsent. When you call and request a tow, that is a consent tow — the price is whatever you agree to, which is why quote-before-dispatch is your real protection. When your car is towed without permission, such as from a private lot, that is a nonconsent tow: state law caps the fee, requires an itemized tow ticket, and gives you the right to a hearing before a justice of the peace. We cover drop fees, storage lot rules, and how to file a tow hearing in our guide to <a href="/blog/texas-towing-laws-your-rights/">Texas towing laws and your rights</a>.
         </p>
 
         <div class="checklist-block reveal-up">
@@ -344,7 +344,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
           Because once your car is on the truck, your negotiating position is gone. A quote given before dispatch locks the price while you can still say no. That is the entire difference between a fair bill and a predatory one — and it is why Twin Cities Towing INC confirms every price on the phone before a driver leaves the yard.
         </p>
         <p>
-          Since 2011, our pricing has worked the same way: the dispatcher asks where you are, where the vehicle is going, and what you drive, then gives you one number. No fuel surcharges added at drop-off, no "equipment fees" invented on the shoulder of the Grand Parkway, no pressure to use a shop you didn't choose. Most Richmond-area calls get a truck in 20-40 minutes, around the clock. If your situation is urgent — blocking a lane, unsafe location, kids in the car — say so and our <a href="/services/emergency-towing/">emergency towing</a> dispatch prioritizes accordingly, at the same quoted-first pricing.
+          Since 2011, our pricing has worked the same way: the dispatcher asks where you are, where the vehicle is going, and what you drive, then gives you one number. No fuel surcharges at drop-off, no fees invented on the shoulder of the Grand Parkway, no pressure to use a shop you didn't choose. Most Richmond-area calls get a truck in 20-40 minutes. If your situation is urgent, say so — our <a href="/services/emergency-towing/">emergency towing</a> dispatch prioritizes accordingly, at the same quoted-first pricing.
         </p>
 
         <!-- ── FAQ ────────────────────────────────────────────────── -->

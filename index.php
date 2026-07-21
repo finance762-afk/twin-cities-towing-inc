@@ -809,8 +809,88 @@ include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php';
   </div><!-- /.container -->
 </section>
 
-<!-- Divider: FAQ (light) → Closing CTA (primary) — wave -->
+<!-- Divider: FAQ (light) → Blog (white) — soft curve -->
 <div class="section-divider" style="background:var(--color-light);" aria-hidden="true">
+  <svg viewBox="0 0 1440 45" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,10 C480,45 960,0 1440,25 L1440,45 L0,45 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     08 — FROM THE BLOG
+════════════════════════════════════════════════════════════════ -->
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/blog-data.php';
+$latestPost = !empty($blogPosts) ? $blogPosts[0] : null;
+?>
+<?php if ($latestPost): ?>
+<section class="numbered-section section-white blog-preview-section" data-num="05" style="padding: var(--space-16) 0;" id="blog" aria-labelledby="blog-preview-heading">
+  <div class="container">
+
+    <div class="section-header" data-animate="fade-up">
+      <span class="eyebrow-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 7v14"/>
+          <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>
+        </svg>
+        From the Blog
+      </span>
+      <h2 id="blog-preview-heading">Towing Knowledge for Fort Bend County Drivers</h2>
+      <span class="section-subtitle">Read it before you need it</span>
+      <p>Real costs, accident steps, and your rights under Texas towing law &mdash; written by the crew that tows US-59 and SH-99 every day.</p>
+    </div>
+
+    <!-- Featured post card — auto-pulls the latest post from includes/blog-data.php -->
+    <article class="blog-preview-card" data-p1-dynamic data-animate="fade-up" aria-label="<?php echo htmlspecialchars($latestPost['title']); ?>">
+
+      <div class="blog-preview-card__img-wrap">
+        <img src="<?php echo htmlspecialchars($latestPost['image']); ?>"
+             alt="<?php echo htmlspecialchars($latestPost['alt']); ?>"
+             width="800" height="600" loading="lazy">
+        <span class="blog-preview-card__badge"><?php echo htmlspecialchars($latestPost['category']); ?></span>
+      </div>
+
+      <div class="blog-preview-card__body">
+        <div class="blog-preview-card__meta">
+          <span class="blog-preview-card__meta-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+            <time datetime="<?php echo htmlspecialchars($latestPost['dateISO']); ?>"><?php echo htmlspecialchars($latestPost['date']); ?></time>
+          </span>
+          <span class="blog-preview-card__meta-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span><?php echo htmlspecialchars($latestPost['readtime']); ?></span>
+          </span>
+        </div>
+
+        <h3 class="blog-preview-card__title">
+          <a href="/blog/<?php echo htmlspecialchars($latestPost['slug']); ?>/">
+            <?php echo htmlspecialchars($latestPost['title']); ?>
+          </a>
+        </h3>
+
+        <p class="blog-preview-card__excerpt"><?php echo htmlspecialchars($latestPost['excerpt']); ?></p>
+
+        <a href="/blog/<?php echo htmlspecialchars($latestPost['slug']); ?>/" class="blog-preview-card__cta">
+          Read the Full Article
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </article><!-- /.blog-preview-card -->
+
+    <div class="blog-preview-all" data-animate="fade-up">
+      <a href="/blog/" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+        View All Articles
+      </a>
+    </div>
+
+  </div><!-- /.container -->
+</section>
+<?php endif; ?>
+
+<!-- Divider: Blog (white) → Closing CTA (primary) — wave -->
+<div class="section-divider" style="background:#ffffff;" aria-hidden="true">
   <svg viewBox="0 0 1440 55" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M0,20 C240,55 480,0 720,28 C960,55 1200,10 1440,20 L1440,55 L0,55 Z" fill="#1a2b3c"/>
   </svg>
