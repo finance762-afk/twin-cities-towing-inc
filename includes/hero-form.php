@@ -14,7 +14,7 @@ if (!isset($siteName)) {
 }
 
 // Form action from build-plan.json (via config.php if available)
-$formAction = 'https://design.pageone.cloud/api/leads/twin-cities-towing-inc';
+$formAction = 'https://db.pageone.cloud/functions/v1/leads/twin-cities-towing-inc';
 $thankYouUrl = $domain . '/thank-you/';
 ?>
 

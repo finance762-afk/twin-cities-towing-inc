@@ -285,7 +285,7 @@ $socialLinks = [
 $gbpPlaceId = 'ChIJ-5C4z4geQYYRrTA2DH4elVw';   // powers review + directions links
 
 // ─── Form ─────────────────────────────────────────────────────────────────────
-$formAction = 'https://design.pageone.cloud/api/leads/twin-cities-towing-inc';
+$formAction = 'https://db.pageone.cloud/functions/v1/leads/twin-cities-towing-inc';
 
 // ─── Content Assets ───────────────────────────────────────────────────────────
 $logoUrl = 'https://db.pageone.cloud/storage/v1/object/public/client-assets/twin-cities-towing-inc/logo/1776710766192-a7jjom-better_logo.png';
