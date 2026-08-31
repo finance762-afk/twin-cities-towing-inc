@@ -804,7 +804,7 @@ a.contact-detail-value:hover { color: var(--color-accent); }
               </label>
               <label class="p1-consent-item">
                 <input type="checkbox" name="terms_accepted" value="yes" required>
-                <span>I have read and agree to the <a href="/terms/">Terms of Service</a> and <a href="/privacy-policy/">Privacy Policy</a> *</span>
+                <span>I have read and agree to the <a href="/terms/" target="_blank" rel="noopener">Terms of Service</a> and <a href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a> *</span>
               </label>
             </fieldset>
           </div>
