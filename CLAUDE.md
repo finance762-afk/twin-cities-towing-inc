@@ -149,137 +149,21 @@ Complete page templates, consent HTML/CSS, footer legal row, sitemap entries, Ph
 
 ## Contact Form Submission (REQUIRED — Formsubmit.co, 2026-07-11 standard)
 
-New builds submit contact forms via **Formsubmit.co** to the client's email. Use the exact `form_action` URL from `build-plan.json` — it is `https://formsubmit.co/{client email}`. Customer Service is CC'd on every submission via the `_cc` field.
+New builds submit contact forms via **Formsubmit.co** to the client's email. Use the exact `form_action` URL from `build-plan.json` verbatim (`https://formsubmit.co/{client email}`). Customer Service is CC'd on every submission via `_cc`.
 
 > **Legacy note:** sites migrated in June 2026 post to a Page One lead endpoint (`db.pageone.cloud/functions/v1/leads/{slug}` or `design.pageone.cloud/api/leads/{slug}`). Those are still valid — do NOT rewrite an existing site's form action in either direction unless explicitly instructed.
 
-### Form action URL
+**READ `references/contact-form-standard.md` BEFORE writing any form — it contains the full REQUIRED markup to copy verbatim.** Hard rules QA enforces:
 
-```
-https://formsubmit.co/{client email}    ← use form_action from build-plan.json verbatim
-```
-
-### Required form markup
-
-```html
-<form action="https://formsubmit.co/owner@example-client.com" method="POST">
-
-  <!-- Honeypot — MUST be hidden from users, bots fill it out -->
-  <input type="text" name="_honey" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-  <!-- Formsubmit.co directives -->
-  <input type="hidden" name="_next" value="<?php echo htmlspecialchars($siteUrl); ?>/thank-you">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_subject" value="New lead from <?php echo htmlspecialchars($siteName); ?>">
-  <input type="hidden" name="_cc" value="CustomerService@pageoneinsights.com">
-
-  <!-- Consent tracking (plain names — Formsubmit forwards them in the email) -->
-  <input type="hidden" name="consent_version" value="v2.1">
-  <input type="hidden" name="consent_page" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>">
-
-  <!-- Required fields (names MUST match exactly) -->
-  <label>
-    <span>Your Name</span>
-    <input type="text" name="name" required>
-  </label>
-
-  <label>
-    <span>Email</span>
-    <input type="email" name="email" required>
-  </label>
-
-  <label>
-    <span>Phone</span>
-    <input type="tel" name="phone" required>
-  </label>
-
-  <!-- Optional but strongly recommended -->
-  <label>
-    <span>Service Needed</span>
-    <select name="service">
-      <option value="">Select a service</option>
-      <!-- Populate with client-specific service options from intake data -->
-    </select>
-  </label>
-
-  <label>
-    <span>Message</span>
-    <textarea name="message" rows="4"></textarea>
-  </label>
-
-  <!-- ═══ SEPARATE CONSENT CHECKBOXES (TCPA 2025/2026 + Texas TCPA) ═══ -->
-
-  <fieldset class="form-consent-fieldset">
-    <legend class="form-consent-legend">Communication Consent</legend>
-
-    <label class="form-consent-item">
-      <input type="checkbox" name="email_opt_in" value="yes" class="consent-checkbox">
-      <span class="consent-label">
-        <strong>Email updates (optional):</strong> I agree to receive emails from
-        <?php echo htmlspecialchars($siteName); ?> about my inquiry, services, promotions, and news. I understand I can unsubscribe anytime via the link in any email
-        or by emailing <?php echo htmlspecialchars($contactEmail); ?>. Message frequency varies.
-      </span>
-    </label>
-
-    <label class="form-consent-item">
-      <input type="checkbox" name="sms_opt_in" value="yes" class="consent-checkbox">
-      <span class="consent-label">
-        <strong>SMS/Text messages (optional):</strong> I agree to receive text messages from
-        <?php echo htmlspecialchars($siteName); ?> at the phone number I provided. Message types may include appointment reminders, service updates, and promotional
-        offers. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe, HELP for help.
-        <strong>Consent is not a condition of purchase.</strong>
-      </span>
-    </label>
-
-    <label class="form-consent-item form-consent-required">
-      <input type="checkbox" name="terms_accepted" value="yes" class="consent-checkbox" required>
-      <span class="consent-label">
-        I have read and agree to the
-        <a href="/privacy-policy/">Privacy Policy</a>
-        and
-        <a href="/terms/">Terms of Service</a>. <span class="required-star">*</span>
-      </span>
-    </label>
-
-  </fieldset>
-
-  <button type="submit">Send Message</button>
-</form>
-```
-
-### Field name rules
-
-- `name`, `email`, `phone` — REQUIRED on every form. Field `name` attributes must match these strings exactly (lowercase).
-- `service` — OPTIONAL but strongly recommended (dropdown of the client's services).
-- `message` — OPTIONAL. Free-text field.
-- `_honey` — REQUIRED. Spam protection. Must be visually hidden AND have `tabindex="-1"` and `autocomplete="off"`. Do NOT use `display:none` alone without `!important` — bots that parse CSS will skip it.
-- `_next` — REQUIRED. ABSOLUTE URL (`$siteUrl . '/thank-you'`) — Formsubmit.co requires a full URL for the redirect.
-- `_captcha` = `false`, `_template` = `table`, `_subject`, `_cc` = `CustomerService@pageoneinsights.com` — REQUIRED Formsubmit.co directives on every form.
-
-### What happens on submission
-
-1. Formsubmit.co emails the lead to the client's email (table format)
-2. Customer Service receives a CC copy (internal visibility + consent record)
-3. User is redirected to `_next` (the thank-you page)
-
-Note: the first submission to a new client email triggers Formsubmit.co's one-time activation email — the client (or CS via the _cc copy) must click to activate. Submit a test lead at launch and confirm activation.
-
-### What NOT to include
-
-- **NO** JavaScript for submission — native HTML form submit works and is more reliable
-- **NO** external spam libraries (reCAPTCHA, hCaptcha) — honeypot is sufficient
-- **NO** mailto: action links
-
-### Thank-you page
-
-Every build includes `/thank-you.php` with:
-- `<meta name="robots" content="noindex,nofollow">` in head.php (via page-specific `$noindex = true`)
-- Branded success message
-- Phone number + CTA to call now
-- Link back to home
+- Field names `name`, `email`, `phone` REQUIRED, exact lowercase strings; `service` dropdown + `message` recommended.
+- THREE separate consent checkboxes (TCPA 2025/2026): email opt-in (optional), SMS opt-in (optional), terms acceptance (REQUIRED) — unbundled, never pre-checked.
+- `_honey` honeypot (hidden + `tabindex="-1"` + `autocomplete="off"`), `_next` ABSOLUTE URL to `/thank-you`, `_captcha=false`, `_template=table`, `_subject`, `_cc=CustomerService@pageoneinsights.com`, plus `consent_version`/`consent_page` hidden fields.
+- NO JavaScript submission, NO reCAPTCHA/hCaptcha, NO `mailto:` actions.
+- Every build ships `/thank-you.php` (noindexed via `$noindex = true`, branded message, phone CTA, link home).
+- First submission to a new client email triggers Formsubmit.co's one-time activation email — submit a test lead at launch and confirm activation.
 
 ---
+
 
 ## Footer Dofollow Link (REQUIRED — EVERY BUILD)
 
@@ -490,6 +374,8 @@ For anything not covered above:
 - **PHP component structure, build phases, file organization, deployment** → `~/crm/references/build-phases.md`
 - **Blog registry, post anatomy, topic clusters** → `~/crm/references/blog-standard.md`
 - **Legal pages, TCPA consent, cookie banner, footer legal row** → `~/crm/references/legal-compliance.md`
+- **Services section full HTML + CSS (copy verbatim)** → `references/required-components.md`
+- **Contact form full markup + field rules (copy verbatim)** → `references/contact-form-standard.md`
 
 If a requirement is not explicitly in this file and not in a reference file, it does not exist. Do not invent requirements.
 
@@ -497,247 +383,18 @@ If a requirement is not explicitly in this file and not in a reference file, it 
 
 ## Required Components
 
-This section defines reusable component patterns that MUST appear on every build, identical in structure across tiers. Brand colors, fonts, and copy are tier/client specific. Structure, class names, and HTML pattern are NOT.
-
-QA validates these by class name. Builds missing these classes auto-fail.
-
----
+Reusable component patterns that MUST appear on every build, identical in structure across tiers. Brand colors, fonts, and copy are tier/client specific. Structure, class names, and HTML pattern are NOT. QA validates by class name — builds missing these classes auto-fail.
 
 ### Services Section (REQUIRED — All Tiers, All Pages)
 
-**Where it appears (mandatory):**
-- Home page (the services overview)
-- `/services/index.php` (the services listing page)
-- Bottom of each individual service page (as "Related Services" — 3 cards)
+Appears on: home page (services overview), `/services/index.php`, and the bottom of each individual service page ("Other Services You May Need" — 3 cards). Never on legal pages, contact, or thank-you.
 
-**Where it does NOT appear:** legal pages, contact, thank-you.
+**READ `references/required-components.md` BEFORE building any services section — it contains the full REQUIRED HTML pattern and CSS to copy verbatim.** Hard rules QA enforces:
 
-**HTML pattern (exact class names — QA validates these):**
-
-```html
-<section class="section" aria-label="{Industry} services">
-  <div class="container">
-    <div class="section-title reveal-up">
-      <span class="eyebrow-label">What We Do</span>
-      <h2>{Question-format heading specific to the business}</h2>
-      <p class="hero-answer">{40-60 word direct answer paragraph that answers the H2}</p>
-      <span class="section-subtitle">{tagline phrase}</span>
-      <p class="prose">{1-2 sentence description of the company's service mix}</p>
-    </div>
-
-    <div class="services-grid">
-      <!-- Repeat this card for each service. Tints rotate 1, 2, 3, 1, 2, 3... -->
-      <article class="service-card-with-image card-tint-1 reveal-up reveal-delay-1">
-        <div class="service-card__image">
-          <img src="/assets/images/{photo}.jpg" srcset="/assets/images/{photo}-480.webp 480w, /assets/images/{photo}-960.webp 960w, /assets/images/{photo}-1600.webp 1600w" sizes="(max-width: 768px) 100vw, 600px" alt="{descriptive alt}" width="600" height="360" loading="lazy">
-        </div>
-        <div class="service-card__body">
-          <div class="service-card__icon"><!-- inline SVG from references/lucide-icons/{icon-name}.svg (NOT data-lucide) --></div>
-          <h3>{Service Name}</h3>
-          <p class="service-card__desc">{1-sentence description, no fluff}</p>
-          <ul>
-            <li>{benefit/feature 1 — 3-6 words}</li>
-            <li>{benefit/feature 2 — 3-6 words}</li>
-            <li>{benefit/feature 3 — 3-6 words}</li>
-          </ul>
-          <a href="/services/{slug}/" class="service-card__cta">Learn more</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-```
-
-**Tint rotation rule:** Cards cycle through `card-tint-1` → `card-tint-2` → `card-tint-3` → `card-tint-1` → ... Never place two cards with the same tint class adjacent in the source. The `reveal-delay-1/2/3` modifier follows the same rotation.
-
-**Bullet rule:** EXACTLY 3 bullets per card. Not 2, not 4. Each bullet 3-6 words, scannable, benefit-driven (not feature-only). Examples: "Same-day install on most homes", "Insurance claim support", "20–30 year service life". Avoid: "We use the best materials" (vague), "High-quality professional service" (filler).
-
-**Icon mapping:** Use icons appropriate to the service, inlined as raw `<svg>` from `references/lucide-icons/<name>.svg` at build time (v6.2 — never `data-lucide`, `createIcons`, or a Lucide CDN). Industry guidance (names map to the `.svg` files):
-- Roofing: `home`, `shield`, `cloud-rain`, `wrench`, `hammer`, `hard-hat`, `building-2`
-- Gutters: `ruler`, `droplets`, `filter`, `wrench`, `shield`, `building-2`, `sparkles`
-- Lawn/Landscape: `leaf`, `scissors`, `sprout`, `flower-2`, `tree-pine`, `sun`
-- Tree Service: `tree-pine`, `axe`, `chainsaw`, `shovel`, `wrench`
-- HVAC: `thermometer`, `wind`, `flame`, `snowflake`, `wrench`, `zap`
-- Plumbing: `droplets`, `wrench`, `pipe`, `shower-head`, `bath`
-- Electrical: `zap`, `lightbulb`, `plug`, `bolt`, `wrench`
-- Cleaning: `sparkles`, `spray-can`, `brush`, `wind`
-- Generic: `check-circle`, `star`, `award`, `tool`
-
-Each card's icon must be different from adjacent cards.
-
-**Image rule:** Every card MUST have a real client photo. The build pipeline pre-stages photos in `/assets/images/`. Reference the AVAILABLE CLIENT IMAGES manifest. NO gradient placeholders, NO blank divs. If no client photo exists for a service, fall back to Unsplash Source API as last resort.
-
-**Copy rules:**
-- Card title: just the service name (no qualifiers like "Premium" or "Affordable")
-- Description: 1 sentence, max 14 words, says what it actually is — not what it does for the customer's emotions
-- Section heading: phrase as a CONVERSATIONAL QUESTION using customer-search language. Examples:
-  - "What construction services does {company name} offer?"
-  - "Which roofing services are available in {city}?"
-  - "How does {company name} handle commercial HVAC needs?"
-  - DO NOT use generic "Our Services" / "What We Do" / "Services Overview" — these are banned by aeo-content-schema.md §1.1
-  - Two-tone treatment: highlight 1-3 keywords with <span class="text-accent">...</span> within the question
-- Section eyebrow: "What We Do" (literal, do not vary)
-
-**Required CSS variables (add to `:root` in styles.css):**
-
-```css
-:root {
-  /* Tinted card backgrounds — recipe: brand colors at 6-9% alpha */
-  --color-card-tint-1: rgba({primary-rgb}, 0.08);   /* primary brand color */
-  --color-card-tint-2: rgba({primary-dark-rgb}, 0.06); /* darker primary */
-  --color-card-tint-3: rgba({accent-rgb}, 0.09);    /* accent color */
-  --color-card-tint-neutral: rgba(245, 247, 250, 1);
-}
-```
-
-**Required CSS rules (add to styles.css — these class names are non-negotiable):**
-
-```css
-/* Tint utility classes */
-.card-tint-1 { background: var(--color-card-tint-1); box-shadow: none; }
-.card-tint-2 { background: var(--color-card-tint-2); box-shadow: none; }
-.card-tint-3 { background: var(--color-card-tint-3); box-shadow: none; }
-.card-tint-neutral { background: var(--color-card-tint-neutral); box-shadow: none; }
-
-/* Services grid layout */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-md);
-}
-@media (max-width: 1199px) {
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .services-grid { grid-template-columns: 1fr; }
-}
-
-/* Tinted image card */
-.service-card-with-image {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-.service-card-with-image:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-.service-card__image {
-  position: relative;
-  aspect-ratio: 5 / 3;
-  overflow: hidden;
-}
-.service-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.service-card__body {
-  padding: var(--space-lg) var(--space-md) var(--space-md);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-sm);
-  position: relative;
-}
-.service-card__icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: var(--shadow-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -44px;  /* overlaps the image edge */
-  margin-bottom: var(--space-xs);
-  color: var(--color-accent);
-}
-.service-card__icon i,
-.service-card__icon svg {
-  width: 26px;
-  height: 26px;
-}
-.service-card-with-image h3 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
-  margin: 0;
-  font-size: 1.35rem;
-  line-height: 1.2;
-}
-.service-card__desc {
-  color: var(--color-text);
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.55;
-}
-.service-card-with-image ul {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-xs) 0 0;
-  width: 100%;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  border-top: 1px solid rgba(0,0,0,0.06);
-  padding-top: var(--space-md);
-}
-.service-card-with-image ul li {
-  font-size: 0.9rem;
-  color: var(--color-text);
-  padding-left: 1.25rem;
-  position: relative;
-}
-.service-card-with-image ul li::before {
-  content: "•";
-  color: var(--color-accent);
-  font-weight: 700;
-  position: absolute;
-  left: 0.25rem;
-  top: 0;
-}
-.service-card__cta {
-  margin-top: auto;
-  padding-top: var(--space-sm);
-  color: var(--color-accent);
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 0.95rem;
-  border-top: 1px solid rgba(0,0,0,0.06);
-  width: 100%;
-  text-align: center;
-  padding: var(--space-sm) 0 0;
-  transition: color var(--transition-base);
-}
-.service-card__cta::after {
-  content: " →";
-  display: inline-block;
-  transition: transform var(--transition-base);
-}
-.service-card__cta:hover { color: var(--color-primary); }
-.service-card__cta:hover::after { transform: translateX(3px); }
-```
-
-**Service count handling:**
-- 3 services: render 3 cards in a 3-column row at desktop (CSS handles this — first row only fills what exists)
-- 4 services: 4-up grid as specified
-- 5-7 services: fills first row + partial second row
-- 8 services: two clean rows of 4
-- 9+ services: render the first 8 in the home grid, then below the grid render `<a href="/services/" class="btn-secondary">View All {N} Services →</a>`. Render ALL services on `/services/index.php`.
-
-**Reuse on individual service pages (Related Services):**
-At the bottom of each `/services/{slug}/index.php` page, render 3 randomly-selected OTHER services in the same `services-grid` + `service-card-with-image` pattern. Section heading: "Other Services You May Need". Use the same tint rotation rule.
-
-**DO NOT (these auto-fail QA):**
-- Use the legacy class names: `service-card`, `service-card-image`, `service-card-content`, `service-card-cta`
-- Render service cards without the image-on-top pattern
-- Use icon-only or gradient-only cards
-- Use more than 3 bullets per card
-- Use the same tint on adjacent cards
-- Use stock photos when client photos exist for that service
-
+- Class names are non-negotiable: `services-grid`, `service-card-with-image`, `card-tint-1/2/3`, `service-card__image/body/icon/desc/cta`. Legacy classes `service-card`, `service-card-image`, `service-card-content`, `service-card-cta` auto-fail.
+- Tint rotation `card-tint-1 → 2 → 3 → 1…` — never the same tint on adjacent cards; `reveal-delay-1/2/3` follows the same rotation.
+- EXACTLY 3 bullets per card, each 3-6 words, benefit-driven.
+- Section H2 is a CONVERSATIONAL QUESTION in customer-search language with 1-3 keywords in `<span class="text-accent">`, followed by a 40-60 word `hero-answer` paragraph. Generic "Our Services" / "What We Do" / "Services Overview" headings are banned (the eyebrow stays the literal "What We Do").
+- Icons are inline SVG from `references/lucide-icons/*.svg` (never `data-lucide`, `createIcons`, or a CDN); adjacent cards use different icons.
+- Every card has a real client photo from the AVAILABLE CLIENT IMAGES manifest (responsive srcset, explicit width/height); no gradient placeholders or blank divs; stock only as last resort when no client photo exists.
+- 9+ services: first 8 on the home grid + `View All {N} Services →` button; ALL services render on `/services/index.php`.
