@@ -201,11 +201,12 @@ $_entityDesc = $siteName . ' is a licensed and insured towing company based in '
     <div class="footer-bottom">
       <p>&copy; <?php echo date('Y'); ?> <?php echo htmlspecialchars($siteName); ?>. All rights reserved.</p>
       <p class="footer-credit">
-        <a href="https://pageoneinsights.com" rel="dofollow" target="_blank">Web Design &amp; Hosting by Page One Insights, LLC</a> <span class="poi-partner-sep" aria-hidden="true">&middot;</span> <a class="poi-partner-badge" href="https://pageonepartner.com/twin-cities-towing-inc-richmond-tx/" rel="noopener" target="_blank" title="Listed on Page One Partner — the free local business directory">&#10003; Listed on Page One Partner</a>
+        <a href="https://pageoneinsights.com" rel="dofollow" target="_blank">Web Design &amp; Hosting by Page One Insights, LLC</a>
       </p>
     </div>
   </div>
 
+  <?php include __DIR__ . '/partner-badge.php'; ?>
 </footer>
 
 <!-- ── Back to Top ──────────────────────────────────────── -->
