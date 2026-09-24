@@ -28,7 +28,7 @@ $domain    = 'https://twincities-towing.com';
 $industry  = 'towing';
 
 // ─── Analytics & Tracking ────────────────────────────────────────────────────
-$googleAnalyticsId     = 'G-XXXXXXXXXX';        // TODO: replace with live GA4 ID
+$googleAnalyticsId     = 'G-T1N09JYG95';        // TODO: replace with live GA4 ID
 $googleSearchConsoleId = '';                     // TODO: replace with live GSC verification tag
 
 // ─── Business Stats ───────────────────────────────────────────────────────────
