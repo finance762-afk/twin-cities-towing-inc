@@ -126,9 +126,6 @@ $lastUpdated = date('F j, Y');
       Address: <?php echo $companyAddress; ?>
     </p>
 
-    <div class="legal-disclaimer">
-      This Privacy Policy is provided as a general template. We recommend reviewing this document with a licensed <?php echo $companyState; ?> attorney before publication to ensure compliance with current state and federal privacy laws.
-    </div>
 
   </article>
 

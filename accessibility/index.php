@@ -108,9 +108,6 @@ $lastUpdated = date('F j, Y');
       <li>Your state's Attorney General office</li>
     </ul>
 
-    <div class="legal-disclaimer">
-      This Accessibility Statement is provided as a general template and reflects our good-faith efforts to comply with WCAG 2.1 AA. We recommend periodic accessibility audits by qualified professionals.
-    </div>
 
   </article>
 

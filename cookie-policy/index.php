@@ -89,9 +89,6 @@ $lastUpdated = date('F j, Y');
     <h2>5. Contact Us</h2>
     <p>For questions about cookies, see our <a href="/privacy-policy/">Privacy Policy</a> contact section.</p>
 
-    <div class="legal-disclaimer">
-      This Cookie Policy is provided as a general template. We recommend attorney review before publication.
-    </div>
 
   </article>
 

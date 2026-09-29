@@ -83,9 +83,6 @@ $lastUpdated = date('F j, Y');
     <h2>10. Changes to Terms</h2>
     <p>We may update these Terms. The "Last Updated" date reflects the most recent change. Continued use after changes constitutes acceptance.</p>
 
-    <div class="legal-disclaimer">
-      This Terms of Service document is provided as a general template. We recommend reviewing this document with a licensed <?php echo $companyState; ?> attorney before publication.
-    </div>
 
   </article>
 
